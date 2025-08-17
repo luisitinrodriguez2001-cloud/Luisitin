@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import ResumeSummary from "@/sections/ResumeSummary";
 import Leadership from "@/sections/Leadership";
+import Timeline from "@/components/Timeline";
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
       <section id="experience" className="min-h-screen p-8">Experience</section>
       <Leadership />
       <section id="projects" className="min-h-screen p-8">Projects</section>
-      <section id="timeline" className="min-h-screen p-8">Timeline</section>
+      <section id="timeline" className="min-h-screen p-8">
+        <Timeline />
+      </section>
       <section id="contact" className="min-h-screen p-8">Contact</section>
     </div>
   );
