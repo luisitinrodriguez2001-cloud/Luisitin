@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luis Rodriguez – Personal Website</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.17/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+  <nav class="sticky top-0 z-50 bg-white shadow">
+    <ul class="flex space-x-4 p-4">
+      <li><a href="#about" class="nav-link font-bold">About</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#timeline" class="nav-link">Timeline</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="resume-summary" class="min-h-screen p-8 flex flex-col items-center text-center">
+    <img
+      src="luis-site/public/headshot-placeholder.svg"
+      alt="Headshot of Luis Rodriguez"
+      class="mb-4 rounded-full w-48 h-48"
+    />
+    <p class="max-w-2xl mb-6">
+      Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full résumé is available as a downloadable PDF for detailed viewing.
+    </p>
+    <a
+      href="luis-site/public/LuisRodriguez_Resume.pdf"
+      class="px-6 py-3 bg-blue-500 text-white rounded shadow"
+    >
+      Download Résumé (PDF)
+    </a>
+  </section>
+
+  <section id="about" class="min-h-screen p-8">About</section>
+  <section id="education" class="min-h-screen p-8">Education</section>
+  <section id="experience" class="min-h-screen p-8">Experience</section>
+  <section id="projects" class="min-h-screen p-8">Projects</section>
+  <section id="timeline" class="min-h-screen p-8">Timeline</section>
+  <section id="contact" class="min-h-screen p-8">Contact</section>
+
+  <script>
+    const sections = ["about", "education", "experience", "projects", "timeline", "contact"];
+    const navLinks = document.querySelectorAll("nav a");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.toggle(
+                "font-bold",
+                link.getAttribute("href") === `#${entry.target.id}`
+              );
+            });
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  </script>
+</body>
+</html>
