@@ -44,3 +44,4 @@ next-env.d.ts
 public/*.svg
 public/*.ico
 !public/headshot-placeholder.svg
+!public/logo.svg
