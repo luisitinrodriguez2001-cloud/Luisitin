@@ -37,7 +37,9 @@ export default function Timeline() {
         {data.map((ev, i) => (
           <button
             key={ev.title}
-            ref={(el) => (navRefs.current[i] = el)}
+            ref={(el) => {
+              navRefs.current[i] = el;
+            }}
             className={`px-3 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 ${i === active ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
             role="tab"
             tabIndex={0}
@@ -56,7 +58,9 @@ export default function Timeline() {
         {data.map((ev, i) => (
           <div
             key={ev.title}
-            ref={(el) => (sectionRefs.current[i] = el)}
+            ref={(el) => {
+              sectionRefs.current[i] = el;
+            }}
             hidden={active !== i}
             role="tabpanel"
             aria-labelledby={ev.title}

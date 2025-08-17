@@ -1,4 +1,4 @@
-import { useState } from "react";
+import Tooltip from "../components/Tooltip";
 
 interface AwardBadgeProps {
   title: string;
@@ -6,25 +6,15 @@ interface AwardBadgeProps {
 }
 
 function AwardBadge({ title, detail }: AwardBadgeProps) {
-  const [show, setShow] = useState(false);
-
   return (
-    <button
-      type="button"
-      aria-label={`${title}. ${detail}`}
-      onMouseEnter={() => setShow(true)}
-      onMouseLeave={() => setShow(false)}
-      onFocus={() => setShow(true)}
-      onBlur={() => setShow(false)}
-      className="relative m-2 px-4 py-2 bg-primary text-white rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
-    >
-      {title}
-      <span
-        className={`absolute left-1/2 transform -translate-x-1/2 mt-2 whitespace-nowrap bg-gray-800 text-white text-xs rounded px-2 py-1 transition-opacity ${show ? "opacity-100" : "opacity-0"}`}
+    <Tooltip content={detail}>
+      <button
+        type="button"
+        className="m-2 px-4 py-2 bg-primary text-white rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
       >
-        {detail}
-      </span>
-    </button>
+        {title}
+      </button>
+    </Tooltip>
   );
 }
 
