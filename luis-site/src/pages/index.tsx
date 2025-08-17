@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import ResumeSummary from "@/sections/ResumeSummary";
 import Leadership from "@/sections/Leadership";
 import Timeline from "@/components/Timeline";
+import Contact from "@/sections/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -17,7 +19,8 @@ export default function Home() {
       <section id="timeline" className="min-h-screen p-8">
         <Timeline />
       </section>
-      <section id="contact" className="min-h-screen p-8">Contact</section>
+      <Contact />
+      <Footer />
     </div>
   );
 }
