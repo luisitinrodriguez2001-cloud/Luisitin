@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ReactElement } from "react";
 
 function BriefcaseIcon({ className = "" }: { className?: string }) {
   return (
@@ -100,7 +100,7 @@ interface ExperienceCardProps {
   role: string;
   period: string;
   details: string[];
-  icon: JSX.Element;
+  icon: ReactElement;
 }
 
 function ExperienceCard({ company, role, period, details, icon }: ExperienceCardProps) {
