@@ -1,9 +1,12 @@
 import Navbar from "@/components/Navbar";
+import ResumeSummary from "@/sections/ResumeSummary";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-text">
       <Navbar />
+      {/* Hero banner would appear here */}
+      <ResumeSummary />
       <section id="about" className="min-h-screen p-8">About</section>
       <section id="education" className="min-h-screen p-8">Education</section>
       <section id="experience" className="min-h-screen p-8">Experience</section>
