@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
 interface ProjectCardProps {
   title: string;
@@ -37,9 +36,9 @@ function ProjectCard({ title, dates, summary, link }: ProjectCardProps) {
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-sm text-gray-600 mb-2">{dates}</p>
       <p className="mb-4">{summary}</p>
-      <Link href={link} className="text-primary underline">
+      <a href={link} className="text-primary underline">
         Learn more
-      </Link>
+      </a>
     </div>
   );
 }

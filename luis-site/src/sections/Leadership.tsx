@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
 interface LeadershipRole {
   role: string;
@@ -40,9 +39,9 @@ function LeadershipItem({ role, organization, period, link }: LeadershipRole) {
         <h3 className="text-xl font-semibold">{role}</h3>
         <p className="text-sm text-gray-600">
           {link ? (
-            <Link href={link} className="text-primary underline" target="_blank">
+            <a href={link} className="text-primary underline" target="_blank" rel="noopener noreferrer">
               {organization}
-            </Link>
+            </a>
           ) : (
             organization
           )}
