@@ -1,3 +1,15 @@
+import Navbar from "@/components/Navbar";
+
 export default function Home() {
-  return <div className="min-h-screen bg-background text-text"></div>;
+  return (
+    <div className="min-h-screen bg-background text-text">
+      <Navbar />
+      <section id="about" className="min-h-screen p-8">About</section>
+      <section id="education" className="min-h-screen p-8">Education</section>
+      <section id="experience" className="min-h-screen p-8">Experience</section>
+      <section id="projects" className="min-h-screen p-8">Projects</section>
+      <section id="timeline" className="min-h-screen p-8">Timeline</section>
+      <section id="contact" className="min-h-screen p-8">Contact</section>
+    </div>
+  );
 }
