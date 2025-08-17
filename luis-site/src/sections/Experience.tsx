@@ -1,4 +1,5 @@
-import { useState, ReactElement } from "react";
+import type { ReactElement } from "react";
+import Card from "../components/Card";
 
 function BriefcaseIcon({ className = "" }: { className?: string }) {
   return (
@@ -95,7 +96,7 @@ function BuildingStorefrontIcon({ className = "" }: { className?: string }) {
   );
 }
 
-interface ExperienceCardProps {
+interface Experience {
   company: string;
   role: string;
   period: string;
@@ -103,84 +104,79 @@ interface ExperienceCardProps {
   icon: ReactElement;
 }
 
-function ExperienceCard({ company, role, period, details, icon }: ExperienceCardProps) {
-  const [expanded, setExpanded] = useState(false);
-
-  return (
-    <div
-      className="bg-white rounded shadow p-6 cursor-pointer transition-all duration-300 group"
-      onClick={() => setExpanded(!expanded)}
-    >
-      <div className="flex items-center mb-2">
-        {icon}
-        <h3 className="text-xl font-semibold ml-2">{role}</h3>
-      </div>
-      <p className="text-sm text-gray-600 mb-1">{company}</p>
-      <p className="text-xs text-gray-500 mb-2">{period}</p>
-      <ul className={`list-disc list-inside space-y-1 mt-2 transition-all duration-300 ${expanded ? "block" : "hidden group-hover:block"}`}>
-        {details.map((d) => (
-          <li key={d}>{d}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+const experiences: Experience[] = [
+  {
+    company: "Telos Actuarial",
+    role: "Actuarial Analyst",
+    period: "May 2024 – Present",
+    icon: <CalculatorIcon className="h-6 w-6 text-primary" />,
+    details: [
+      "Build actuarial valuation models in R and Python",
+      "Streamline rate filing analyses for health insurers",
+    ],
+  },
+  {
+    company: "Ludacka Wealth Partners",
+    role: "Financial Planning Intern",
+    period: "May 2023 – Aug 2023",
+    icon: <BriefcaseIcon className="h-6 w-6 text-primary" />,
+    details: [
+      "Assisted advisors with portfolio analysis and client reports",
+      "Developed Excel tools to automate financial plan updates",
+    ],
+  },
+  {
+    company: "Northwestern Mutual",
+    role: "College Financial Representative",
+    period: "Jun 2022 – May 2023",
+    icon: <ChartBarIcon className="h-6 w-6 text-primary" />,
+    details: [
+      "Created personalized financial plans using proprietary tools",
+      "Coordinated marketing outreach generating new client leads",
+    ],
+  },
+  {
+    company: "UNO Math & Economics Department",
+    role: "Tutor",
+    period: "Aug 2021 – May 2023",
+    icon: <BookOpenIcon className="h-6 w-6 text-primary" />,
+    details: [
+      "Provided one-on-one tutoring for calculus and statistics",
+      "Led exam review sessions improving student outcomes",
+    ],
+  },
+  {
+    company: "Runza",
+    role: "Shift Supervisor",
+    period: "May 2018 – Aug 2021",
+    icon: <BuildingStorefrontIcon className="h-6 w-6 text-primary" />,
+    details: [
+      "Led team to deliver fast, friendly service during peak hours",
+      "Managed cash handling and closing procedures",
+    ],
+  },
+];
 
 export default function Experience() {
   return (
     <section id="experience" className="min-h-screen p-8">
       <h2 className="text-3xl font-bold text-center mb-8">Experience</h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <ExperienceCard
-          company="Telos Actuarial"
-          role="Actuarial Analyst"
-          period="May 2024 – Present"
-          icon={<CalculatorIcon className="h-6 w-6 text-primary" />}
-          details={[
-            "Build actuarial valuation models in R and Python",
-            "Streamline rate filing analyses for health insurers",
-          ]}
-        />
-        <ExperienceCard
-          company="Ludacka Wealth Partners"
-          role="Financial Planning Intern"
-          period="May 2023 – Aug 2023"
-          icon={<BriefcaseIcon className="h-6 w-6 text-primary" />}
-          details={[
-            "Assisted advisors with portfolio analysis and client reports",
-            "Developed Excel tools to automate financial plan updates",
-          ]}
-        />
-        <ExperienceCard
-          company="Northwestern Mutual"
-          role="College Financial Representative"
-          period="Jun 2022 – May 2023"
-          icon={<ChartBarIcon className="h-6 w-6 text-primary" />}
-          details={[
-            "Created personalized financial plans using proprietary tools",
-            "Coordinated marketing outreach generating new client leads",
-          ]}
-        />
-        <ExperienceCard
-          company="UNO Math & Economics Department"
-          role="Tutor"
-          period="Aug 2021 – May 2023"
-          icon={<BookOpenIcon className="h-6 w-6 text-primary" />}
-          details={[
-            "Provided one-on-one tutoring for calculus and statistics",
-            "Led exam review sessions improving student outcomes",
-          ]}
-        />
-        <ExperienceCard
-          company="Runza"
-          role="Shift Supervisor"
-          period="May 2018 – Aug 2021"
-          icon={<BuildingStorefrontIcon className="h-6 w-6 text-primary" />}
-          details={[
-            "Led team to deliver fast, friendly service during peak hours",
-            "Managed cash handling and closing procedures",
-          ]}
-        />
+        {experiences.map((exp) => (
+          <Card
+            key={exp.company + exp.role}
+            icon={exp.icon}
+            title={exp.role}
+            summary={`${exp.company} | ${exp.period}`}
+            detail={
+              <ul className="list-disc list-inside space-y-1">
+                {exp.details.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+            }
+          />
+        ))}
       </div>
     </section>
   );
