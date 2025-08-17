@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 interface CardProps {
   imageSrc?: string;
@@ -16,7 +17,14 @@ export default function Card({ imageSrc, icon, title, summary, detail }: CardPro
     <div className="bg-white rounded shadow p-6">
       <div className="flex items-center mb-2">
         {imageSrc ? (
-          <img src={imageSrc} alt="" className="w-12 h-12 mr-4 object-cover" />
+          <Image
+            src={imageSrc}
+            alt=""
+            width={48}
+            height={48}
+            className="w-12 h-12 mr-4 object-cover"
+            loading="lazy"
+          />
         ) : icon ? (
           <div className="w-12 h-12 mr-4 flex items-center justify-center">{icon}</div>
         ) : null}
