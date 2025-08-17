@@ -5,12 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luis Rodriguez – Personal Website</title>
   <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.17/dist/tailwind.min.css"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@400;700&display=swap"
     rel="stylesheet"
   />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#ffffff',
+            text: '#111827',
+            primary: '#3b82f6',
+            secondary: '#f97316',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Merriweather', 'serif'],
+          },
+          screens: {
+            xs: '480px',
+            sm: '640px',
+            md: '768px',
+            lg: '1024px',
+            xl: '1280px',
+            '2xl': '1536px',
+          },
+        },
+      },
+      plugins: [],
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-white text-gray-900">
-  <nav class="sticky top-0 z-50 bg-white shadow">
+<body class="min-h-screen bg-background text-text font-sans">
+  <nav class="sticky top-0 z-50 bg-background shadow">
     <ul class="flex space-x-4 p-4">
       <li><a href="#about" class="nav-link font-bold">About</a></li>
       <li><a href="#education" class="nav-link">Education</a></li>
@@ -32,7 +60,7 @@
     </p>
     <a
       href="luis-site/public/LuisRodriguez_Resume.pdf"
-      class="px-6 py-3 bg-blue-500 text-white rounded shadow"
+      class="px-6 py-3 bg-primary text-white rounded shadow"
     >
       Download Résumé (PDF)
     </a>
