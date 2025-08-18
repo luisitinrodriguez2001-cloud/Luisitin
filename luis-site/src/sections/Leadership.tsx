@@ -37,7 +37,7 @@ function LeadershipItem({ role, organization, period, link }: LeadershipRole) {
     >
       <div className="pl-4 border-l-2 border-primary">
         <h3 className="text-xl font-semibold">{role}</h3>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 leading-relaxed">
           {link ? (
             <a href={link} className="text-primary underline" target="_blank" rel="noopener noreferrer">
               {organization}
@@ -46,7 +46,7 @@ function LeadershipItem({ role, organization, period, link }: LeadershipRole) {
             organization
           )}
         </p>
-        <p className="text-xs text-gray-500">{period}</p>
+        <p className="text-xs text-gray-500 leading-relaxed">{period}</p>
       </div>
     </div>
   );
@@ -77,7 +77,7 @@ export default function Leadership() {
   return (
     <section
       id="leadership"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8"
+      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Leadership</h2>
       <div className="flex flex-col space-y-8 max-w-2xl mx-auto">

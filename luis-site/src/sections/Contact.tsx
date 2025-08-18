@@ -32,8 +32,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen p-8 flex flex-col items-center">
-      <h2 className="text-2xl mb-4">Contact</h2>
+    <section
+      id="contact"
+      className="min-h-screen p-8 flex flex-col items-center bg-gray-50"
+    >
+      <h2 className="text-2xl mb-8">Contact</h2>
       <div className="flex space-x-4 mb-6">
         <a
           href="mailto:luis@example.com"

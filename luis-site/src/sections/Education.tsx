@@ -52,7 +52,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8"
+      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Education</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -65,12 +65,14 @@ export default function Education() {
             detail={
               <div>
                 {s.concentration && (
-                  <p className="mb-2">Concentration: {s.concentration}</p>
+                  <p className="mb-4 leading-relaxed">
+                    Concentration: {s.concentration}
+                  </p>
                 )}
                 {s.scholarships.length > 0 && (
                   <>
-                    <p className="font-medium">Scholarships</p>
-                    <ul className="list-disc list-inside mb-2">
+                    <p className="font-medium mb-2 leading-relaxed">Scholarships</p>
+                    <ul className="list-disc list-inside mb-4">
                       {s.scholarships.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
@@ -79,7 +81,7 @@ export default function Education() {
                 )}
                 {s.honors.length > 0 && (
                   <>
-                    <p className="font-medium">Honor Societies</p>
+                    <p className="font-medium mb-2 leading-relaxed">Honor Societies</p>
                     <ul className="list-disc list-inside">
                       {s.honors.map((item) => (
                         <li key={item}>{item}</li>
