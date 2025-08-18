@@ -104,21 +104,23 @@ export default function Leadership() {
       descriptions: ["Coordinated professional development activities."],
     },
     {
-      role: "Harvest Speaker – Mission Moment",
-      organization: "Harvest", 
-      period: "Sep 26 2024",
+      role: "Mission-Moment Speaker",
+      organization: "GIPS Harvest Gala",
+      period: "Sep 26, 2024",
       link: "https://www.harvestomaha.org/mission-moment",
-      descriptions: ["Shared personal story at community event."],
+      descriptions: [
+        "Selected keynote moment to inspire donor community; spotlight on scholarship impact.",
+      ],
     },
   ];
 
   return (
     <section
       id="leadership"
-      className="px-4 py-8 sm:px-6 lg:px-8 bg-background"
+      className="px-4 py-6 sm:px-6 lg:px-8 bg-background"
     >
-      <h2 className="text-3xl font-bold text-center mb-6">Leadership</h2>
-      <div className="flex flex-col space-y-8 max-w-2xl mx-auto">
+      <h2 className="text-3xl font-bold text-center mb-4">Leadership</h2>
+      <div className="flex flex-col space-y-6 max-w-2xl mx-auto">
         {roles.map((item) => (
           <LeadershipItem key={item.role} {...item} />
         ))}

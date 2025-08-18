@@ -59,7 +59,7 @@ export default function Timeline() {
   const handleInteract = () => setHint(false);
 
   return (
-    <div className="relative my-8">
+    <div className="relative my-6">
       <div
         ref={containerRef}
         className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory"
@@ -90,7 +90,7 @@ export default function Timeline() {
                   <Tooltip content={ev.info}>
                     <button
                       type="button"
-                      className="ml-1 text-primary flex-shrink-0 focus:outline-none"
+                      className="ml-1 text-primary flex-shrink-0 rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
                       aria-label="More info"
                     >
                       <FaInfoCircle className="h-3 w-3" />
@@ -129,7 +129,7 @@ export default function Timeline() {
         type="button"
         aria-label="Previous"
         onClick={() => scrollBy(-1)}
-        className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow"
+        className="flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow focus:outline-none focus:ring-2 focus:ring-primary"
       >
         <svg
           className="h-4 w-4"
@@ -145,7 +145,7 @@ export default function Timeline() {
         type="button"
         aria-label="Next"
         onClick={() => scrollBy(1)}
-        className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow"
+        className="flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow focus:outline-none focus:ring-2 focus:ring-primary"
       >
         <svg
           className="h-4 w-4"
