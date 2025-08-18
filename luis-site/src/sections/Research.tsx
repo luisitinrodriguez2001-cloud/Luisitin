@@ -26,9 +26,12 @@ const projects: Project[] = [
 
 export default function Research() {
   return (
-    <section id="research" className="min-h-screen p-8">
+    <section
+      id="research"
+      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8"
+    >
       <h2 className="text-3xl font-bold text-center mb-8">Research</h2>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {projects.map((p) => (
           <Card
             key={p.title}

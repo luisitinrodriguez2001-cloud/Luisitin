@@ -75,9 +75,12 @@ export default function Leadership() {
   ];
 
   return (
-    <section id="leadership" className="min-h-screen p-8">
+    <section
+      id="leadership"
+      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8"
+    >
       <h2 className="text-3xl font-bold text-center mb-8">Leadership</h2>
-      <div className="space-y-8 max-w-2xl mx-auto">
+      <div className="flex flex-col space-y-8 max-w-2xl mx-auto">
         {roles.map((item) => (
           <LeadershipItem key={item.role} {...item} />
         ))}
