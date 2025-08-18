@@ -5,22 +5,26 @@ interface Project {
   dates: string;
   summary: string;
   link: string;
+  presentations?: string[];
 }
 
 const projects: Project[] = [
   {
     title: "Finite-Field Linear Algebra",
-    dates: "Jan 2022 – Mar 2022",
-    summary:
-      "Studied numerical ranges over finite fields and presented findings at the UNO Student Research and Creative Activity Fair.",
+    dates: "Sep 2021 – Apr 2022",
+    summary: "Studied numerical ranges over finite fields.",
+    presentations: [
+      "UNO Student Research and Creative Activity Fair",
+      "MAA North Central Section Conference",
+    ],
     link: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/",
   },
   {
     title: "Integer-Programming Wedding Venue Thesis",
     dates: "Aug 2022 – May 2023",
     summary:
-      "Honors thesis using integer programming to select an optimal wedding venue that minimizes guest travel distance.",
-    link: "https://digitalcommons.unomaha.edu/university_honors_program/197/",
+      "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
+    link: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program",
   },
 ];
 
@@ -40,6 +44,13 @@ export default function Research() {
             detail={
               <>
                 <p className="mb-4 leading-relaxed">{p.summary}</p>
+                {p.presentations && (
+                  <ul className="mb-4 list-disc list-inside">
+                    {p.presentations.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                )}
                 <a href={p.link} className="text-primary underline">
                   Learn more
                 </a>
