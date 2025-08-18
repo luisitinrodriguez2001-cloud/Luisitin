@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs && npm run build:css",
-    "build:css": "cd luis-site && npx tailwindcss -i src/styles/globals.css -o ../dist/styles.css --minify"
+    "build:css": "cd luis-site && npx tailwindcss -i src/styles/globals.css -o ../styles.css --minify"
   },
   "dependencies": {
     "react": "18.2.0",
