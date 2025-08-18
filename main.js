@@ -325,6 +325,7 @@ var require_react_production_min = __commonJS({
 var require_react = __commonJS({
   "node_modules/react/index.js"(exports, module) {
     "use strict";
+    if (true) {
       module.exports = require_react_production_min();
     } else {
       module.exports = null;
@@ -346,6 +347,7 @@ var require_scheduler_production_min = __commonJS({
             a[d] = b, a[c] = e, c = d;
           else
             break a;
+        }
     }
     function h(a) {
       return 0 === a.length ? null : a[0];
@@ -365,6 +367,7 @@ var require_scheduler_production_min = __commonJS({
               a[d] = x, a[n] = c, d = n;
             else
               break a;
+          }
       }
       return b;
     }
@@ -418,6 +421,7 @@ var require_scheduler_production_min = __commonJS({
         else {
           var b = h(t);
           null !== b && K(H, b.startTime - a);
+        }
     }
     function J(a, b) {
       A = false;
@@ -468,6 +472,7 @@ var require_scheduler_production_min = __commonJS({
           b = O(true, a);
         } finally {
           b ? S() : (N = false, O = null);
+        }
       } else
         N = false;
     }
@@ -593,6 +598,7 @@ var require_scheduler_production_min = __commonJS({
           return a.apply(this, arguments);
         } finally {
           y = c;
+        }
       };
     };
   }
@@ -656,6 +662,7 @@ var require_react_dom_production_min = __commonJS({
           return true;
         case "boolean":
           if (d)
+            return false;
           if (null !== c)
             return !c.acceptsBooleans;
           a = a.toLowerCase().slice(0, 5);
@@ -787,6 +794,7 @@ var require_react_dom_production_min = __commonJS({
         } catch (c) {
           var b = c.stack.trim().match(/\n( *(at )?)/);
           La = b && b[1] || "";
+        }
       return "\n" + La + a;
     }
     var Na = false;
@@ -803,16 +811,20 @@ var require_react_dom_production_min = __commonJS({
           }, Object.defineProperty(b.prototype, "props", { set: function() {
             throw Error();
           } }), "object" === typeof Reflect && Reflect.construct) {
+            try {
               Reflect.construct(b, []);
             } catch (l) {
               var d = l;
+            }
             Reflect.construct(a, [], b);
           } else {
             try {
               b.call();
             } catch (l) {
               d = l;
+            }
             a.call(b.prototype);
+          }
         else {
           try {
             throw Error();
@@ -835,7 +847,10 @@ var require_react_dom_production_min = __commonJS({
                     return k;
                   }
                 while (1 <= g && 0 <= h);
+              }
               break;
+            }
+        }
       } finally {
         Na = false, Error.prepareStackTrace = c;
       }
@@ -903,6 +918,7 @@ var require_react_dom_production_min = __commonJS({
             try {
               return Qa(a(b));
             } catch (c) {
+            }
         }
       return null;
     }
@@ -1085,6 +1101,7 @@ var require_react_dom_production_min = __commonJS({
             a[e].selected = true;
             d && (a[e].defaultSelected = true);
             return;
+          }
           null !== b || a[e].disabled || (b = a[e]);
         }
         null !== b && (b.selected = true);
@@ -1454,12 +1471,15 @@ var require_react_dom_production_min = __commonJS({
               c = e;
               d = f;
               break;
+            }
             if (h === d) {
               g = true;
               d = e;
               c = f;
               break;
+            }
             h = h.sibling;
+          }
           if (!g) {
             for (h = f.child; h; ) {
               if (h === c) {
@@ -1467,14 +1487,18 @@ var require_react_dom_production_min = __commonJS({
                 c = f;
                 d = e;
                 break;
+              }
               if (h === d) {
                 g = true;
                 d = f;
                 c = e;
                 break;
+              }
               h = h.sibling;
+            }
             if (!g)
               throw Error(p(189));
+          }
         }
         if (c.alternate !== d)
           throw Error(p(190));
@@ -1776,9 +1800,12 @@ var require_react_dom_production_min = __commonJS({
                 Gc(c);
               });
               return;
+            }
           } else if (3 === b && c.stateNode.current.memoizedState.isDehydrated) {
             a.blockedOn = 3 === c.tag ? c.stateNode.containerInfo : null;
             return;
+          }
+        }
       }
       a.blockedOn = null;
     }
@@ -1822,6 +1849,7 @@ var require_react_dom_production_min = __commonJS({
         for (var c = 1; c < Kc.length; c++) {
           var d = Kc[c];
           d.blockedOn === a && (d.blockedOn = null);
+        }
       }
       null !== Lc && ad(Lc, a);
       null !== Mc && ad(Mc, a);
@@ -1869,6 +1897,7 @@ var require_react_dom_production_min = __commonJS({
             if (f === e)
               break;
             e = f;
+          }
           null !== e && d.stopPropagation();
         } else
           hd(a, b, d, null, c);
@@ -2377,6 +2406,8 @@ var require_react_dom_production_min = __commonJS({
               d
             );
             e && g && (1 !== a.rangeCount || a.anchorNode !== e.node || a.anchorOffset !== e.offset || a.focusNode !== g.node || a.focusOffset !== g.offset) && (b = b.createRange(), b.setStart(e.node, e.offset), a.removeAllRanges(), f > d ? (a.addRange(b), a.extend(g.node, g.offset)) : (b.setEnd(g.node, g.offset), a.addRange(b)));
+          }
+        }
         b = [];
         for (a = c; a = a.parentNode; )
           1 === a.nodeType && b.push({ element: a, left: a.scrollLeft, top: a.scrollTop });
@@ -2485,6 +2516,7 @@ var require_react_dom_production_min = __commonJS({
                 break a;
               nf(e, h, l);
               f = k;
+            }
         }
       }
       if (Qb)
@@ -2539,6 +2571,7 @@ var require_react_dom_production_min = __commonJS({
             if (3 === g || 4 === g) {
               var h = d.stateNode.containerInfo;
               if (h === e || 8 === h.nodeType && h.parentNode === e)
+                break;
               if (4 === g)
                 for (g = d.return; null !== g; ) {
                   var k = g.tag;
@@ -2708,10 +2741,14 @@ var require_react_dom_production_min = __commonJS({
                       x = vf(x);
                     }
                     t = null;
+                  }
                 else
                   t = null;
                 null !== k2 && wf(g2, h2, k2, t, false);
                 null !== n && null !== J && wf(g2, J, n, t, true);
+              }
+            }
+          }
           a: {
             h2 = d2 ? ue(d2) : window;
             k2 = h2.nodeName && h2.nodeName.toLowerCase();
@@ -2723,13 +2760,16 @@ var require_react_dom_production_min = __commonJS({
               else {
                 na = De;
                 var xa = Ce;
+              }
             else
               (k2 = h2.nodeName) && "input" === k2.toLowerCase() && ("checkbox" === h2.type || "radio" === h2.type) && (na = Ee);
             if (na && (na = na(a, d2))) {
               ne(g2, na, c, e2);
               break a;
+            }
             xa && xa(a, h2, d2);
             "focusout" === a && (xa = h2._wrapperState) && xa.controlled && "number" === h2.type && cb(h2, "number", h2.value);
+          }
           xa = d2 ? ue(d2) : window;
           switch (a) {
             case "focusin":
@@ -2848,6 +2888,7 @@ var require_react_dom_production_min = __commonJS({
               a.removeChild(e);
               bd(b);
               return;
+            }
             d--;
           } else
             "$" !== c && "$?" !== c && "$!" !== c || d++;
@@ -2866,6 +2907,7 @@ var require_react_dom_production_min = __commonJS({
             break;
           if ("/$" === b)
             return null;
+        }
       }
       return a;
     }
@@ -2904,11 +2946,14 @@ var require_react_dom_production_min = __commonJS({
               if (c = a[Of])
                 return c;
               a = Mf(a);
+            }
           return b;
+        }
         a = c;
         c = a.parentNode;
       }
       return null;
+    }
     function Cb(a) {
       a = a[Of] || a[uf];
       return !a || 5 !== a.tag && 6 !== a.tag && 13 !== a.tag && 3 !== a.tag ? null : a;
@@ -3004,6 +3049,7 @@ var require_react_dom_production_min = __commonJS({
       if (!gg && null !== eg) {
         gg = true;
         var a = 0, b = C;
+        try {
           var c = eg;
           for (C = 1; a < c.length; a++) {
             var d = c[a];
@@ -3015,7 +3061,9 @@ var require_react_dom_production_min = __commonJS({
           fg = false;
         } catch (e) {
           throw null !== eg && (eg = eg.slice(a + 1)), ac(fc, jg), e;
+        } finally {
           C = b, gg = false;
+        }
       }
       return null;
     }
@@ -3111,6 +3159,7 @@ var require_react_dom_production_min = __commonJS({
           a.flags = a.flags & -4097 | 2;
           I = false;
           xg = a;
+        }
       }
     }
     function Fg(a) {
@@ -3392,6 +3441,8 @@ var require_react_dom_production_min = __commonJS({
             if ("function" !== typeof e)
               throw Error(p(191, e));
             e.call(d);
+          }
+        }
     }
     var jh = new aa.Component().refs;
     function kh(a, b, c, d) {
@@ -3484,6 +3535,7 @@ var require_react_dom_production_min = __commonJS({
           };
           b._stringRef = f;
           return b;
+        }
         if ("string" !== typeof a)
           throw Error(p(284));
         if (!c._owner)
@@ -3504,6 +3556,7 @@ var require_react_dom_production_min = __commonJS({
         if (a) {
           var d2 = b2.deletions;
           null === d2 ? (b2.deletions = [c2], b2.flags |= 16) : d2.push(c2);
+        }
       }
       function c(c2, d2) {
         if (!a)
@@ -3605,9 +3658,11 @@ var require_react_dom_production_min = __commonJS({
                 e2(c2._payload),
                 d2
               );
+          }
           if (eb(c2) || Ka(c2))
             return null !== e2 ? null : m(a2, b2, c2, d2, null);
           th(a2, c2);
+        }
         return null;
       }
       function y(a2, b2, c2, d2, e2) {
@@ -3757,11 +3812,13 @@ var require_react_dom_production_min = __commonJS({
               return g(a2);
             case Ha:
               return l2 = f2._init, J(a2, d2, l2(f2._payload), h2);
+          }
           if (eb(f2))
             return n(a2, d2, f2, h2);
           if (Ka(f2))
             return t(a2, d2, f2, h2);
           th(a2, f2);
+        }
         return "string" === typeof f2 && "" !== f2 || "number" === typeof f2 ? (f2 = "" + f2, null !== d2 && 6 === d2.tag ? (c(a2, d2.sibling), d2 = e(d2, f2), d2.return = a2, a2 = d2) : (c(a2, d2), d2 = xh(f2, a2.mode, h2), d2.return = a2, a2 = d2), g(a2)) : c(a2, d2);
       }
       return J;
@@ -3828,6 +3885,7 @@ var require_react_dom_production_min = __commonJS({
           if (null === b.return || b.return === a)
             return null;
           b = b.return;
+        }
         b.sibling.return = b.return;
         b = b.sibling;
       }
@@ -4074,6 +4132,7 @@ var require_react_dom_production_min = __commonJS({
         if (null !== d && Wh(d, g.deps)) {
           e.memoizedState = li(b, c, f, d);
           return;
+        }
       }
       N.flags |= a;
       e.memoizedState = li(1 | b, c, f, d);
@@ -4094,9 +4153,11 @@ var require_react_dom_production_min = __commonJS({
       if ("function" === typeof b)
         return a = a(), b(a), function() {
           b(null);
+        };
       if (null !== b && void 0 !== b)
         return a = a(), b.current = a, function() {
           b.current = null;
+        };
     }
     function zi(a, b, c) {
       c = null !== c && void 0 !== c ? c.concat([a]) : null;
@@ -4171,8 +4232,10 @@ var require_react_dom_production_min = __commonJS({
               null === k ? (e.next = e, Xg(b)) : (e.next = k.next, k.next = e);
               b.interleaved = e;
               return;
+            }
           } catch (l) {
           } finally {
+          }
         c = Yg(a, b, e, d);
         null !== c && (e = L(), mh(c, a, d, e), Ji(c, b, d));
       }
@@ -4696,8 +4759,10 @@ var require_react_dom_production_min = __commonJS({
               break;
             default:
               e = 0;
+          }
           e = 0 !== (e & (d.suspendedLanes | g)) ? 0 : e;
           0 !== e && e !== f.retryLane && (f.retryLane = e, Zg(a, e), mh(d, a, e, -1));
+        }
         uj();
         d = Li(Error(p(421)));
         return tj(a, b, g, d);
@@ -4789,6 +4854,7 @@ var require_react_dom_production_min = __commonJS({
             break;
           default:
             b.memoizedState = null;
+        }
       return b.child;
     }
     function jj(a, b) {
@@ -4883,6 +4949,7 @@ var require_react_dom_production_min = __commonJS({
           if (null === c.return || c.return === b)
             return;
           c = c.return;
+        }
         c.sibling.return = c.return;
         c = c.sibling;
       }
@@ -4966,6 +5033,7 @@ var require_react_dom_production_min = __commonJS({
             for (var d = null; null !== c; )
               null !== c.alternate && (d = c), c = c.sibling;
             null === d ? b || null === a.tail ? a.tail = null : a.tail.sibling = null : d.sibling = null;
+        }
     }
     function S(a) {
       var b = null !== a.alternate && a.alternate.child === a.child, c = 0, d = 0;
@@ -5213,8 +5281,11 @@ var require_react_dom_production_min = __commonJS({
                 }
               }
               d && (b.flags |= 4);
+            }
             null !== b.ref && (b.flags |= 512, b.flags |= 2097152);
+          }
           S(b);
+          return null;
         case 6:
           if (a && null != b.stateNode)
             Dj(a, b, a.memoizedProps, d);
@@ -5236,9 +5307,11 @@ var require_react_dom_production_min = __commonJS({
                     case 5:
                       true !== a.memoizedProps.suppressHydrationWarning && Af(d.nodeValue, c, 0 !== (a.mode & 1));
                   }
+              }
               f && (b.flags |= 4);
             } else
               d = (9 === c.nodeType ? c : c.ownerDocument).createTextNode(d), d[Of] = b, b.stateNode = d;
+          }
           S(b);
           return null;
         case 13:
@@ -5307,6 +5380,7 @@ var require_react_dom_production_min = __commonJS({
                   a = a.sibling;
                 }
               null !== f.tail && B() > Hj && (b.flags |= 128, d = true, Ej(f, false), b.lanes = 4194304);
+            }
           else {
             if (!d)
               if (a = Mh(g), null !== a) {
@@ -5376,6 +5450,7 @@ var require_react_dom_production_min = __commonJS({
             c(null);
           } catch (d) {
             W(a, b, d);
+          }
         else
           c.current = null;
     }
@@ -5474,12 +5549,15 @@ var require_react_dom_production_min = __commonJS({
                 }
             } catch (F) {
               W(b, b.return, F);
+            }
             a = b.sibling;
             if (null !== a) {
               a.return = b.return;
               V = a;
               break;
+            }
             V = b.return;
+          }
       n = Oj;
       Oj = false;
       return n;
@@ -5553,6 +5631,7 @@ var require_react_dom_production_min = __commonJS({
             if (null === a.return || Uj(a.return))
               return null;
             a = a.return;
+          }
           a.sibling.return = a.return;
           for (a = a.sibling; 5 !== a.tag && 6 !== a.tag && 18 !== a.tag; ) {
             if (a.flags & 2)
@@ -5561,8 +5640,10 @@ var require_react_dom_production_min = __commonJS({
               continue a;
             else
               a.child.return = a, a = a.child;
+          }
           if (!(a.flags & 2))
             return a.stateNode;
+        }
     }
     function Wj(a, b, c) {
       var d = a.tag;
@@ -5716,6 +5797,7 @@ var require_react_dom_production_min = __commonJS({
               Qj(3, a, a.return), Rj(3, a);
             } catch (t) {
               W(a, a.return, t);
+            }
             try {
               Qj(5, a, a.return);
             } catch (t) {
@@ -5738,6 +5820,8 @@ var require_react_dom_production_min = __commonJS({
               ob(e, "");
             } catch (t) {
               W(a, a.return, t);
+            }
+          }
           if (d & 4 && (e = a.stateNode, null != e)) {
             var f = a.memoizedProps, g = null !== c ? c.memoizedProps : f, h = a.type, k = a.updateQueue;
             a.updateQueue = null;
@@ -5786,6 +5870,8 @@ var require_react_dom_production_min = __commonJS({
               e.nodeValue = f;
             } catch (t) {
               W(a, a.return, t);
+            }
+          }
           break;
         case 3:
           dk(b, a);
@@ -5847,7 +5933,9 @@ var require_react_dom_production_min = __commonJS({
                         hk(q);
                         continue;
                       }
+                  }
                   null !== y ? (y.return = r, V = y) : hk(q);
+                }
                 m = m.sibling;
               }
             a:
@@ -5860,6 +5948,7 @@ var require_react_dom_production_min = __commonJS({
                     } catch (t) {
                       W(a, a.return, t);
                     }
+                  }
                 } else if (6 === q.tag) {
                   if (null === m)
                     try {
@@ -5871,6 +5960,7 @@ var require_react_dom_production_min = __commonJS({
                   q.child.return = q;
                   q = q.child;
                   continue;
+                }
                 if (q === a)
                   break a;
                 for (; null === q.sibling; ) {
@@ -5927,8 +6017,10 @@ var require_react_dom_production_min = __commonJS({
               break;
             default:
               throw Error(p(161));
+          }
         } catch (k) {
           W(a, a.return, k);
+        }
         a.flags &= -3;
       }
       b & 4096 && (a.flags &= -4097);
@@ -5999,6 +6091,7 @@ var require_react_dom_production_min = __commonJS({
                           c = b.child.stateNode;
                       }
                     ih(b, g, c);
+                  }
                   break;
                 case 5:
                   var h = b.stateNode;
@@ -6015,6 +6108,7 @@ var require_react_dom_production_min = __commonJS({
                       case "img":
                         k.src && (c.src = k.src);
                     }
+                  }
                   break;
                 case 6:
                   break;
@@ -6032,6 +6126,7 @@ var require_react_dom_production_min = __commonJS({
                         null !== q && bd(q);
                       }
                     }
+                  }
                   break;
                 case 19:
                 case 17:
@@ -6042,13 +6137,16 @@ var require_react_dom_production_min = __commonJS({
                   break;
                 default:
                   throw Error(p(163));
+              }
             U || b.flags & 512 && Sj(b);
           } catch (r) {
             W(b, b.return, r);
           }
+        }
         if (b === a) {
           V = null;
           break;
+        }
         c = b.sibling;
         if (null !== c) {
           c.return = b.return;
@@ -6093,12 +6191,14 @@ var require_react_dom_production_min = __commonJS({
               var d = b.stateNode;
               if ("function" === typeof d.componentDidMount) {
                 var e = b.return;
+                try {
                   d.componentDidMount();
                 } catch (k) {
                   W(b, e, k);
                 }
               }
               var f = b.return;
+              try {
                 Sj(b);
               } catch (k) {
                 W(b, f, k);
@@ -6111,16 +6211,20 @@ var require_react_dom_production_min = __commonJS({
               } catch (k) {
                 W(b, g, k);
               }
+          }
         } catch (k) {
           W(b, b.return, k);
+        }
         if (b === a) {
           V = null;
           break;
+        }
         var h = b.sibling;
         if (null !== h) {
           h.return = b.return;
           V = h;
           break;
+        }
         V = b.return;
       }
     }
@@ -6206,6 +6310,7 @@ var require_react_dom_production_min = __commonJS({
               break;
             default:
               c = hc;
+          }
           c = Gk(c, Hk.bind(null, a));
         }
         a.callbackPriority = b;
@@ -6274,8 +6379,10 @@ var require_react_dom_production_min = __commonJS({
                   L();
                   a.pingedLanes |= a.suspendedLanes & e;
                   break;
+                }
                 a.timeoutHandle = Ff(Qk.bind(null, a, uk, vk), b);
                 break;
+              }
               Qk(a, uk, vk);
               break;
             case 4:
@@ -6304,6 +6411,7 @@ var require_react_dom_production_min = __commonJS({
               break;
             default:
               throw Error(p(329));
+          }
         }
       }
       Ek(a, B());
@@ -6333,6 +6441,7 @@ var require_react_dom_production_min = __commonJS({
               } catch (g) {
                 return false;
               }
+            }
         }
         c = b.child;
         if (b.subtreeFlags & 16384 && null !== c)
@@ -6344,8 +6453,10 @@ var require_react_dom_production_min = __commonJS({
             if (null === b.return || b.return === a)
               return true;
             b = b.return;
+          }
           b.sibling.return = b.return;
           b = b.sibling;
+        }
       }
       return true;
     }
@@ -6630,17 +6741,22 @@ var require_react_dom_production_min = __commonJS({
         if (0 === (b.flags & 32768)) {
           if (c = Fj(c, b, gj), null !== c) {
             Y = c;
+            return;
+          }
         } else {
           c = Jj(c, b);
           if (null !== c) {
             c.flags &= 32767;
             Y = c;
             return;
+          }
           if (null !== a)
             a.flags |= 32768, a.subtreeFlags = 0, a.deletions = null;
           else {
             T = 6;
             Y = null;
+            return;
+          }
         }
         b = b.sibling;
         if (null !== b) {
@@ -6842,16 +6958,21 @@ var require_react_dom_production_min = __commonJS({
                       break b;
                     }
                     V = h.return;
+                  }
+            }
             K = e;
             jg();
             if (lc && "function" === typeof lc.onPostCommitFiberRoot)
               try {
                 lc.onPostCommitFiberRoot(kc, a);
               } catch (na) {
+              }
             d = true;
+          }
           return d;
         } finally {
           C = c, pk.transition = b;
+        }
       }
       return false;
     }
@@ -6879,6 +7000,8 @@ var require_react_dom_production_min = __commonJS({
               a = L();
               null !== b && (Ac(b, 1, a), Ek(b, a));
               break;
+            }
+          }
           b = b.return;
         }
     }
@@ -7073,6 +7196,7 @@ var require_react_dom_production_min = __commonJS({
                         break;
                       }
                       k = k.next;
+                    }
                   } else if (10 === f.tag)
                     g = f.type === b.type ? null : f.child;
                   else if (18 === f.tag) {
@@ -7413,6 +7537,7 @@ var require_react_dom_production_min = __commonJS({
             var a2 = hl(g);
             f.call(a2);
           };
+        }
         var g = fl(b, d, a, 0, null, false, false, "", ql);
         a._reactRootContainer = g;
         a[uf] = g.current;
@@ -7448,6 +7573,7 @@ var require_react_dom_production_min = __commonJS({
             var a2 = hl(g);
             h.call(a2);
           };
+        }
         gl(b, g, a, e);
       } else
         g = rl(c, b, a, e, d);
@@ -7545,6 +7671,7 @@ var require_react_dom_production_min = __commonJS({
         try {
           kc = wl.inject(vl), lc = wl;
         } catch (a) {
+        }
     }
     var wl;
     exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = tl;
@@ -7681,6 +7808,7 @@ var require_client = __commonJS({
           return m.hydrateRoot(c, h, o);
         } finally {
           i.usingClientEntryPoint = false;
+        }
       };
     }
     var i;
@@ -7984,6 +8112,9 @@ var require_react_production_min2 = __commonJS({
   }
 });
 
+// luis-site/node_modules/react/index.js
+var require_react2 = __commonJS({
+  "luis-site/node_modules/react/index.js"(exports, module) {
     "use strict";
     if (true) {
       module.exports = require_react_production_min2();
@@ -8028,6 +8159,7 @@ var require_jsx_runtime = __commonJS({
     if (true) {
       module.exports = require_react_jsx_runtime_production_min();
     } else {
+      module.exports = null;
     }
   }
 });
@@ -8066,6 +8198,7 @@ var require_jsx_runtime2 = __commonJS({
     "use strict";
     if (true) {
       module.exports = require_react_jsx_runtime_production_min2();
+    } else {
       module.exports = null;
     }
   }
@@ -8079,13 +8212,18 @@ var import_client = __toESM(require_client(), 1);
 var import_react = __toESM(require_react2());
 var import_jsx_runtime = __toESM(require_jsx_runtime());
 var sections = [
+  "resume-summary",
   "education",
+  "research",
   "experience",
+  "awards",
   "leadership",
   "timeline",
   "contact"
 ];
 function Navbar() {
+  const [active, setActive] = (0, import_react.useState)("resume-summary");
+  const [open, setOpen] = (0, import_react.useState)(false);
   (0, import_react.useEffect)(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -8525,6 +8663,8 @@ function Tooltip({ content, children }) {
 var import_jsx_runtime8 = __toESM(require_jsx_runtime());
 function AwardBadge({ title, detail }) {
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Tooltip, { content: detail, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "button",
+    {
       type: "button",
       className: "m-2 px-4 py-2 bg-primary text-white rounded-full focus:outline-none focus:ring-2 focus:ring-primary",
       children: title
@@ -8619,10 +8759,13 @@ function Leadership() {
       organization: "UNO Economics Club",
       period: "Aug 2023 \u2013 May 2024",
       link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php"
+    },
+    {
       role: "Vice President, Financial Management Association",
       organization: "UNO FMA",
       period: "Aug 2022 \u2013 May 2023",
       link: "https://www.unomaha.edu/college-of-business-administration/finance-banking/fma.php"
+    },
     {
       role: "Student Representative, GIPS Board of Education",
       organization: "Grand Island Public Schools",
@@ -8734,6 +8877,7 @@ function Timeline() {
   return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
     /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex overflow-x-auto space-x-4 pb-4", role: "tablist", children: data.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
       "button",
+      {
         ref: (el) => {
           navRefs.current[i] = el;
         },
@@ -8826,6 +8970,7 @@ react-dom/cjs/react-dom.production.min.js:
    * @license React
    * react-dom.production.min.js
    *
+   * Copyright (c) Facebook, Inc. and its affiliates.
    *
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
@@ -8836,6 +8981,7 @@ react/cjs/react.production.min.js:
    * @license React
    * react.production.min.js
    *
+   * Copyright (c) Facebook, Inc. and its affiliates.
    *
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
@@ -8846,6 +8992,8 @@ react/cjs/react-jsx-runtime.production.min.js:
    * @license React
    * react-jsx-runtime.production.min.js
    *
+   * Copyright (c) Facebook, Inc. and its affiliates.
+   *
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    *)
@@ -8855,6 +9003,7 @@ react/cjs/react-jsx-runtime.production.min.js:
    * @license React
    * react-jsx-runtime.production.min.js
    *
+   * Copyright (c) Facebook, Inc. and its affiliates.
    *
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
