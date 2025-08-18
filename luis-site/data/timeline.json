@@ -1,70 +1,160 @@
 [
   {
-    "date": "Aug 2018 – May 2019",
-    "startDate": "2018-08-01",
-    "title": "Student Representative, GIPS Board of Education",
+    "date": "Aug 2015",
+    "startDate": "2015-08-01",
+    "title": "Started at Grand Island Senior High",
     "category": "Education",
-    "snippet": "Represented students on the Grand Island Public Schools Board of Education.",
-    "links": [
-      { "label": "Board agenda", "url": "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306" }
-    ],
-    "color": "#cc0000"
+    "snippet": "First day at GISH.",
+    "color": "#6b7280"
   },
   {
-    "date": "Aug 2019",
-    "startDate": "2019-08-01",
-    "title": "Started dual-degree program at UNO",
-    "category": "Education",
-    "snippet": "Began studies in Economics and Mathematics at the University of Nebraska Omaha.",
-    "links": [
-      { "label": "UNO", "url": "https://www.unomaha.edu" }
-    ],
-    "color": "#cc0000"
-  },
-  {
-    "date": "May 2020 – Aug 2020",
-    "startDate": "2020-05-01",
-    "title": "Cashier at Runza",
+    "date": "Sep 2017 – Aug 2019",
+    "startDate": "2017-09-01",
+    "title": "First job — Runza, Cashier",
     "category": "Work",
-    "snippet": "First job serving customers at Runza.",
+    "snippet": "Kept orders moving at the register.",
+    "info": "Front-of-house speed, accuracy, and customer empathy under real pressure.",
     "links": [
       { "label": "Runza", "url": "https://www.runza.com" }
     ],
     "color": "#2e8b57"
   },
   {
-    "date": "Aug 2022 – May 2023",
-    "startDate": "2022-08-01",
-    "title": "Honors thesis research",
+    "date": "Aug 2018 – May 2019",
+    "startDate": "2018-08-01",
+    "title": "Student Board Representative, GIPS",
     "category": "Education",
-    "snippet": "Used IBM CPLEX to model wedding venue selection that minimizes guest travel.",
+    "snippet": "Sat beside board members to give students a voice.",
+    "info": "Elected student voice for a Nebraska Class A district, representing 3,000+ students at monthly board meetings.",
+    "links": [
+      { "label": "Board agenda", "url": "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306" }
+    ],
+    "color": "#cc0000"
+  },
+  {
+    "date": "Oct 2018",
+    "startDate": "2018-10-01",
+    "title": "Met Madi — future partner-in-crime",
+    "category": "Personal",
+    "snippet": "Said hello, never looked back.",
+    "color": "#e11d48"
+  },
+  {
+    "date": "Jan 2019",
+    "startDate": "2019-01-01",
+    "title": "Selected speaker, NASB Annual Meeting",
+    "category": "Awards",
+    "snippet": "Shared student perspective statewide.",
+    "info": "Invited to present at the Nebraska Association of School Boards’ statewide conference.",
+    "color": "#1d4ed8"
+  },
+  {
+    "date": "May 2019",
+    "startDate": "2019-05-01",
+    "title": "Graduated GISH",
+    "category": "Education",
+    "snippet": "Wrapped up high school on a high note.",
+    "color": "#6b7280"
+  },
+  {
+    "date": "Aug 2019",
+    "startDate": "2019-08-01",
+    "title": "Began dual degrees at UNO — Economics (BA), Mathematics (BS)",
+    "category": "Education",
+    "snippet": "Jumped into Econ and Math at UNO.",
+    "info": "Competitive Nebraska awards that funded a debt-free path.",
+    "links": [
+      { "label": "UNO", "url": "https://www.unomaha.edu" }
+    ],
+    "color": "#cc0000"
+  },
+  {
+    "date": "Jan 2020 – Aug 2021",
+    "startDate": "2020-01-01",
+    "title": "Econ Club Treasurer",
+    "category": "Work",
+    "snippet": "Balanced books for budding economists.",
+    "color": "#cc0000"
+  },
+  {
+    "date": "May 2020 – May 2021",
+    "startDate": "2020-05-01",
+    "title": "Honors Association Treasurer",
+    "category": "Work",
+    "snippet": "Tracked dues and kept events funded.",
+    "color": "#cc0000"
+  },
+  {
+    "date": "Aug 2021 – May 2023",
+    "startDate": "2021-08-01",
+    "title": "Econ Club President",
+    "category": "Work",
+    "snippet": "Led a crew of data-minded peers.",
+    "color": "#cc0000"
+  },
+  {
+    "date": "Sep 2021 – Jan 2022",
+    "startDate": "2021-09-01",
+    "title": "FMA Vice-President",
+    "category": "Work",
+    "snippet": "Coordinated finance workshops and speakers.",
+    "color": "#cc0000"
+  },
+  {
+    "date": "Fall 2021 – Spring 2022",
+    "startDate": "2021-09-02",
+    "title": "Finite-field project",
+    "category": "Education",
+    "snippet": "Explored linear algebra over finite fields.",
+    "info": "Presented at UNO SRCAF and MAA; distilled advanced math for broad audiences.",
+    "links": [
+      { "label": "UNO SRCAF Abstract", "url": "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/" }
+    ],
+    "color": "#cc0000"
+  },
+  {
+    "date": "Sep 2021 – May 2023",
+    "startDate": "2021-09-03",
+    "title": "Honors thesis with IBM CPLEX",
+    "category": "Education",
+    "snippet": "Optimized wedding venues with integer programming.",
+    "info": "Presented at UNO SRCAF and MAA; distilled advanced math for broad audiences.",
     "links": [
       { "label": "UNO Honors Thesis (PDF)", "url": "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program" }
     ],
     "color": "#cc0000"
   },
   {
-    "date": "May 2023",
-    "startDate": "2023-05-01",
-    "title": "Married Madison",
-    "category": "Personal",
-    "snippet": "Married my high-school sweetheart.",
-    "color": "#e11d48"
+    "date": "Nov 2021 – Apr 2022",
+    "startDate": "2021-11-01",
+    "title": "Northwestern Mutual, Intern",
+    "category": "Work",
+    "snippet": "Handled first client calls under navy and gold.",
+    "color": "#0033a0"
   },
   {
-    "date": "Jul 2023",
-    "startDate": "2023-07-01",
-    "title": "Passed FINRA Series 7 & 63",
-    "category": "Awards",
-    "snippet": "Earned FINRA Series 7 and 63 licenses.",
-    "color": "#1d4ed8"
+    "date": "Apr 2022 – Feb 2024",
+    "startDate": "2022-04-01",
+    "title": "Ludacka, Analyst",
+    "category": "Work",
+    "snippet": "Crafted financial plans in a boutique shop.",
+    "color": "#6b7280"
+  },
+  {
+    "date": "May 2023",
+    "startDate": "2023-05-01",
+    "title": "Graduated UNO; married Madi",
+    "category": "Education",
+    "snippet": "Closed out dual degrees with a 4.0 and tied the knot.",
+    "color": "#cc0000"
   },
   {
     "date": "Feb 2024 – Present",
     "startDate": "2024-02-01",
-    "title": "Actuarial analyst at Telos",
+    "title": "Actuarial Analyst, Telos Actuarial",
     "category": "Work",
-    "snippet": "Supporting pension and risk projects with VBA, SQL and Excel.",
+    "snippet": "Solving pension puzzles with VBA, SQL, and Excel.",
+    "info": "Automated ETL for reserving; projections for filings; internal dashboards for clarity.",
     "links": [
       { "label": "Telos Actuarial", "url": "https://www.telosactuarial.com/about" }
     ],
@@ -73,28 +163,47 @@
   {
     "date": "Apr – Oct 2024",
     "startDate": "2024-04-01",
-    "title": "Passed actuarial exams FM, P, SRM & PA",
+    "title": "SOA exams FM, P, SRM, PA",
     "category": "Awards",
-    "snippet": "Completed four preliminary actuarial exams.",
+    "snippet": "Four prelims down in a year.",
+    "info": "Four prelims passed within one year.",
     "color": "#1d4ed8"
   },
   {
     "date": "Sep 26 2024",
     "startDate": "2024-09-26",
-    "title": "Harvest Gala speaker",
+    "title": "Mission-Moment Speaker, GIPS Harvest Gala",
     "category": "Personal",
-    "snippet": "Spoke at the GIPS Foundation Harvest fundraising gala.",
+    "snippet": "Shared scholarship story with donors.",
+    "info": "Selected keynote moment to inspire donor community; spotlight on scholarship impact.",
     "links": [
-      { "label": "Event site", "url": "https://my.onecause.com/event/organizations/sf-0013c00001zv03cAAA/events/vevt%3A58ff120c-6989-4bd7-95ab-d2430df558d0/home/story" }
+      { "label": "Harvest Gala", "url": "https://my.onecause.com/event/organizations/sf-0013c00001zv03cAAA/events/vevt%3A58ff120c-6989-4bd7-95ab-d2430df558d0/home/story" }
     ],
     "color": "#e11d48"
   },
   {
+    "date": "Dec 2024",
+    "startDate": "2024-12-01",
+    "title": "Shipped Fitness Toolkit",
+    "category": "Work",
+    "snippet": "Released a light-theme reference app.",
+    "color": "#6b7280"
+  },
+  {
     "date": "May – Jun 2025",
     "startDate": "2025-05-01",
-    "title": "Super Secret Special Project",
+    "title": "Super Secret Special Project \uD83D\uDD12",
     "category": "Work",
-    "snippet": "Stay tuned for details.",
+    "snippet": "Built something cool under wraps.",
+    "info": "NDA; challenge-based production; details coming soon.",
     "color": "#6b7280"
+  },
+  {
+    "date": "Aug 2025",
+    "startDate": "2025-08-01",
+    "title": "Actuarial analyst at Telos; next credentials in sight",
+    "category": "Work",
+    "snippet": "I like hard problems, and actuarial science gives me plenty.",
+    "color": "#0d9488"
   }
 ]

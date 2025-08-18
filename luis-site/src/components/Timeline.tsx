@@ -5,7 +5,9 @@ import {
   FaBriefcase,
   FaTrophy,
   FaHeart,
+  FaInfoCircle,
 } from "react-icons/fa";
+import Tooltip from "./Tooltip";
 
 type Link = {
   label: string;
@@ -18,6 +20,7 @@ type TimelineEvent = {
   title: string;
   category: "Education" | "Work" | "Awards" | "Personal";
   snippet: string;
+  info?: string;
   links?: Link[];
   color?: string;
 };
@@ -37,7 +40,14 @@ export default function Timeline() {
   const [hint, setHint] = useState(true);
 
   const scrollBy = (dir: number) => {
-    containerRef.current?.scrollBy({ left: dir * 280, behavior: "smooth" });
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    containerRef.current?.scrollBy({
+      left: dir * 280,
+      behavior: prefersReduced ? "auto" : "smooth",
+    });
+    if (hint) setHint(false);
   };
 
   const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -74,7 +84,20 @@ export default function Timeline() {
                 {ev.date}
               </div>
               <h3 className="text-base font-semibold">{ev.title}</h3>
-              <p className="text-sm mt-1 text-gray-700 leading-relaxed">{ev.snippet}</p>
+              <p className="text-sm mt-1 text-gray-700 leading-relaxed flex items-start">
+                <span>{ev.snippet}</span>
+                {ev.info && (
+                  <Tooltip content={ev.info}>
+                    <button
+                      type="button"
+                      className="ml-1 text-primary flex-shrink-0 focus:outline-none"
+                      aria-label="More info"
+                    >
+                      <FaInfoCircle className="h-3 w-3" />
+                    </button>
+                  </Tooltip>
+                )}
+              </p>
               {ev.links && (
                 <ul className="mt-2 text-sm space-y-1">
                   {ev.links.map((l) => (
@@ -95,11 +118,13 @@ export default function Timeline() {
           );
         })}
       </div>
-      {hint && (
-        <div className="absolute right-4 top-0 text-xs text-gray-500 animate-pulse select-none">
-          drag to scroll →
-        </div>
-      )}
+      <div
+        className={`absolute right-4 top-0 text-xs text-gray-500 transition-opacity select-none ${
+          hint ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        drag to scroll →
+      </div>
       <button
         type="button"
         aria-label="Previous"

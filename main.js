@@ -7855,626 +7855,8 @@ var require_jsx_runtime = __commonJS({
   }
 });
 
-// node_modules/prop-types/lib/ReactPropTypesSecret.js
-var require_ReactPropTypesSecret = __commonJS({
-  "node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports, module) {
-    "use strict";
-    var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-    module.exports = ReactPropTypesSecret;
-  }
-});
-
-// node_modules/prop-types/factoryWithThrowingShims.js
-var require_factoryWithThrowingShims = __commonJS({
-  "node_modules/prop-types/factoryWithThrowingShims.js"(exports, module) {
-    "use strict";
-    var ReactPropTypesSecret = require_ReactPropTypesSecret();
-    function emptyFunction() {
-    }
-    function emptyFunctionWithReset() {
-    }
-    emptyFunctionWithReset.resetWarningCache = emptyFunction;
-    module.exports = function() {
-      function shim(props, propName, componentName, location, propFullName, secret) {
-        if (secret === ReactPropTypesSecret) {
-          return;
-        }
-        var err = new Error(
-          "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types"
-        );
-        err.name = "Invariant Violation";
-        throw err;
-      }
-      ;
-      shim.isRequired = shim;
-      function getShim() {
-        return shim;
-      }
-      ;
-      var ReactPropTypes = {
-        array: shim,
-        bigint: shim,
-        bool: shim,
-        func: shim,
-        number: shim,
-        object: shim,
-        string: shim,
-        symbol: shim,
-        any: shim,
-        arrayOf: getShim,
-        element: shim,
-        elementType: shim,
-        instanceOf: getShim,
-        node: shim,
-        objectOf: getShim,
-        oneOf: getShim,
-        oneOfType: getShim,
-        shape: getShim,
-        exact: getShim,
-        checkPropTypes: emptyFunctionWithReset,
-        resetWarningCache: emptyFunction
-      };
-      ReactPropTypes.PropTypes = ReactPropTypes;
-      return ReactPropTypes;
-    };
-  }
-});
-
-// node_modules/prop-types/index.js
-var require_prop_types = __commonJS({
-  "node_modules/prop-types/index.js"(exports, module) {
-    if (false) {
-      ReactIs = null;
-      throwOnDirectAccess = true;
-      module.exports = null(ReactIs.isElement, throwOnDirectAccess);
-    } else {
-      module.exports = require_factoryWithThrowingShims()();
-    }
-    var ReactIs;
-    var throwOnDirectAccess;
-  }
-});
-
-// node_modules/classnames/index.js
-var require_classnames = __commonJS({
-  "node_modules/classnames/index.js"(exports, module) {
-    (function() {
-      "use strict";
-      var hasOwn = {}.hasOwnProperty;
-      function classNames() {
-        var classes = "";
-        for (var i = 0; i < arguments.length; i++) {
-          var arg = arguments[i];
-          if (arg) {
-            classes = appendClass(classes, parseValue(arg));
-          }
-        }
-        return classes;
-      }
-      function parseValue(arg) {
-        if (typeof arg === "string" || typeof arg === "number") {
-          return arg;
-        }
-        if (typeof arg !== "object") {
-          return "";
-        }
-        if (Array.isArray(arg)) {
-          return classNames.apply(null, arg);
-        }
-        if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes("[native code]")) {
-          return arg.toString();
-        }
-        var classes = "";
-        for (var key in arg) {
-          if (hasOwn.call(arg, key) && arg[key]) {
-            classes = appendClass(classes, key);
-          }
-        }
-        return classes;
-      }
-      function appendClass(value, newClass) {
-        if (!newClass) {
-          return value;
-        }
-        if (value) {
-          return value + " " + newClass;
-        }
-        return value + newClass;
-      }
-      if (typeof module !== "undefined" && module.exports) {
-        classNames.default = classNames;
-        module.exports = classNames;
-      } else if (typeof define === "function" && typeof define.amd === "object" && define.amd) {
-        define("classnames", [], function() {
-          return classNames;
-        });
-      } else {
-        window.classNames = classNames;
-      }
-    })();
-  }
-});
-
-// node_modules/react-vertical-timeline-component/dist-es6/VerticalTimeline.js
-var require_VerticalTimeline = __commonJS({
-  "node_modules/react-vertical-timeline-component/dist-es6/VerticalTimeline.js"(exports) {
-    "use strict";
-    exports.__esModule = true;
-    exports.default = void 0;
-    var _react = _interopRequireDefault(require_react());
-    var _propTypes = _interopRequireDefault(require_prop_types());
-    var _classnames = _interopRequireDefault(require_classnames());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var VerticalTimeline2 = ({
-      animate = true,
-      className = "",
-      layout = "2-columns",
-      lineColor = "#FFF",
-      children
-    }) => {
-      if (typeof window === "object") {
-        document.documentElement.style.setProperty("--line-color", lineColor);
-      }
-      return /* @__PURE__ */ _react.default.createElement("div", {
-        className: (0, _classnames.default)(className, "vertical-timeline", {
-          "vertical-timeline--animate": animate,
-          "vertical-timeline--two-columns": layout === "2-columns",
-          "vertical-timeline--one-column-left": layout === "1-column" || layout === "1-column-left",
-          "vertical-timeline--one-column-right": layout === "1-column-right"
-        })
-      }, children);
-    };
-    VerticalTimeline2.propTypes = {
-      children: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.node), _propTypes.default.node]).isRequired,
-      className: _propTypes.default.string,
-      animate: _propTypes.default.bool,
-      layout: _propTypes.default.oneOf(["1-column-left", "1-column", "2-columns", "1-column-right"]),
-      lineColor: _propTypes.default.string
-    };
-    var _default = VerticalTimeline2;
-    exports.default = _default;
-  }
-});
-
-// node_modules/react-intersection-observer/react-intersection-observer.js
-var require_react_intersection_observer = __commonJS({
-  "node_modules/react-intersection-observer/react-intersection-observer.js"(exports) {
-    var React3 = require_react();
-    function _interopNamespace(e) {
-      if (e && e.__esModule)
-        return e;
-      var n = /* @__PURE__ */ Object.create(null);
-      if (e) {
-        Object.keys(e).forEach(function(k) {
-          if (k !== "default") {
-            var d = Object.getOwnPropertyDescriptor(e, k);
-            Object.defineProperty(n, k, d.get ? d : {
-              enumerable: true,
-              get: function() {
-                return e[k];
-              }
-            });
-          }
-        });
-      }
-      n["default"] = e;
-      return n;
-    }
-    var React__namespace = /* @__PURE__ */ _interopNamespace(React3);
-    function _extends() {
-      _extends = Object.assign || function(target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-      return _extends.apply(this, arguments);
-    }
-    function _inheritsLoose(subClass, superClass) {
-      subClass.prototype = Object.create(superClass.prototype);
-      subClass.prototype.constructor = subClass;
-      _setPrototypeOf(subClass, superClass);
-    }
-    function _setPrototypeOf(o, p) {
-      _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
-        o2.__proto__ = p2;
-        return o2;
-      };
-      return _setPrototypeOf(o, p);
-    }
-    function _objectWithoutPropertiesLoose(source, excluded) {
-      if (source == null)
-        return {};
-      var target = {};
-      var sourceKeys = Object.keys(source);
-      var key, i;
-      for (i = 0; i < sourceKeys.length; i++) {
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0)
-          continue;
-        target[key] = source[key];
-      }
-      return target;
-    }
-    var observerMap = /* @__PURE__ */ new Map();
-    var RootIds = /* @__PURE__ */ new WeakMap();
-    var rootId = 0;
-    var unsupportedValue = void 0;
-    function defaultFallbackInView(inView) {
-      unsupportedValue = inView;
-    }
-    function getRootId(root) {
-      if (!root)
-        return "0";
-      if (RootIds.has(root))
-        return RootIds.get(root);
-      rootId += 1;
-      RootIds.set(root, rootId.toString());
-      return RootIds.get(root);
-    }
-    function optionsToId(options) {
-      return Object.keys(options).sort().filter(function(key) {
-        return options[key] !== void 0;
-      }).map(function(key) {
-        return key + "_" + (key === "root" ? getRootId(options.root) : options[key]);
-      }).toString();
-    }
-    function createObserver(options) {
-      var id = optionsToId(options);
-      var instance = observerMap.get(id);
-      if (!instance) {
-        var elements = /* @__PURE__ */ new Map();
-        var thresholds;
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            var _elements$get;
-            var inView = entry.isIntersecting && thresholds.some(function(threshold) {
-              return entry.intersectionRatio >= threshold;
-            });
-            if (options.trackVisibility && typeof entry.isVisible === "undefined") {
-              entry.isVisible = inView;
-            }
-            (_elements$get = elements.get(entry.target)) == null ? void 0 : _elements$get.forEach(function(callback) {
-              callback(inView, entry);
-            });
-          });
-        }, options);
-        thresholds = observer.thresholds || (Array.isArray(options.threshold) ? options.threshold : [options.threshold || 0]);
-        instance = {
-          id,
-          observer,
-          elements
-        };
-        observerMap.set(id, instance);
-      }
-      return instance;
-    }
-    function observe(element, callback, options, fallbackInView) {
-      if (options === void 0) {
-        options = {};
-      }
-      if (fallbackInView === void 0) {
-        fallbackInView = unsupportedValue;
-      }
-      if (typeof window.IntersectionObserver === "undefined" && fallbackInView !== void 0) {
-        var bounds = element.getBoundingClientRect();
-        callback(fallbackInView, {
-          isIntersecting: fallbackInView,
-          target: element,
-          intersectionRatio: typeof options.threshold === "number" ? options.threshold : 0,
-          time: 0,
-          boundingClientRect: bounds,
-          intersectionRect: bounds,
-          rootBounds: bounds
-        });
-        return function() {
-        };
-      }
-      var _createObserver = createObserver(options), id = _createObserver.id, observer = _createObserver.observer, elements = _createObserver.elements;
-      var callbacks = elements.get(element) || [];
-      if (!elements.has(element)) {
-        elements.set(element, callbacks);
-      }
-      callbacks.push(callback);
-      observer.observe(element);
-      return function unobserve() {
-        callbacks.splice(callbacks.indexOf(callback), 1);
-        if (callbacks.length === 0) {
-          elements["delete"](element);
-          observer.unobserve(element);
-        }
-        if (elements.size === 0) {
-          observer.disconnect();
-          observerMap["delete"](id);
-        }
-      };
-    }
-    var _excluded = ["children", "as", "triggerOnce", "threshold", "root", "rootMargin", "onChange", "skip", "trackVisibility", "delay", "initialInView", "fallbackInView"];
-    function isPlainChildren(props) {
-      return typeof props.children !== "function";
-    }
-    var InView = /* @__PURE__ */ function(_React$Component) {
-      _inheritsLoose(InView2, _React$Component);
-      function InView2(props) {
-        var _this;
-        _this = _React$Component.call(this, props) || this;
-        _this.node = null;
-        _this._unobserveCb = null;
-        _this.handleNode = function(node) {
-          if (_this.node) {
-            _this.unobserve();
-            if (!node && !_this.props.triggerOnce && !_this.props.skip) {
-              _this.setState({
-                inView: !!_this.props.initialInView,
-                entry: void 0
-              });
-            }
-          }
-          _this.node = node ? node : null;
-          _this.observeNode();
-        };
-        _this.handleChange = function(inView, entry) {
-          if (inView && _this.props.triggerOnce) {
-            _this.unobserve();
-          }
-          if (!isPlainChildren(_this.props)) {
-            _this.setState({
-              inView,
-              entry
-            });
-          }
-          if (_this.props.onChange) {
-            _this.props.onChange(inView, entry);
-          }
-        };
-        _this.state = {
-          inView: !!props.initialInView,
-          entry: void 0
-        };
-        return _this;
-      }
-      var _proto = InView2.prototype;
-      _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
-        if (prevProps.rootMargin !== this.props.rootMargin || prevProps.root !== this.props.root || prevProps.threshold !== this.props.threshold || prevProps.skip !== this.props.skip || prevProps.trackVisibility !== this.props.trackVisibility || prevProps.delay !== this.props.delay) {
-          this.unobserve();
-          this.observeNode();
-        }
-      };
-      _proto.componentWillUnmount = function componentWillUnmount() {
-        this.unobserve();
-        this.node = null;
-      };
-      _proto.observeNode = function observeNode() {
-        if (!this.node || this.props.skip)
-          return;
-        var _this$props = this.props, threshold = _this$props.threshold, root = _this$props.root, rootMargin = _this$props.rootMargin, trackVisibility = _this$props.trackVisibility, delay = _this$props.delay, fallbackInView = _this$props.fallbackInView;
-        this._unobserveCb = observe(this.node, this.handleChange, {
-          threshold,
-          root,
-          rootMargin,
-          // @ts-ignore
-          trackVisibility,
-          // @ts-ignore
-          delay
-        }, fallbackInView);
-      };
-      _proto.unobserve = function unobserve() {
-        if (this._unobserveCb) {
-          this._unobserveCb();
-          this._unobserveCb = null;
-        }
-      };
-      _proto.render = function render() {
-        if (!isPlainChildren(this.props)) {
-          var _this$state = this.state, inView = _this$state.inView, entry = _this$state.entry;
-          return this.props.children({
-            inView,
-            entry,
-            ref: this.handleNode
-          });
-        }
-        var _this$props2 = this.props, children = _this$props2.children, as = _this$props2.as, props = _objectWithoutPropertiesLoose(_this$props2, _excluded);
-        return /* @__PURE__ */ React__namespace.createElement(as || "div", _extends({
-          ref: this.handleNode
-        }, props), children);
-      };
-      return InView2;
-    }(React__namespace.Component);
-    InView.displayName = "InView";
-    InView.defaultProps = {
-      threshold: 0,
-      triggerOnce: false,
-      initialInView: false
-    };
-    function useInView(_temp) {
-      var _ref = _temp === void 0 ? {} : _temp, threshold = _ref.threshold, delay = _ref.delay, trackVisibility = _ref.trackVisibility, rootMargin = _ref.rootMargin, root = _ref.root, triggerOnce = _ref.triggerOnce, skip = _ref.skip, initialInView = _ref.initialInView, fallbackInView = _ref.fallbackInView;
-      var unobserve = React__namespace.useRef();
-      var _React$useState = React__namespace.useState({
-        inView: !!initialInView
-      }), state = _React$useState[0], setState = _React$useState[1];
-      var setRef = React__namespace.useCallback(
-        function(node) {
-          if (unobserve.current !== void 0) {
-            unobserve.current();
-            unobserve.current = void 0;
-          }
-          if (skip)
-            return;
-          if (node) {
-            unobserve.current = observe(node, function(inView, entry) {
-              setState({
-                inView,
-                entry
-              });
-              if (entry.isIntersecting && triggerOnce && unobserve.current) {
-                unobserve.current();
-                unobserve.current = void 0;
-              }
-            }, {
-              root,
-              rootMargin,
-              threshold,
-              // @ts-ignore
-              trackVisibility,
-              // @ts-ignore
-              delay
-            }, fallbackInView);
-          }
-        },
-        // We break the rule here, because we aren't including the actual `threshold` variable
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [
-          // If the threshold is an array, convert it to a string so it won't change between renders.
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          Array.isArray(threshold) ? threshold.toString() : threshold,
-          root,
-          rootMargin,
-          triggerOnce,
-          skip,
-          trackVisibility,
-          fallbackInView,
-          delay
-        ]
-      );
-      React3.useEffect(function() {
-        if (!unobserve.current && state.entry && !triggerOnce && !skip) {
-          setState({
-            inView: !!initialInView
-          });
-        }
-      });
-      var result = [setRef, state.inView, state.entry];
-      result.ref = result[0];
-      result.inView = result[1];
-      result.entry = result[2];
-      return result;
-    }
-    exports.InView = InView;
-    exports["default"] = InView;
-    exports.defaultFallbackInView = defaultFallbackInView;
-    exports.observe = observe;
-    exports.useInView = useInView;
-  }
-});
-
-// node_modules/react-vertical-timeline-component/dist-es6/VerticalTimelineElement.js
-var require_VerticalTimelineElement = __commonJS({
-  "node_modules/react-vertical-timeline-component/dist-es6/VerticalTimelineElement.js"(exports) {
-    "use strict";
-    exports.__esModule = true;
-    exports.default = void 0;
-    var _react = _interopRequireDefault(require_react());
-    var _propTypes = _interopRequireDefault(require_prop_types());
-    var _classnames = _interopRequireDefault(require_classnames());
-    var _reactIntersectionObserver = require_react_intersection_observer();
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var VerticalTimelineElement2 = ({
-      children = "",
-      className = "",
-      contentArrowStyle = null,
-      contentStyle = null,
-      date = "",
-      dateClassName = "",
-      icon = null,
-      iconClassName = "",
-      iconOnClick = null,
-      onTimelineElementClick = null,
-      iconStyle = null,
-      id = "",
-      position = "",
-      style = null,
-      textClassName = "",
-      intersectionObserverProps = {
-        rootMargin: "0px 0px -40px 0px",
-        triggerOnce: true
-      },
-      visible = false
-    }) => /* @__PURE__ */ _react.default.createElement(_reactIntersectionObserver.InView, intersectionObserverProps, ({
-      inView,
-      ref
-    }) => /* @__PURE__ */ _react.default.createElement("div", {
-      ref,
-      id,
-      className: (0, _classnames.default)(className, "vertical-timeline-element", {
-        "vertical-timeline-element--left": position === "left",
-        "vertical-timeline-element--right": position === "right",
-        "vertical-timeline-element--no-children": children === ""
-      }),
-      style
-    }, /* @__PURE__ */ _react.default.createElement(_react.default.Fragment, null, /* @__PURE__ */ _react.default.createElement("span", {
-      // eslint-disable-line jsx-a11y/no-static-element-interactions
-      style: iconStyle,
-      onClick: iconOnClick,
-      className: (0, _classnames.default)(iconClassName, "vertical-timeline-element-icon", {
-        "bounce-in": inView || visible,
-        "is-hidden": !(inView || visible)
-      })
-    }, icon), /* @__PURE__ */ _react.default.createElement("div", {
-      style: contentStyle,
-      onClick: onTimelineElementClick,
-      className: (0, _classnames.default)(textClassName, "vertical-timeline-element-content", {
-        "bounce-in": inView || visible,
-        "is-hidden": !(inView || visible)
-      })
-    }, /* @__PURE__ */ _react.default.createElement("div", {
-      style: contentArrowStyle,
-      className: "vertical-timeline-element-content-arrow"
-    }), children, /* @__PURE__ */ _react.default.createElement("span", {
-      className: (0, _classnames.default)(dateClassName, "vertical-timeline-element-date")
-    }, date)))));
-    VerticalTimelineElement2.propTypes = {
-      children: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.node), _propTypes.default.node]),
-      className: _propTypes.default.string,
-      contentArrowStyle: _propTypes.default.shape({}),
-      contentStyle: _propTypes.default.shape({}),
-      date: _propTypes.default.node,
-      dateClassName: _propTypes.default.string,
-      icon: _propTypes.default.element,
-      iconClassName: _propTypes.default.string,
-      iconStyle: _propTypes.default.shape({}),
-      iconOnClick: _propTypes.default.func,
-      onTimelineElementClick: _propTypes.default.func,
-      id: _propTypes.default.string,
-      position: _propTypes.default.string,
-      style: _propTypes.default.shape({}),
-      textClassName: _propTypes.default.string,
-      visible: _propTypes.default.bool,
-      intersectionObserverProps: _propTypes.default.shape({
-        root: _propTypes.default.object,
-        rootMargin: _propTypes.default.string,
-        threshold: _propTypes.default.number,
-        triggerOnce: _propTypes.default.bool
-      })
-    };
-    var _default = VerticalTimelineElement2;
-    exports.default = _default;
-  }
-});
-
-// node_modules/react-vertical-timeline-component/dist-es6/index.js
-var require_dist_es6 = __commonJS({
-  "node_modules/react-vertical-timeline-component/dist-es6/index.js"(exports, module) {
-    "use strict";
-    module.exports = {
-      VerticalTimeline: require_VerticalTimeline().default,
-      // eslint-disable-line global-require
-      VerticalTimelineElement: require_VerticalTimelineElement().default
-      // eslint-disable-line global-require
-    };
-  }
-});
-
 // main.tsx
-var import_react6 = __toESM(require_react(), 1);
+var import_react9 = __toESM(require_react(), 1);
 var import_client = __toESM(require_client(), 1);
 
 // luis-site/src/components/Navbar.tsx
@@ -8533,543 +7915,325 @@ function Navbar() {
 }
 
 // luis-site/src/components/Timeline.tsx
-var import_react_vertical_timeline_component = __toESM(require_dist_es6());
+var import_react5 = __toESM(require_react());
 
 // luis-site/data/timeline.json
 var timeline_default = [
   {
+    date: "Aug 2015",
+    startDate: "2015-08-01",
+    title: "Started at Grand Island Senior High",
+    category: "Education",
+    snippet: "First day at GISH.",
+    color: "#6b7280"
+  },
+  {
+    date: "Sep 2017 \u2013 Aug 2019",
+    startDate: "2017-09-01",
+    title: "First job \u2014 Runza, Cashier",
+    category: "Work",
+    snippet: "Kept orders moving at the register.",
+    info: "Front-of-house speed, accuracy, and customer empathy under real pressure.",
+    links: [
+      { label: "Runza", url: "https://www.runza.com" }
+    ],
+    color: "#2e8b57"
+  },
+  {
     date: "Aug 2018 \u2013 May 2019",
     startDate: "2018-08-01",
-    title: "Student Representative, GIPS Board of Education",
-    description: "Represented students on the Grand Island Public Schools Board of Education.",
+    title: "Student Board Representative, GIPS",
+    category: "Education",
+    snippet: "Sat beside board members to give students a voice.",
+    info: "Elected student voice for a Nebraska Class A district, representing 3,000+ students at monthly board meetings.",
     links: [
-      "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306"
-    ]
+      { label: "Board agenda", url: "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306" }
+    ],
+    color: "#cc0000"
+  },
+  {
+    date: "Oct 2018",
+    startDate: "2018-10-01",
+    title: "Met Madi \u2014 future partner-in-crime",
+    category: "Personal",
+    snippet: "Said hello, never looked back.",
+    color: "#e11d48"
+  },
+  {
+    date: "Jan 2019",
+    startDate: "2019-01-01",
+    title: "Selected speaker, NASB Annual Meeting",
+    category: "Awards",
+    snippet: "Shared student perspective statewide.",
+    info: "Invited to present at the Nebraska Association of School Boards\u2019 statewide conference.",
+    color: "#1d4ed8"
+  },
+  {
+    date: "May 2019",
+    startDate: "2019-05-01",
+    title: "Graduated GISH",
+    category: "Education",
+    snippet: "Wrapped up high school on a high note.",
+    color: "#6b7280"
   },
   {
     date: "Aug 2019",
     startDate: "2019-08-01",
-    title: "Began dual-degree program at UNO",
-    description: "Started pursuing Economics and Mathematics degrees at the University of Nebraska at Omaha.",
+    title: "Began dual degrees at UNO \u2014 Economics (BA), Mathematics (BS)",
+    category: "Education",
+    snippet: "Jumped into Econ and Math at UNO.",
+    info: "Competitive Nebraska awards that funded a debt-free path.",
     links: [
-      "https://www.unomaha.edu"
-    ]
+      { label: "UNO", url: "https://www.unomaha.edu" }
+    ],
+    color: "#cc0000"
   },
   {
-    date: "Aug 2020 \u2013 May 2022",
-    startDate: "2020-08-01",
-    title: "Club Leadership",
-    description: "Held leadership roles in student clubs at UNO."
+    date: "Jan 2020 \u2013 Aug 2021",
+    startDate: "2020-01-01",
+    title: "Econ Club Treasurer",
+    category: "Work",
+    snippet: "Balanced books for budding economists.",
+    color: "#cc0000"
   },
   {
-    date: "Aug 2022 \u2013 May 2023",
-    startDate: "2022-08-01",
-    title: "Honors Thesis Research",
-    description: "Used IBM CPLEX to model an integer programming approach for selecting an optimal wedding venue that minimizes guest travel distance.",
+    date: "May 2020 \u2013 May 2021",
+    startDate: "2020-05-01",
+    title: "Honors Association Treasurer",
+    category: "Work",
+    snippet: "Tracked dues and kept events funded.",
+    color: "#cc0000"
+  },
+  {
+    date: "Aug 2021 \u2013 May 2023",
+    startDate: "2021-08-01",
+    title: "Econ Club President",
+    category: "Work",
+    snippet: "Led a crew of data-minded peers.",
+    color: "#cc0000"
+  },
+  {
+    date: "Sep 2021 \u2013 Jan 2022",
+    startDate: "2021-09-01",
+    title: "FMA Vice-President",
+    category: "Work",
+    snippet: "Coordinated finance workshops and speakers.",
+    color: "#cc0000"
+  },
+  {
+    date: "Fall 2021 \u2013 Spring 2022",
+    startDate: "2021-09-02",
+    title: "Finite-field project",
+    category: "Education",
+    snippet: "Explored linear algebra over finite fields.",
+    info: "Presented at UNO SRCAF and MAA; distilled advanced math for broad audiences.",
     links: [
-      "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program"
-    ]
+      { label: "UNO SRCAF Abstract", url: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/" }
+    ],
+    color: "#cc0000"
+  },
+  {
+    date: "Sep 2021 \u2013 May 2023",
+    startDate: "2021-09-03",
+    title: "Honors thesis with IBM CPLEX",
+    category: "Education",
+    snippet: "Optimized wedding venues with integer programming.",
+    info: "Presented at UNO SRCAF and MAA; distilled advanced math for broad audiences.",
+    links: [
+      { label: "UNO Honors Thesis (PDF)", url: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program" }
+    ],
+    color: "#cc0000"
+  },
+  {
+    date: "Nov 2021 \u2013 Apr 2022",
+    startDate: "2021-11-01",
+    title: "Northwestern Mutual, Intern",
+    category: "Work",
+    snippet: "Handled first client calls under navy and gold.",
+    color: "#0033a0"
+  },
+  {
+    date: "Apr 2022 \u2013 Feb 2024",
+    startDate: "2022-04-01",
+    title: "Ludacka, Analyst",
+    category: "Work",
+    snippet: "Crafted financial plans in a boutique shop.",
+    color: "#6b7280"
   },
   {
     date: "May 2023",
     startDate: "2023-05-01",
-    title: "Married Madison",
-    description: "Married high school sweetheart Madison."
+    title: "Graduated UNO; married Madi",
+    category: "Education",
+    snippet: "Closed out dual degrees with a 4.0 and tied the knot.",
+    color: "#cc0000"
   },
   {
-    date: "Jul 2023",
-    startDate: "2023-07-01",
-    title: "Passed FINRA Series 7 & 63 Exams",
-    description: "Earned FINRA Series 7 and 63 licenses."
-  },
-  {
-    date: "Feb 2024",
+    date: "Feb 2024 \u2013 Present",
     startDate: "2024-02-01",
-    title: "Joined Telos Actuarial",
-    description: "Started as an actuarial analyst at Telos Actuarial.",
+    title: "Actuarial Analyst, Telos Actuarial",
+    category: "Work",
+    snippet: "Solving pension puzzles with VBA, SQL, and Excel.",
+    info: "Automated ETL for reserving; projections for filings; internal dashboards for clarity.",
     links: [
-      "https://www.telosactuarial.com/about"
-    ]
+      { label: "Telos Actuarial", url: "https://www.telosactuarial.com/about" }
+    ],
+    color: "#0d9488"
   },
   {
     date: "Apr \u2013 Oct 2024",
     startDate: "2024-04-01",
-    title: "Completed Actuarial Exams FM, P, SRM, and PA",
-    description: "Passed exams FM, P, SRM, and PA between April and October 2024."
+    title: "SOA exams FM, P, SRM, PA",
+    category: "Awards",
+    snippet: "Four prelims down in a year.",
+    info: "Four prelims passed within one year.",
+    color: "#1d4ed8"
   },
   {
     date: "Sep 26 2024",
     startDate: "2024-09-26",
-    title: "Harvest Gala Speaker",
-    description: "Delivered a speech at the GIPS Foundation Harvest fundraising gala.",
+    title: "Mission-Moment Speaker, GIPS Harvest Gala",
+    category: "Personal",
+    snippet: "Shared scholarship story with donors.",
+    info: "Selected keynote moment to inspire donor community; spotlight on scholarship impact.",
     links: [
-      "https://my.onecause.com/event/organizations/sf-0013c00001zv03cAAA/events/vevt%3A58ff120c-6989-4bd7-95ab-d2430df558d0/home/story"
-    ]
+      { label: "Harvest Gala", url: "https://my.onecause.com/event/organizations/sf-0013c00001zv03cAAA/events/vevt%3A58ff120c-6989-4bd7-95ab-d2430df558d0/home/story" }
+    ],
+    color: "#e11d48"
+  },
+  {
+    date: "Dec 2024",
+    startDate: "2024-12-01",
+    title: "Shipped Fitness Toolkit",
+    category: "Work",
+    snippet: "Released a light-theme reference app.",
+    color: "#6b7280"
   },
   {
     date: "May \u2013 Jun 2025",
     startDate: "2025-05-01",
-    title: "Super Secret Special Project",
-    description: "Details coming soon; stay tuned."
+    title: "Super Secret Special Project \u{1F512}",
+    category: "Work",
+    snippet: "Built something cool under wraps.",
+    info: "NDA; challenge-based production; details coming soon.",
+    color: "#6b7280"
   },
   {
     date: "Aug 2025",
     startDate: "2025-08-01",
-    title: "Present Day",
-    description: "Continuing to pursue personal and professional growth."
+    title: "Actuarial analyst at Telos; next credentials in sight",
+    category: "Work",
+    snippet: "I like hard problems, and actuarial science gives me plenty.",
+    color: "#0d9488"
   }
 ];
 
-// luis-site/src/components/Timeline.tsx
-var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-function Timeline() {
-  const data = timeline_default.sort(
-    (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
-  );
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react_vertical_timeline_component.VerticalTimeline, { children: data.map((ev) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-    import_react_vertical_timeline_component.VerticalTimelineElement,
-    {
-      date: ev.date,
-      contentStyle: { boxShadow: "0 2px 8px rgba(0,0,0,0.1)" },
-      contentArrowStyle: { borderRight: "7px solid rgba(0,0,0,0.1)" },
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h3", { className: "text-lg font-semibold", children: ev.title }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "text-sm leading-relaxed", children: ev.description }),
-        ev.links && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("ul", { className: "list-disc list-inside mt-2", children: ev.links.map((link) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          "a",
-          {
-            href: link,
-            target: "_blank",
-            rel: "noopener noreferrer",
-            className: "text-primary underline",
-            children: link
-          }
-        ) }, link)) })
-      ]
-    },
-    ev.title
-  )) });
-}
+// luis-site/node_modules/react-icons/lib/esm/iconBase.js
+var import_react3 = __toESM(require_react());
 
-// luis-site/src/sections/ResumeSummary.tsx
-var import_jsx_runtime3 = __toESM(require_jsx_runtime());
-function ResumeSummary() {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
-    "section",
-    {
-      id: "resume",
-      className: "px-4 py-12 flex flex-col items-center text-center bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { id: "timeline", className: "w-full max-w-3xl mb-8", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Timeline, {}) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          "img",
-          {
-            src: "headshot-placeholder.svg",
-            alt: "Headshot of Luis Rodriguez",
-            width: 200,
-            height: 200,
-            className: "mb-4 rounded-full",
-            loading: "lazy"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "max-w-2xl mb-6 leading-relaxed", children: "Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full r\xE9sum\xE9 is available as a downloadable PDF for detailed viewing." }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          "a",
-          {
-            href: "LuisRodriguez_Resume.pdf",
-            className: "px-6 py-3 bg-primary text-white rounded shadow",
-            download: true,
-            target: "_blank",
-            rel: "noopener noreferrer",
-            children: "Download R\xE9sum\xE9 (PDF)"
-          }
-        )
-      ]
-    }
-  );
-}
-
-// luis-site/src/components/Card.tsx
+// luis-site/node_modules/react-icons/lib/esm/iconContext.js
 var import_react2 = __toESM(require_react());
-var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-function Card({ imageSrc, icon, title, summary, detail }) {
-  const [open, setOpen] = (0, import_react2.useState)(false);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "bg-white rounded shadow-md p-6 transition-shadow hover:shadow-lg", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center mb-2", children: [
-      imageSrc ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          "img",
-          {
-            src: imageSrc,
-            alt: "",
-            width: 48,
-            height: 48,
-            className: "w-12 h-12 mr-4 object-cover",
-            loading: "lazy"
-          }
-        )
-      ) : icon ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "w-12 h-12 mr-4 flex items-center justify-center", children: icon }) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "text-xl font-semibold", children: title })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-sm text-gray-600 mb-2", children: summary }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      "button",
-      {
-        type: "button",
-        onClick: () => setOpen(!open),
-        className: "text-primary underline text-sm",
-        "aria-expanded": open,
-        children: open ? "Hide details" : "View details"
-      }
-    ),
-    open && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "mt-2 text-sm", children: detail })
-  ] });
-}
+var DefaultContext = {
+  color: void 0,
+  size: void 0,
+  className: void 0,
+  style: void 0,
+  attr: void 0
+};
+var IconContext = import_react2.default.createContext && import_react2.default.createContext(DefaultContext);
 
-// luis-site/src/sections/Education.tsx
-var import_jsx_runtime5 = __toESM(require_jsx_runtime());
-function AcademicCapIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 24 24",
+// luis-site/node_modules/react-icons/lib/esm/iconBase.js
+var __assign = function() {
+  __assign = Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+      for (var p in s)
+        if (Object.prototype.hasOwnProperty.call(s, p))
+          t[p] = s[p];
+    }
+    return t;
+  };
+  return __assign.apply(this, arguments);
+};
+var __rest = function(s, e) {
+  var t = {};
+  for (var p in s)
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+      t[p] = s[p];
+  if (s != null && typeof Object.getOwnPropertySymbols === "function")
+    for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+      if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+        t[p[i]] = s[p[i]];
+    }
+  return t;
+};
+function Tree2Element(tree) {
+  return tree && tree.map(function(node, i) {
+    return import_react3.default.createElement(node.tag, __assign({
+      key: i
+    }, node.attr), Tree2Element(node.child));
+  });
+}
+function GenIcon(data) {
+  return function(props) {
+    return import_react3.default.createElement(IconBase, __assign({
+      attr: __assign({}, data.attr)
+    }, props), Tree2Element(data.child));
+  };
+}
+function IconBase(props) {
+  var elem = function(conf) {
+    var attr = props.attr, size = props.size, title = props.title, svgProps = __rest(props, ["attr", "size", "title"]);
+    var computedSize = size || conf.size || "1em";
+    var className;
+    if (conf.className)
+      className = conf.className;
+    if (props.className)
+      className = (className ? className + " " : "") + props.className;
+    return import_react3.default.createElement("svg", __assign({
+      stroke: "currentColor",
       fill: "currentColor",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M11.7 2.13a.75.75 0 01.6 0l9 4a.75.75 0 010 1.36l-2.21.98a4.5 4.5 0 01-8.76 0l-2.21-.98a.75.75 0 010-1.36l9-4z" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M21.75 12a.75.75 0 00-1.5 0v2.763a9.71 9.71 0 01-7.5 3.487 9.71 9.71 0 01-7.5-3.487V12a.75.75 0 00-1.5 0v2.763c0 .748.167 1.481.49 2.15a6.22 6.22 0 001.348 1.86l-.872 2.615a.75.75 0 001.423.474l.87-2.607a11.21 11.21 0 0012.582 0l.87 2.607a.75.75 0 001.423-.474l-.872-2.615a6.22 6.22 0 001.348-1.86 5.6 5.6 0 00.49-2.15V12z" })
-      ]
-    }
-  );
-}
-var schools = [
-  {
-    institution: "University of Nebraska at Omaha",
-    degree: "B.A. Economics",
-    gpa: "4.0",
-    concentration: "Data Analytics",
-    scholarships: [
-      "Susan T. Buffett Scholarship",
-      "Jack & Lucile Martin Scholarship"
-    ],
-    honors: [
-      "Pi Mu Epsilon (Mathematics)",
-      "Omicron Delta Epsilon (Economics)"
-    ],
-    dates: "2019\u20132023",
-    color: "text-red-600"
-  },
-  {
-    institution: "University of Nebraska at Omaha",
-    degree: "B.S. Mathematics",
-    gpa: "4.0",
-    concentration: "Statistics & Data Science",
-    scholarships: [
-      "Susan T. Buffett Scholarship",
-      "Jack & Lucile Martin Scholarship"
-    ],
-    honors: [
-      "Pi Mu Epsilon (Mathematics)",
-      "Omicron Delta Epsilon (Economics)"
-    ],
-    dates: "2019\u20132023",
-    color: "text-red-600"
-  },
-  {
-    institution: "Grand Island Senior High",
-    degree: "High School Diploma",
-    scholarships: [],
-    honors: [
-      "Student Board Representative",
-      "National Honor Society"
-    ],
-    dates: "2015\u20132019",
-    color: "text-purple-600"
-  }
-];
-function Education() {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
-    "section",
-    {
-      id: "education",
-      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Education" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: schools.map((s) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-          Card,
-          {
-            icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(AcademicCapIcon, { className: `h-6 w-6 ${s.color}` }),
-            title: s.institution,
-            summary: `${s.degree} (${s.dates})${s.gpa ? ` \u2014 GPA: ${s.gpa}` : ""}`,
-            detail: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-              s.concentration && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", { className: "mb-4 leading-relaxed", children: [
-                "Concentration: ",
-                s.concentration
-              ] }),
-              s.scholarships.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Scholarships" }),
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { className: "list-disc list-inside mb-4", children: s.scholarships.map((item) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("abbr", { title: item, children: item }) }, item)) })
-              ] }),
-              s.honors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Honor Societies" }),
-                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { className: "list-disc list-inside", children: s.honors.map((item) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: item }, item)) })
-              ] })
-            ] })
-          },
-          s.institution
-        )) })
-      ]
-    }
-  );
+      strokeWidth: "0"
+    }, conf.attr, attr, svgProps, {
+      className,
+      style: __assign(__assign({
+        color: props.color || conf.color
+      }, conf.style), props.style),
+      height: computedSize,
+      width: computedSize,
+      xmlns: "http://www.w3.org/2000/svg"
+    }), title && import_react3.default.createElement("title", null, title), props.children);
+  };
+  return IconContext !== void 0 ? import_react3.default.createElement(IconContext.Consumer, null, function(conf) {
+    return elem(conf);
+  }) : elem(DefaultContext);
 }
 
-// luis-site/src/sections/Research.tsx
-var import_jsx_runtime6 = __toESM(require_jsx_runtime());
-var projects = [
-  {
-    title: "Finite-Field Linear Algebra",
-    dates: "Sep 2021 \u2013 Apr 2022",
-    summary: "Studied numerical ranges over finite fields.",
-    presentations: [
-      "UNO Student Research and Creative Activity Fair",
-      "MAA North Central Section Conference"
-    ],
-    link: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/"
-  },
-  {
-    title: "Integer-Programming Wedding Venue Thesis",
-    dates: "Aug 2022 \u2013 May 2023",
-    summary: "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
-    link: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program"
-  }
-];
-function Research() {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
-    "section",
-    {
-      id: "research",
-      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Research" }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          Card,
-          {
-            title: p.title,
-            summary: p.dates,
-            detail: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "mb-4 leading-relaxed", children: p.summary }),
-              p.presentations && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "mb-4 list-disc list-inside", children: p.presentations.map((e) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("li", { children: e }, e)) }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-                "a",
-                {
-                  href: p.link,
-                  className: "text-primary underline",
-                  target: "_blank",
-                  rel: "noopener noreferrer",
-                  children: "Learn more"
-                }
-              )
-            ] })
-          },
-          p.title
-        )) })
-      ]
-    }
-  );
+// luis-site/node_modules/react-icons/fa/index.esm.js
+function FaBriefcase(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M320 336c0 8.84-7.16 16-16 16h-96c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z" } }] })(props);
 }
-
-// luis-site/src/sections/Experience.tsx
-var import_jsx_runtime7 = __toESM(require_jsx_runtime());
-function BriefcaseIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"
-        }
-      )
-    }
-  );
+function FaGraduationCap(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 640 512" }, "child": [{ "tag": "path", "attr": { "d": "M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z" } }] })(props);
 }
-function CalculatorIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z"
-        }
-      )
-    }
-  );
+function FaHeart(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z" } }] })(props);
 }
-function ChartBarIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
-        }
-      )
-    }
-  );
+function FaInfoCircle(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z" } }] })(props);
 }
-function BookOpenIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-        }
-      )
-    }
-  );
-}
-function BuildingStorefrontIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
-        }
-      )
-    }
-  );
-}
-var experiences = [
-  {
-    company: "Telos Actuarial",
-    role: "Actuarial Analyst",
-    period: "Feb 2024 \u2013 Present",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CalculatorIcon, { className: "h-6 w-6 text-blue-600" }),
-    details: [
-      "Automate valuation workflows in Excel using VBA",
-      "Query and validate large datasets with SQL for actuarial analysis"
-    ]
-  },
-  {
-    company: "Ludacka Wealth Partners",
-    role: "Financial Planning Analyst",
-    period: "Apr 2022 \u2013 Feb 2024",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BriefcaseIcon, { className: "h-6 w-6 text-secondary" }),
-    details: [
-      "Prepared customized financial plans and cash\u2011flow projections",
-      "Maintained client data and produced investment reports in Excel"
-    ]
-  },
-  {
-    company: "Northwestern Mutual",
-    role: "Financial Representative Intern",
-    period: "Nov 2021 \u2013 Apr 2022",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(ChartBarIcon, { className: "h-6 w-6 text-yellow-600" }),
-    details: [
-      "Prospected clients and scheduled financial planning meetings",
-      "Prepared insurance illustrations and plan proposals"
-    ]
-  },
-  {
-    company: "UNO College of Business Administration",
-    role: "Mathematics Tutor",
-    period: "Aug 2020 \u2013 Dec 2021",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BookOpenIcon, { className: "h-6 w-6 text-red-600" }),
-    details: [
-      "Tutored students in calculus and statistics to reinforce coursework",
-      "Led review sessions that improved problem\u2011solving skills"
-    ]
-  },
-  {
-    company: "Runza Restaurants",
-    role: "Cashier",
-    period: "Sep 2017 \u2013 Aug 2019",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BuildingStorefrontIcon, { className: "h-6 w-6 text-green-600" }),
-    details: [
-      "Provided prompt customer service and processed cash transactions",
-      "Assisted with food preparation and maintained clean work areas"
-    ]
-  }
-];
-function Experience() {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
-    "section",
-    {
-      id: "experience",
-      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Experience" }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: experiences.map((exp) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-          Card,
-          {
-            icon: exp.icon,
-            title: exp.role,
-            summary: `${exp.company} | ${exp.period}`,
-            detail: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("ul", { className: "list-disc list-inside space-y-1", children: exp.details.map((d) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("li", { children: d }, d)) })
-          },
-          exp.company + exp.role
-        )) })
-      ]
-    }
-  );
+function FaTrophy(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 576 512" }, "child": [{ "tag": "path", "attr": { "d": "M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z" } }] })(props);
 }
 
 // luis-site/src/components/Tooltip.tsx
-var import_react3 = __toESM(require_react());
-var import_jsx_runtime8 = __toESM(require_jsx_runtime());
+var import_react4 = __toESM(require_react());
+var import_jsx_runtime2 = __toESM(require_jsx_runtime());
 function Tooltip({ content, children }) {
-  const [visible, setVisible] = (0, import_react3.useState)(false);
-  const id = (0, import_react3.useId)();
+  const [visible, setVisible] = (0, import_react4.useState)(false);
+  const id = (0, import_react4.useId)();
   const childProps = children.props;
-  const trigger = (0, import_react3.cloneElement)(
+  const trigger = (0, import_react4.cloneElement)(
     children,
     {
       "aria-describedby": id,
@@ -9091,9 +8255,9 @@ function Tooltip({ content, children }) {
       }
     }
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "relative inline-block", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { className: "relative inline-block", children: [
     trigger,
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
       "span",
       {
         id,
@@ -9103,6 +8267,564 @@ function Tooltip({ content, children }) {
       }
     )
   ] });
+}
+
+// luis-site/src/components/Timeline.tsx
+var import_jsx_runtime3 = __toESM(require_jsx_runtime());
+var icons = {
+  Education: FaGraduationCap,
+  Work: FaBriefcase,
+  Awards: FaTrophy,
+  Personal: FaHeart
+};
+function Timeline() {
+  const data = timeline_default.sort(
+    (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+  );
+  const containerRef = (0, import_react5.useRef)(null);
+  const [hint, setHint] = (0, import_react5.useState)(true);
+  const scrollBy = (dir) => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    containerRef.current?.scrollBy({
+      left: dir * 280,
+      behavior: prefersReduced ? "auto" : "smooth"
+    });
+    if (hint)
+      setHint(false);
+  };
+  const handleKey = (e) => {
+    if (e.key === "ArrowRight")
+      scrollBy(1);
+    if (e.key === "ArrowLeft")
+      scrollBy(-1);
+    if (hint)
+      setHint(false);
+  };
+  const handleInteract = () => setHint(false);
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "relative my-8", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      "div",
+      {
+        ref: containerRef,
+        className: "flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory",
+        role: "listbox",
+        tabIndex: 0,
+        onKeyDown: handleKey,
+        onWheel: handleInteract,
+        onTouchStart: handleInteract,
+        "aria-label": "Timeline",
+        children: data.map((ev) => {
+          const Icon = icons[ev.category];
+          return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            "div",
+            {
+              role: "option",
+              "aria-selected": "false",
+              className: "snap-start shrink-0 w-72 bg-white rounded-2xl shadow p-4 focus:outline-none focus:ring-2 focus:ring-primary",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center mb-2 text-sm text-gray-600", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon, { className: "mr-2", style: { color: ev.color }, "aria-hidden": "true" }),
+                  ev.date
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "text-base font-semibold", children: ev.title }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "text-sm mt-1 text-gray-700 leading-relaxed flex items-start", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: ev.snippet }),
+                  ev.info && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Tooltip, { content: ev.info, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      className: "ml-1 text-primary flex-shrink-0 focus:outline-none",
+                      "aria-label": "More info",
+                      children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(FaInfoCircle, { className: "h-3 w-3" })
+                    }
+                  ) })
+                ] }),
+                ev.links && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("ul", { className: "mt-2 text-sm space-y-1", children: ev.links.map((l) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                  "a",
+                  {
+                    href: l.url,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className: "underline underline-offset-2 decoration-primary hover:decoration-2",
+                    children: l.label
+                  }
+                ) }, l.url)) })
+              ]
+            },
+            ev.title
+          );
+        })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      "div",
+      {
+        className: `absolute right-4 top-0 text-xs text-gray-500 transition-opacity select-none ${hint ? "opacity-100" : "opacity-0"}`,
+        children: "drag to scroll \u2192"
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      "button",
+      {
+        type: "button",
+        "aria-label": "Previous",
+        onClick: () => scrollBy(-1),
+        className: "hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow",
+        children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          "svg",
+          {
+            className: "h-4 w-4",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M15 19l-7-7 7-7" })
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      "button",
+      {
+        type: "button",
+        "aria-label": "Next",
+        onClick: () => scrollBy(1),
+        className: "hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow",
+        children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          "svg",
+          {
+            className: "h-4 w-4",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M9 5l7 7-7 7" })
+          }
+        )
+      }
+    )
+  ] });
+}
+
+// luis-site/src/sections/ResumeSummary.tsx
+var import_jsx_runtime4 = __toESM(require_jsx_runtime());
+function ResumeSummary() {
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+    "section",
+    {
+      id: "resume",
+      className: "px-4 py-8 flex flex-col items-center text-center bg-background",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "img",
+          {
+            src: "headshot-placeholder.svg",
+            alt: "Headshot of Luis Rodriguez",
+            width: 200,
+            height: 200,
+            className: "mb-4 rounded-full",
+            loading: "lazy"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "max-w-2xl mb-6 leading-relaxed", children: "Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full r\xE9sum\xE9 is available as a downloadable PDF for detailed viewing." }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { id: "timeline", className: "w-full max-w-3xl mb-6", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Timeline, {}) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "a",
+          {
+            href: "LuisRodriguez_Resume.pdf",
+            className: "px-6 py-3 bg-primary text-white rounded shadow",
+            download: true,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            children: "Download R\xE9sum\xE9 (PDF)"
+          }
+        )
+      ]
+    }
+  );
+}
+
+// luis-site/src/components/Card.tsx
+var import_react6 = __toESM(require_react());
+var import_jsx_runtime5 = __toESM(require_jsx_runtime());
+function Card({ imageSrc, icon, title, summary, detail }) {
+  const [open, setOpen] = (0, import_react6.useState)(false);
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "bg-white rounded-2xl shadow-md p-6 transition-shadow hover:shadow-lg", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center mb-2", children: [
+      imageSrc ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "img",
+          {
+            src: imageSrc,
+            alt: "",
+            width: 48,
+            height: 48,
+            className: "w-12 h-12 mr-4 object-cover",
+            loading: "lazy"
+          }
+        )
+      ) : icon ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "w-12 h-12 mr-4 flex items-center justify-center", children: icon }) : null,
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-xl font-semibold", children: title })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "text-sm text-gray-600 mb-2", children: summary }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      "button",
+      {
+        type: "button",
+        onClick: () => setOpen(!open),
+        className: "text-primary underline text-sm",
+        "aria-expanded": open,
+        children: open ? "Hide details" : "View details"
+      }
+    ),
+    open && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mt-2 text-sm", children: detail })
+  ] });
+}
+
+// luis-site/src/sections/Education.tsx
+var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+function AcademicCapIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      fill: "currentColor",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("path", { d: "M11.7 2.13a.75.75 0 01.6 0l9 4a.75.75 0 010 1.36l-2.21.98a4.5 4.5 0 01-8.76 0l-2.21-.98a.75.75 0 010-1.36l9-4z" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("path", { d: "M21.75 12a.75.75 0 00-1.5 0v2.763a9.71 9.71 0 01-7.5 3.487 9.71 9.71 0 01-7.5-3.487V12a.75.75 0 00-1.5 0v2.763c0 .748.167 1.481.49 2.15a6.22 6.22 0 001.348 1.86l-.872 2.615a.75.75 0 001.423.474l.87-2.607a11.21 11.21 0 0012.582 0l.87 2.607a.75.75 0 001.423-.474l-.872-2.615a6.22 6.22 0 001.348-1.86 5.6 5.6 0 00.49-2.15V12z" })
+      ]
+    }
+  );
+}
+var schools = [
+  {
+    institution: "University of Nebraska at Omaha",
+    degree: "B.A. Economics",
+    gpa: "4.0",
+    concentration: "Data Analytics",
+    scholarships: [
+      "Susan T. Buffett Scholarship",
+      "Jack & Lucile Martin Scholarship"
+    ],
+    honors: [
+      "Pi Mu Epsilon (Mathematics)",
+      "Omicron Delta Epsilon (Economics)",
+      "Phi Kappa Phi"
+    ],
+    dates: "2019\u20132023",
+    color: "text-red-600"
+  },
+  {
+    institution: "University of Nebraska at Omaha",
+    degree: "B.S. Mathematics",
+    gpa: "4.0",
+    concentration: "Statistics & Data Science",
+    scholarships: [
+      "Susan T. Buffett Scholarship",
+      "Jack & Lucile Martin Scholarship"
+    ],
+    honors: [
+      "Pi Mu Epsilon (Mathematics)",
+      "Omicron Delta Epsilon (Economics)",
+      "Phi Kappa Phi"
+    ],
+    dates: "2019\u20132023",
+    color: "text-red-600"
+  },
+  {
+    institution: "Grand Island Senior High",
+    degree: "High School Diploma",
+    scholarships: [],
+    honors: [
+      "Student Board Representative",
+      "National Honor Society"
+    ],
+    dates: "2015\u20132019",
+    color: "text-purple-600"
+  }
+];
+function Education() {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    "section",
+    {
+      id: "education",
+      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Education" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: schools.map((s) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          Card,
+          {
+            icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(AcademicCapIcon, { className: `h-6 w-6 ${s.color}` }),
+            title: s.institution,
+            summary: `${s.degree} (${s.dates})${s.gpa ? ` \u2014 GPA: ${s.gpa}` : ""}`,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+              s.concentration && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "mb-4 leading-relaxed", children: [
+                "Concentration: ",
+                s.concentration
+              ] }),
+              s.scholarships.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Scholarships" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "list-disc list-inside mb-4", children: s.scholarships.map((item) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Tooltip, { content: "Competitive Nebraska awards that funded a debt-free path", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: item }) }) }, item)) })
+              ] }),
+              s.honors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Honor Societies" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "list-disc list-inside", children: s.honors.map((item) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("li", { children: item === "Phi Kappa Phi" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Tooltip, { content: "Top 7.5% of students across all disciplines", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: item }) }) : item }, item)) })
+              ] })
+            ] })
+          },
+          s.institution
+        )) })
+      ]
+    }
+  );
+}
+
+// luis-site/src/sections/Research.tsx
+var import_jsx_runtime7 = __toESM(require_jsx_runtime());
+var projects = [
+  {
+    title: "Finite-Field Linear Algebra",
+    dates: "Sep 2021 \u2013 Apr 2022",
+    summary: "Studied numerical ranges over finite fields.",
+    presentations: [
+      "UNO Student Research and Creative Activity Fair",
+      "MAA North Central Section Conference"
+    ],
+    link: {
+      label: "UNO SRCAF Abstract",
+      url: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/"
+    }
+  },
+  {
+    title: "Integer-Programming Wedding Venue Thesis",
+    dates: "Aug 2022 \u2013 May 2023",
+    summary: "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
+    link: {
+      label: "UNO Honors Thesis (PDF)",
+      url: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program"
+    }
+  }
+];
+function Research() {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+    "section",
+    {
+      id: "research",
+      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Research" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          Card,
+          {
+            title: p.title,
+            summary: p.dates,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "mb-4 leading-relaxed", children: p.summary }),
+              p.presentations && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("ul", { className: "mb-4 list-disc list-inside", children: p.presentations.map((e) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("li", { children: e }, e)) }),
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                "a",
+                {
+                  href: p.link.url,
+                  className: "text-primary underline",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  children: p.link.label
+                }
+              )
+            ] })
+          },
+          p.title
+        )) })
+      ]
+    }
+  );
+}
+
+// luis-site/src/sections/Experience.tsx
+var import_jsx_runtime8 = __toESM(require_jsx_runtime());
+function BriefcaseIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"
+        }
+      )
+    }
+  );
+}
+function CalculatorIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z"
+        }
+      )
+    }
+  );
+}
+function ChartBarIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
+        }
+      )
+    }
+  );
+}
+function BookOpenIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+        }
+      )
+    }
+  );
+}
+function BuildingStorefrontIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+        }
+      )
+    }
+  );
+}
+var experiences = [
+  {
+    company: "Telos Actuarial",
+    role: "Actuarial Analyst",
+    period: "Feb 2024 \u2013 Present",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(CalculatorIcon, { className: "h-6 w-6 text-[#0d9488]" }),
+    details: [
+      "Automate valuation workflows in Excel using VBA",
+      "Query and validate large datasets with SQL for actuarial analysis"
+    ]
+  },
+  {
+    company: "Ludacka Wealth Partners",
+    role: "Financial Planning Analyst",
+    period: "Apr 2022 \u2013 Feb 2024",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(BriefcaseIcon, { className: "h-6 w-6 text-gray-500" }),
+    details: [
+      "Prepared customized financial plans and cash\u2011flow projections",
+      "Maintained client data and produced investment reports in Excel"
+    ]
+  },
+  {
+    company: "Northwestern Mutual",
+    role: "Financial Representative Intern",
+    period: "Nov 2021 \u2013 Apr 2022",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(ChartBarIcon, { className: "h-6 w-6 text-[#0033a0]" }),
+    details: [
+      "Prospected clients and scheduled financial planning meetings",
+      "Prepared insurance illustrations and plan proposals"
+    ]
+  },
+  {
+    company: "UNO College of Business Administration",
+    role: "Mathematics Tutor",
+    period: "Aug 2020 \u2013 Dec 2021",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(BookOpenIcon, { className: "h-6 w-6 text-red-600" }),
+    details: [
+      "Tutored students in calculus and statistics to reinforce coursework",
+      "Led review sessions that improved problem\u2011solving skills"
+    ]
+  },
+  {
+    company: "Runza Restaurants",
+    role: "Cashier",
+    period: "Sep 2017 \u2013 Aug 2019",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(BuildingStorefrontIcon, { className: "h-6 w-6 text-green-600" }),
+    details: [
+      "Provided prompt customer service and processed cash transactions",
+      "Assisted with food preparation and maintained clean work areas"
+    ]
+  }
+];
+function Experience() {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    "section",
+    {
+      id: "experience",
+      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Experience" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: experiences.map((exp) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          Card,
+          {
+            icon: exp.icon,
+            title: exp.role,
+            summary: `${exp.company} | ${exp.period}`,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("ul", { className: "list-disc list-inside space-y-1", children: exp.details.map((d) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: d }, d)) })
+          },
+          exp.company + exp.role
+        )) })
+      ]
+    }
+  );
 }
 
 // luis-site/src/sections/Achievements.tsx
@@ -9122,45 +8844,30 @@ function Achievements() {
     "section",
     {
       id: "achievements",
-      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
+      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Achievements" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-col justify-center mb-12 sm:flex-row sm:flex-wrap", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-            AwardBadge,
-            {
-              title: "Chancellor's List (8\xD7)",
-              detail: "Top 7.5% of class"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-            AwardBadge,
-            {
-              title: "Dean's List (8\xD7)",
-              detail: "GPA 3.5+ each semester"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-            AwardBadge,
-            {
-              title: "Pi Mu Epsilon",
-              detail: "Mathematics honor society"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-            AwardBadge,
-            {
-              title: "Omicron Delta Epsilon",
-              detail: "Economics honor society"
-            }
-          )
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Achievements" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-col justify-center mb-8 sm:flex-row sm:flex-wrap", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Chancellor's List (8\xD7)", detail: "Top 7.5% of class" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Dean's List (8\xD7)", detail: "GPA 3.5+ each semester" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Phi Kappa Phi", detail: "Top 7.5% of students across all disciplines" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Pi Mu Epsilon", detail: "Mathematics honor society" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Omicron Delta Epsilon", detail: "Economics honor society" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Buffett Scholarship", detail: "Competitive Nebraska awards that funded a debt-free path" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Jack & Lucile Martin Scholarship", detail: "Competitive Nebraska awards that funded a debt-free path" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h3", { className: "text-2xl font-semibold mb-4 text-center", children: "Certifications & Exams" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "max-w-md mx-auto mb-4 flex flex-wrap justify-center", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-1 px-3 py-1 bg-gray-200 rounded-full", children: "Exam FM (Apr 2024)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-1 px-3 py-1 bg-gray-200 rounded-full", children: "Exam P (Jul 2024)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-1 px-3 py-1 bg-gray-200 rounded-full", children: "Exam SRM (Sep 2024)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-1 px-3 py-1 bg-gray-200 rounded-full", children: "Exam PA (Oct 2024)" })
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "max-w-md mx-auto mb-4 flex items-center justify-center text-center", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-sm", children: "SOA FM (Apr 2024), P (Jul 2024), SRM (Sep 2024), PA (Oct 2024)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Tooltip, { content: "Four prelims passed within one year.", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+            "button",
+            {
+              type: "button",
+              className: "ml-2 text-primary focus:outline-none",
+              "aria-label": "Exam details",
+              children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FaInfoCircle, {})
+            }
+          ) })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "max-w-md mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("ul", { className: "list-disc list-inside", children: [
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", { children: "FINRA Series 7 & 63 (Jul 2023)" }),
@@ -9173,7 +8880,7 @@ function Achievements() {
 }
 
 // luis-site/src/sections/Leadership.tsx
-var import_react4 = __toESM(require_react());
+var import_react7 = __toESM(require_react());
 var import_jsx_runtime10 = __toESM(require_jsx_runtime());
 function LeadershipItem({
   role,
@@ -9182,9 +8889,9 @@ function LeadershipItem({
   link,
   descriptions
 }) {
-  const ref = (0, import_react4.useRef)(null);
-  const [visible, setVisible] = (0, import_react4.useState)(false);
-  (0, import_react4.useEffect)(() => {
+  const ref = (0, import_react7.useRef)(null);
+  const [visible, setVisible] = (0, import_react7.useState)(false);
+  (0, import_react7.useEffect)(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -9261,9 +8968,9 @@ function Leadership() {
     "section",
     {
       id: "leadership",
-      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
+      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Leadership" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Leadership" }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex flex-col space-y-8 max-w-2xl mx-auto", children: roles.map((item) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LeadershipItem, { ...item }, item.role)) })
       ]
     }
@@ -9271,15 +8978,15 @@ function Leadership() {
 }
 
 // luis-site/src/sections/Contact.tsx
-var import_react5 = __toESM(require_react());
+var import_react8 = __toESM(require_react());
 var import_jsx_runtime11 = __toESM(require_jsx_runtime());
 function Contact() {
-  const [formData, setFormData] = (0, import_react5.useState)({
+  const [formData, setFormData] = (0, import_react8.useState)({
     name: "",
     email: "",
     message: ""
   });
-  const [errors, setErrors] = (0, import_react5.useState)({});
+  const [errors, setErrors] = (0, import_react8.useState)({});
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -9305,9 +9012,9 @@ function Contact() {
     "section",
     {
       id: "contact",
-      className: "px-4 py-12 flex flex-col items-center bg-gray-50",
+      className: "px-4 py-8 flex flex-col items-center bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h2", { className: "text-3xl font-bold mb-8", children: "Contact" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h2", { className: "text-3xl font-bold mb-6", children: "Contact" }),
         /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex space-x-4 mb-6", children: [
           /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
             "a",
@@ -9466,7 +9173,7 @@ function App() {
   ] });
 }
 import_client.default.createRoot(document.getElementById("app")).render(
-  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_react6.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(App, {}) })
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_react9.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(App, {}) })
 );
 /*! Bundled license information:
 
@@ -9513,11 +9220,4 @@ react/cjs/react-jsx-runtime.production.min.js:
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    *)
-
-classnames/index.js:
-  (*!
-  	Copyright (c) 2018 Jed Watson.
-  	Licensed under the MIT License (MIT), see
-  	http://jedwatson.github.io/classnames
-  *)
 */

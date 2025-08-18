@@ -1,3 +1,4 @@
+import { FaInfoCircle } from "react-icons/fa";
 import Tooltip from "../components/Tooltip";
 
 interface AwardBadgeProps {
@@ -22,41 +23,32 @@ export default function Achievements() {
   return (
     <section
       id="achievements"
-      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
+      className="px-4 py-8 sm:px-6 lg:px-8 bg-background"
     >
-      <h2 className="text-3xl font-bold text-center mb-8">Achievements</h2>
-      <div className="flex flex-col justify-center mb-12 sm:flex-row sm:flex-wrap">
-        <AwardBadge
-          title="Chancellor's List (8×)"
-          detail="Top 7.5% of class"
-        />
-        <AwardBadge
-          title="Dean's List (8×)"
-          detail="GPA 3.5+ each semester"
-        />
-        <AwardBadge
-          title="Pi Mu Epsilon"
-          detail="Mathematics honor society"
-        />
-        <AwardBadge
-          title="Omicron Delta Epsilon"
-          detail="Economics honor society"
-        />
+      <h2 className="text-3xl font-bold text-center mb-6">Achievements</h2>
+      <div className="flex flex-col justify-center mb-8 sm:flex-row sm:flex-wrap">
+        <AwardBadge title="Chancellor's List (8×)" detail="Top 7.5% of class" />
+        <AwardBadge title="Dean's List (8×)" detail="GPA 3.5+ each semester" />
+        <AwardBadge title="Phi Kappa Phi" detail="Top 7.5% of students across all disciplines" />
+        <AwardBadge title="Pi Mu Epsilon" detail="Mathematics honor society" />
+        <AwardBadge title="Omicron Delta Epsilon" detail="Economics honor society" />
+        <AwardBadge title="Buffett Scholarship" detail="Competitive Nebraska awards that funded a debt-free path" />
+        <AwardBadge title="Jack & Lucile Martin Scholarship" detail="Competitive Nebraska awards that funded a debt-free path" />
       </div>
       <h3 className="text-2xl font-semibold mb-4 text-center">Certifications &amp; Exams</h3>
-      <div className="max-w-md mx-auto mb-4 flex flex-wrap justify-center">
-        <span className="m-1 px-3 py-1 bg-gray-200 rounded-full">
-          Exam FM (Apr 2024)
-        </span>
-        <span className="m-1 px-3 py-1 bg-gray-200 rounded-full">
-          Exam P (Jul 2024)
-        </span>
-        <span className="m-1 px-3 py-1 bg-gray-200 rounded-full">
-          Exam SRM (Sep 2024)
-        </span>
-        <span className="m-1 px-3 py-1 bg-gray-200 rounded-full">
-          Exam PA (Oct 2024)
-        </span>
+      <div className="max-w-md mx-auto mb-4 flex items-center justify-center text-center">
+        <p className="text-sm">
+          SOA FM (Apr 2024), P (Jul 2024), SRM (Sep 2024), PA (Oct 2024)
+        </p>
+        <Tooltip content="Four prelims passed within one year.">
+          <button
+            type="button"
+            className="ml-2 text-primary focus:outline-none"
+            aria-label="Exam details"
+          >
+            <FaInfoCircle />
+          </button>
+        </Tooltip>
       </div>
       <div className="max-w-md mx-auto">
         <ul className="list-disc list-inside">

@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import Tooltip from "../components/Tooltip";
 
 function AcademicCapIcon({ className = "" }: { className?: string }) {
   return (
@@ -38,6 +39,7 @@ const schools: Education[] = [
     honors: [
       "Pi Mu Epsilon (Mathematics)",
       "Omicron Delta Epsilon (Economics)",
+      "Phi Kappa Phi",
     ],
     dates: "2019–2023",
     color: "text-red-600",
@@ -54,6 +56,7 @@ const schools: Education[] = [
     honors: [
       "Pi Mu Epsilon (Mathematics)",
       "Omicron Delta Epsilon (Economics)",
+      "Phi Kappa Phi",
     ],
     dates: "2019–2023",
     color: "text-red-600",
@@ -75,9 +78,9 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
+      className="px-4 py-8 sm:px-6 lg:px-8 bg-background"
     >
-      <h2 className="text-3xl font-bold text-center mb-8">Education</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">Education</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {schools.map((s) => (
           <Card
@@ -98,7 +101,9 @@ export default function Education() {
                     <ul className="list-disc list-inside mb-4">
                       {s.scholarships.map((item) => (
                         <li key={item}>
-                          <abbr title={item}>{item}</abbr>
+                          <Tooltip content="Competitive Nebraska awards that funded a debt-free path">
+                            <span>{item}</span>
+                          </Tooltip>
                         </li>
                       ))}
                     </ul>
@@ -109,7 +114,15 @@ export default function Education() {
                     <p className="font-medium mb-2 leading-relaxed">Honor Societies</p>
                     <ul className="list-disc list-inside">
                       {s.honors.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item}>
+                          {item === "Phi Kappa Phi" ? (
+                            <Tooltip content="Top 7.5% of students across all disciplines">
+                              <span>{item}</span>
+                            </Tooltip>
+                          ) : (
+                            item
+                          )}
+                        </li>
                       ))}
                     </ul>
                   </>
