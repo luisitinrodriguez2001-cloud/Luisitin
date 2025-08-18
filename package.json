@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build.mjs"
+    "build": "node build.mjs && npm run build:css",
+    "build:css": "cd luis-site && npx tailwindcss -i src/styles/globals.css -o ../dist/styles.css --minify"
   },
   "dependencies": {
     "react": "19.1.0",
