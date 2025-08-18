@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 
 const sections = [
-  "about",
+  "resume-summary",
   "education",
+  "research",
   "experience",
+  "awards",
   "leadership",
-  "projects",
   "timeline",
   "contact",
 ];
 
 export default function Navbar() {
-  const [active, setActive] = useState<string>("about");
+  const [active, setActive] = useState<string>("resume-summary");
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
