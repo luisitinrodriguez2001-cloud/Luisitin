@@ -13,7 +13,7 @@ export default function Card({ imageSrc, icon, title, summary, detail }: CardPro
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-white rounded shadow p-6">
+    <div className="bg-white rounded shadow-md p-6 transition-shadow hover:shadow-lg">
       <div className="flex items-center mb-2">
         {imageSrc ? (
           // eslint-disable-next-line @next/next/no-img-element

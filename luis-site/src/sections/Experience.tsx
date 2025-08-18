@@ -109,7 +109,7 @@ const experiences: Experience[] = [
     company: "Telos Actuarial",
     role: "Actuarial Analyst",
     period: "Feb 2024 – Present",
-    icon: <CalculatorIcon className="h-6 w-6 text-primary" />,
+    icon: <CalculatorIcon className="h-6 w-6 text-blue-600" />,
     details: [
       "Automate valuation workflows in Excel using VBA",
       "Query and validate large datasets with SQL for actuarial analysis",
@@ -119,7 +119,7 @@ const experiences: Experience[] = [
     company: "Ludacka Wealth Partners",
     role: "Financial Planning Analyst",
     period: "Apr 2022 – Feb 2024",
-    icon: <BriefcaseIcon className="h-6 w-6 text-primary" />,
+    icon: <BriefcaseIcon className="h-6 w-6 text-secondary" />,
     details: [
       "Prepared customized financial plans and cash‑flow projections",
       "Maintained client data and produced investment reports in Excel",
@@ -129,7 +129,7 @@ const experiences: Experience[] = [
     company: "Northwestern Mutual",
     role: "Financial Representative Intern",
     period: "Nov 2021 – Apr 2022",
-    icon: <ChartBarIcon className="h-6 w-6 text-primary" />,
+    icon: <ChartBarIcon className="h-6 w-6 text-yellow-600" />,
     details: [
       "Prospected clients and scheduled financial planning meetings",
       "Prepared insurance illustrations and plan proposals",
@@ -139,7 +139,7 @@ const experiences: Experience[] = [
     company: "UNO College of Business Administration",
     role: "Mathematics Tutor",
     period: "Aug 2020 – Dec 2021",
-    icon: <BookOpenIcon className="h-6 w-6 text-primary" />,
+    icon: <BookOpenIcon className="h-6 w-6 text-red-600" />,
     details: [
       "Tutored students in calculus and statistics to reinforce coursework",
       "Led review sessions that improved problem‑solving skills",
@@ -149,7 +149,7 @@ const experiences: Experience[] = [
     company: "Runza Restaurants",
     role: "Cashier",
     period: "Sep 2017 – Aug 2019",
-    icon: <BuildingStorefrontIcon className="h-6 w-6 text-primary" />,
+    icon: <BuildingStorefrontIcon className="h-6 w-6 text-green-600" />,
     details: [
       "Provided prompt customer service and processed cash transactions",
       "Assisted with food preparation and maintained clean work areas",
@@ -161,7 +161,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
+      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Experience</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">

@@ -32,7 +32,7 @@ export default function Research() {
   return (
     <section
       id="research"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
+      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Research</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -51,7 +51,12 @@ export default function Research() {
                     ))}
                   </ul>
                 )}
-                <a href={p.link} className="text-primary underline">
+                <a
+                  href={p.link}
+                  className="text-primary underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Learn more
                 </a>
               </>

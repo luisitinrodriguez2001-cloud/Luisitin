@@ -5,9 +5,9 @@ import ResumeSummary from './luis-site/src/sections/ResumeSummary';
 import Education from './luis-site/src/sections/Education';
 import Research from './luis-site/src/sections/Research';
 import Experience from './luis-site/src/sections/Experience';
-import Awards from './luis-site/src/sections/Awards';
+import Achievements from './luis-site/src/sections/Achievements';
 import Leadership from './luis-site/src/sections/Leadership';
-import Timeline from './luis-site/src/components/Timeline';
+import Contact from './luis-site/src/sections/Contact';
 
 function App() {
   return (
@@ -17,11 +17,9 @@ function App() {
       <Education />
       <Research />
       <Experience />
-      <Awards />
+      <Achievements />
       <Leadership />
-      <section id="timeline" className="min-h-screen p-8">
-        <Timeline />
-      </section>
+      <Contact />
     </div>
   );
 }

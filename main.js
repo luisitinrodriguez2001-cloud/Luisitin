@@ -7855,6 +7855,624 @@ var require_jsx_runtime = __commonJS({
   }
 });
 
+// node_modules/prop-types/lib/ReactPropTypesSecret.js
+var require_ReactPropTypesSecret = __commonJS({
+  "node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports, module) {
+    "use strict";
+    var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+    module.exports = ReactPropTypesSecret;
+  }
+});
+
+// node_modules/prop-types/factoryWithThrowingShims.js
+var require_factoryWithThrowingShims = __commonJS({
+  "node_modules/prop-types/factoryWithThrowingShims.js"(exports, module) {
+    "use strict";
+    var ReactPropTypesSecret = require_ReactPropTypesSecret();
+    function emptyFunction() {
+    }
+    function emptyFunctionWithReset() {
+    }
+    emptyFunctionWithReset.resetWarningCache = emptyFunction;
+    module.exports = function() {
+      function shim(props, propName, componentName, location, propFullName, secret) {
+        if (secret === ReactPropTypesSecret) {
+          return;
+        }
+        var err = new Error(
+          "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types"
+        );
+        err.name = "Invariant Violation";
+        throw err;
+      }
+      ;
+      shim.isRequired = shim;
+      function getShim() {
+        return shim;
+      }
+      ;
+      var ReactPropTypes = {
+        array: shim,
+        bigint: shim,
+        bool: shim,
+        func: shim,
+        number: shim,
+        object: shim,
+        string: shim,
+        symbol: shim,
+        any: shim,
+        arrayOf: getShim,
+        element: shim,
+        elementType: shim,
+        instanceOf: getShim,
+        node: shim,
+        objectOf: getShim,
+        oneOf: getShim,
+        oneOfType: getShim,
+        shape: getShim,
+        exact: getShim,
+        checkPropTypes: emptyFunctionWithReset,
+        resetWarningCache: emptyFunction
+      };
+      ReactPropTypes.PropTypes = ReactPropTypes;
+      return ReactPropTypes;
+    };
+  }
+});
+
+// node_modules/prop-types/index.js
+var require_prop_types = __commonJS({
+  "node_modules/prop-types/index.js"(exports, module) {
+    if (false) {
+      ReactIs = null;
+      throwOnDirectAccess = true;
+      module.exports = null(ReactIs.isElement, throwOnDirectAccess);
+    } else {
+      module.exports = require_factoryWithThrowingShims()();
+    }
+    var ReactIs;
+    var throwOnDirectAccess;
+  }
+});
+
+// node_modules/classnames/index.js
+var require_classnames = __commonJS({
+  "node_modules/classnames/index.js"(exports, module) {
+    (function() {
+      "use strict";
+      var hasOwn = {}.hasOwnProperty;
+      function classNames() {
+        var classes = "";
+        for (var i = 0; i < arguments.length; i++) {
+          var arg = arguments[i];
+          if (arg) {
+            classes = appendClass(classes, parseValue(arg));
+          }
+        }
+        return classes;
+      }
+      function parseValue(arg) {
+        if (typeof arg === "string" || typeof arg === "number") {
+          return arg;
+        }
+        if (typeof arg !== "object") {
+          return "";
+        }
+        if (Array.isArray(arg)) {
+          return classNames.apply(null, arg);
+        }
+        if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes("[native code]")) {
+          return arg.toString();
+        }
+        var classes = "";
+        for (var key in arg) {
+          if (hasOwn.call(arg, key) && arg[key]) {
+            classes = appendClass(classes, key);
+          }
+        }
+        return classes;
+      }
+      function appendClass(value, newClass) {
+        if (!newClass) {
+          return value;
+        }
+        if (value) {
+          return value + " " + newClass;
+        }
+        return value + newClass;
+      }
+      if (typeof module !== "undefined" && module.exports) {
+        classNames.default = classNames;
+        module.exports = classNames;
+      } else if (typeof define === "function" && typeof define.amd === "object" && define.amd) {
+        define("classnames", [], function() {
+          return classNames;
+        });
+      } else {
+        window.classNames = classNames;
+      }
+    })();
+  }
+});
+
+// node_modules/react-vertical-timeline-component/dist-es6/VerticalTimeline.js
+var require_VerticalTimeline = __commonJS({
+  "node_modules/react-vertical-timeline-component/dist-es6/VerticalTimeline.js"(exports) {
+    "use strict";
+    exports.__esModule = true;
+    exports.default = void 0;
+    var _react = _interopRequireDefault(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _classnames = _interopRequireDefault(require_classnames());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var VerticalTimeline2 = ({
+      animate = true,
+      className = "",
+      layout = "2-columns",
+      lineColor = "#FFF",
+      children
+    }) => {
+      if (typeof window === "object") {
+        document.documentElement.style.setProperty("--line-color", lineColor);
+      }
+      return /* @__PURE__ */ _react.default.createElement("div", {
+        className: (0, _classnames.default)(className, "vertical-timeline", {
+          "vertical-timeline--animate": animate,
+          "vertical-timeline--two-columns": layout === "2-columns",
+          "vertical-timeline--one-column-left": layout === "1-column" || layout === "1-column-left",
+          "vertical-timeline--one-column-right": layout === "1-column-right"
+        })
+      }, children);
+    };
+    VerticalTimeline2.propTypes = {
+      children: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.node), _propTypes.default.node]).isRequired,
+      className: _propTypes.default.string,
+      animate: _propTypes.default.bool,
+      layout: _propTypes.default.oneOf(["1-column-left", "1-column", "2-columns", "1-column-right"]),
+      lineColor: _propTypes.default.string
+    };
+    var _default = VerticalTimeline2;
+    exports.default = _default;
+  }
+});
+
+// node_modules/react-intersection-observer/react-intersection-observer.js
+var require_react_intersection_observer = __commonJS({
+  "node_modules/react-intersection-observer/react-intersection-observer.js"(exports) {
+    var React3 = require_react();
+    function _interopNamespace(e) {
+      if (e && e.__esModule)
+        return e;
+      var n = /* @__PURE__ */ Object.create(null);
+      if (e) {
+        Object.keys(e).forEach(function(k) {
+          if (k !== "default") {
+            var d = Object.getOwnPropertyDescriptor(e, k);
+            Object.defineProperty(n, k, d.get ? d : {
+              enumerable: true,
+              get: function() {
+                return e[k];
+              }
+            });
+          }
+        });
+      }
+      n["default"] = e;
+      return n;
+    }
+    var React__namespace = /* @__PURE__ */ _interopNamespace(React3);
+    function _extends() {
+      _extends = Object.assign || function(target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      };
+      return _extends.apply(this, arguments);
+    }
+    function _inheritsLoose(subClass, superClass) {
+      subClass.prototype = Object.create(superClass.prototype);
+      subClass.prototype.constructor = subClass;
+      _setPrototypeOf(subClass, superClass);
+    }
+    function _setPrototypeOf(o, p) {
+      _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+        o2.__proto__ = p2;
+        return o2;
+      };
+      return _setPrototypeOf(o, p);
+    }
+    function _objectWithoutPropertiesLoose(source, excluded) {
+      if (source == null)
+        return {};
+      var target = {};
+      var sourceKeys = Object.keys(source);
+      var key, i;
+      for (i = 0; i < sourceKeys.length; i++) {
+        key = sourceKeys[i];
+        if (excluded.indexOf(key) >= 0)
+          continue;
+        target[key] = source[key];
+      }
+      return target;
+    }
+    var observerMap = /* @__PURE__ */ new Map();
+    var RootIds = /* @__PURE__ */ new WeakMap();
+    var rootId = 0;
+    var unsupportedValue = void 0;
+    function defaultFallbackInView(inView) {
+      unsupportedValue = inView;
+    }
+    function getRootId(root) {
+      if (!root)
+        return "0";
+      if (RootIds.has(root))
+        return RootIds.get(root);
+      rootId += 1;
+      RootIds.set(root, rootId.toString());
+      return RootIds.get(root);
+    }
+    function optionsToId(options) {
+      return Object.keys(options).sort().filter(function(key) {
+        return options[key] !== void 0;
+      }).map(function(key) {
+        return key + "_" + (key === "root" ? getRootId(options.root) : options[key]);
+      }).toString();
+    }
+    function createObserver(options) {
+      var id = optionsToId(options);
+      var instance = observerMap.get(id);
+      if (!instance) {
+        var elements = /* @__PURE__ */ new Map();
+        var thresholds;
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            var _elements$get;
+            var inView = entry.isIntersecting && thresholds.some(function(threshold) {
+              return entry.intersectionRatio >= threshold;
+            });
+            if (options.trackVisibility && typeof entry.isVisible === "undefined") {
+              entry.isVisible = inView;
+            }
+            (_elements$get = elements.get(entry.target)) == null ? void 0 : _elements$get.forEach(function(callback) {
+              callback(inView, entry);
+            });
+          });
+        }, options);
+        thresholds = observer.thresholds || (Array.isArray(options.threshold) ? options.threshold : [options.threshold || 0]);
+        instance = {
+          id,
+          observer,
+          elements
+        };
+        observerMap.set(id, instance);
+      }
+      return instance;
+    }
+    function observe(element, callback, options, fallbackInView) {
+      if (options === void 0) {
+        options = {};
+      }
+      if (fallbackInView === void 0) {
+        fallbackInView = unsupportedValue;
+      }
+      if (typeof window.IntersectionObserver === "undefined" && fallbackInView !== void 0) {
+        var bounds = element.getBoundingClientRect();
+        callback(fallbackInView, {
+          isIntersecting: fallbackInView,
+          target: element,
+          intersectionRatio: typeof options.threshold === "number" ? options.threshold : 0,
+          time: 0,
+          boundingClientRect: bounds,
+          intersectionRect: bounds,
+          rootBounds: bounds
+        });
+        return function() {
+        };
+      }
+      var _createObserver = createObserver(options), id = _createObserver.id, observer = _createObserver.observer, elements = _createObserver.elements;
+      var callbacks = elements.get(element) || [];
+      if (!elements.has(element)) {
+        elements.set(element, callbacks);
+      }
+      callbacks.push(callback);
+      observer.observe(element);
+      return function unobserve() {
+        callbacks.splice(callbacks.indexOf(callback), 1);
+        if (callbacks.length === 0) {
+          elements["delete"](element);
+          observer.unobserve(element);
+        }
+        if (elements.size === 0) {
+          observer.disconnect();
+          observerMap["delete"](id);
+        }
+      };
+    }
+    var _excluded = ["children", "as", "triggerOnce", "threshold", "root", "rootMargin", "onChange", "skip", "trackVisibility", "delay", "initialInView", "fallbackInView"];
+    function isPlainChildren(props) {
+      return typeof props.children !== "function";
+    }
+    var InView = /* @__PURE__ */ function(_React$Component) {
+      _inheritsLoose(InView2, _React$Component);
+      function InView2(props) {
+        var _this;
+        _this = _React$Component.call(this, props) || this;
+        _this.node = null;
+        _this._unobserveCb = null;
+        _this.handleNode = function(node) {
+          if (_this.node) {
+            _this.unobserve();
+            if (!node && !_this.props.triggerOnce && !_this.props.skip) {
+              _this.setState({
+                inView: !!_this.props.initialInView,
+                entry: void 0
+              });
+            }
+          }
+          _this.node = node ? node : null;
+          _this.observeNode();
+        };
+        _this.handleChange = function(inView, entry) {
+          if (inView && _this.props.triggerOnce) {
+            _this.unobserve();
+          }
+          if (!isPlainChildren(_this.props)) {
+            _this.setState({
+              inView,
+              entry
+            });
+          }
+          if (_this.props.onChange) {
+            _this.props.onChange(inView, entry);
+          }
+        };
+        _this.state = {
+          inView: !!props.initialInView,
+          entry: void 0
+        };
+        return _this;
+      }
+      var _proto = InView2.prototype;
+      _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+        if (prevProps.rootMargin !== this.props.rootMargin || prevProps.root !== this.props.root || prevProps.threshold !== this.props.threshold || prevProps.skip !== this.props.skip || prevProps.trackVisibility !== this.props.trackVisibility || prevProps.delay !== this.props.delay) {
+          this.unobserve();
+          this.observeNode();
+        }
+      };
+      _proto.componentWillUnmount = function componentWillUnmount() {
+        this.unobserve();
+        this.node = null;
+      };
+      _proto.observeNode = function observeNode() {
+        if (!this.node || this.props.skip)
+          return;
+        var _this$props = this.props, threshold = _this$props.threshold, root = _this$props.root, rootMargin = _this$props.rootMargin, trackVisibility = _this$props.trackVisibility, delay = _this$props.delay, fallbackInView = _this$props.fallbackInView;
+        this._unobserveCb = observe(this.node, this.handleChange, {
+          threshold,
+          root,
+          rootMargin,
+          // @ts-ignore
+          trackVisibility,
+          // @ts-ignore
+          delay
+        }, fallbackInView);
+      };
+      _proto.unobserve = function unobserve() {
+        if (this._unobserveCb) {
+          this._unobserveCb();
+          this._unobserveCb = null;
+        }
+      };
+      _proto.render = function render() {
+        if (!isPlainChildren(this.props)) {
+          var _this$state = this.state, inView = _this$state.inView, entry = _this$state.entry;
+          return this.props.children({
+            inView,
+            entry,
+            ref: this.handleNode
+          });
+        }
+        var _this$props2 = this.props, children = _this$props2.children, as = _this$props2.as, props = _objectWithoutPropertiesLoose(_this$props2, _excluded);
+        return /* @__PURE__ */ React__namespace.createElement(as || "div", _extends({
+          ref: this.handleNode
+        }, props), children);
+      };
+      return InView2;
+    }(React__namespace.Component);
+    InView.displayName = "InView";
+    InView.defaultProps = {
+      threshold: 0,
+      triggerOnce: false,
+      initialInView: false
+    };
+    function useInView(_temp) {
+      var _ref = _temp === void 0 ? {} : _temp, threshold = _ref.threshold, delay = _ref.delay, trackVisibility = _ref.trackVisibility, rootMargin = _ref.rootMargin, root = _ref.root, triggerOnce = _ref.triggerOnce, skip = _ref.skip, initialInView = _ref.initialInView, fallbackInView = _ref.fallbackInView;
+      var unobserve = React__namespace.useRef();
+      var _React$useState = React__namespace.useState({
+        inView: !!initialInView
+      }), state = _React$useState[0], setState = _React$useState[1];
+      var setRef = React__namespace.useCallback(
+        function(node) {
+          if (unobserve.current !== void 0) {
+            unobserve.current();
+            unobserve.current = void 0;
+          }
+          if (skip)
+            return;
+          if (node) {
+            unobserve.current = observe(node, function(inView, entry) {
+              setState({
+                inView,
+                entry
+              });
+              if (entry.isIntersecting && triggerOnce && unobserve.current) {
+                unobserve.current();
+                unobserve.current = void 0;
+              }
+            }, {
+              root,
+              rootMargin,
+              threshold,
+              // @ts-ignore
+              trackVisibility,
+              // @ts-ignore
+              delay
+            }, fallbackInView);
+          }
+        },
+        // We break the rule here, because we aren't including the actual `threshold` variable
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [
+          // If the threshold is an array, convert it to a string so it won't change between renders.
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          Array.isArray(threshold) ? threshold.toString() : threshold,
+          root,
+          rootMargin,
+          triggerOnce,
+          skip,
+          trackVisibility,
+          fallbackInView,
+          delay
+        ]
+      );
+      React3.useEffect(function() {
+        if (!unobserve.current && state.entry && !triggerOnce && !skip) {
+          setState({
+            inView: !!initialInView
+          });
+        }
+      });
+      var result = [setRef, state.inView, state.entry];
+      result.ref = result[0];
+      result.inView = result[1];
+      result.entry = result[2];
+      return result;
+    }
+    exports.InView = InView;
+    exports["default"] = InView;
+    exports.defaultFallbackInView = defaultFallbackInView;
+    exports.observe = observe;
+    exports.useInView = useInView;
+  }
+});
+
+// node_modules/react-vertical-timeline-component/dist-es6/VerticalTimelineElement.js
+var require_VerticalTimelineElement = __commonJS({
+  "node_modules/react-vertical-timeline-component/dist-es6/VerticalTimelineElement.js"(exports) {
+    "use strict";
+    exports.__esModule = true;
+    exports.default = void 0;
+    var _react = _interopRequireDefault(require_react());
+    var _propTypes = _interopRequireDefault(require_prop_types());
+    var _classnames = _interopRequireDefault(require_classnames());
+    var _reactIntersectionObserver = require_react_intersection_observer();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+    var VerticalTimelineElement2 = ({
+      children = "",
+      className = "",
+      contentArrowStyle = null,
+      contentStyle = null,
+      date = "",
+      dateClassName = "",
+      icon = null,
+      iconClassName = "",
+      iconOnClick = null,
+      onTimelineElementClick = null,
+      iconStyle = null,
+      id = "",
+      position = "",
+      style = null,
+      textClassName = "",
+      intersectionObserverProps = {
+        rootMargin: "0px 0px -40px 0px",
+        triggerOnce: true
+      },
+      visible = false
+    }) => /* @__PURE__ */ _react.default.createElement(_reactIntersectionObserver.InView, intersectionObserverProps, ({
+      inView,
+      ref
+    }) => /* @__PURE__ */ _react.default.createElement("div", {
+      ref,
+      id,
+      className: (0, _classnames.default)(className, "vertical-timeline-element", {
+        "vertical-timeline-element--left": position === "left",
+        "vertical-timeline-element--right": position === "right",
+        "vertical-timeline-element--no-children": children === ""
+      }),
+      style
+    }, /* @__PURE__ */ _react.default.createElement(_react.default.Fragment, null, /* @__PURE__ */ _react.default.createElement("span", {
+      // eslint-disable-line jsx-a11y/no-static-element-interactions
+      style: iconStyle,
+      onClick: iconOnClick,
+      className: (0, _classnames.default)(iconClassName, "vertical-timeline-element-icon", {
+        "bounce-in": inView || visible,
+        "is-hidden": !(inView || visible)
+      })
+    }, icon), /* @__PURE__ */ _react.default.createElement("div", {
+      style: contentStyle,
+      onClick: onTimelineElementClick,
+      className: (0, _classnames.default)(textClassName, "vertical-timeline-element-content", {
+        "bounce-in": inView || visible,
+        "is-hidden": !(inView || visible)
+      })
+    }, /* @__PURE__ */ _react.default.createElement("div", {
+      style: contentArrowStyle,
+      className: "vertical-timeline-element-content-arrow"
+    }), children, /* @__PURE__ */ _react.default.createElement("span", {
+      className: (0, _classnames.default)(dateClassName, "vertical-timeline-element-date")
+    }, date)))));
+    VerticalTimelineElement2.propTypes = {
+      children: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.node), _propTypes.default.node]),
+      className: _propTypes.default.string,
+      contentArrowStyle: _propTypes.default.shape({}),
+      contentStyle: _propTypes.default.shape({}),
+      date: _propTypes.default.node,
+      dateClassName: _propTypes.default.string,
+      icon: _propTypes.default.element,
+      iconClassName: _propTypes.default.string,
+      iconStyle: _propTypes.default.shape({}),
+      iconOnClick: _propTypes.default.func,
+      onTimelineElementClick: _propTypes.default.func,
+      id: _propTypes.default.string,
+      position: _propTypes.default.string,
+      style: _propTypes.default.shape({}),
+      textClassName: _propTypes.default.string,
+      visible: _propTypes.default.bool,
+      intersectionObserverProps: _propTypes.default.shape({
+        root: _propTypes.default.object,
+        rootMargin: _propTypes.default.string,
+        threshold: _propTypes.default.number,
+        triggerOnce: _propTypes.default.bool
+      })
+    };
+    var _default = VerticalTimelineElement2;
+    exports.default = _default;
+  }
+});
+
+// node_modules/react-vertical-timeline-component/dist-es6/index.js
+var require_dist_es6 = __commonJS({
+  "node_modules/react-vertical-timeline-component/dist-es6/index.js"(exports, module) {
+    "use strict";
+    module.exports = {
+      VerticalTimeline: require_VerticalTimeline().default,
+      // eslint-disable-line global-require
+      VerticalTimelineElement: require_VerticalTimelineElement().default
+      // eslint-disable-line global-require
+    };
+  }
+});
+
 // main.tsx
 var import_react6 = __toESM(require_react(), 1);
 var import_client = __toESM(require_client(), 1);
@@ -7862,16 +8480,7 @@ var import_client = __toESM(require_client(), 1);
 // luis-site/src/components/Navbar.tsx
 var import_react = __toESM(require_react());
 var import_jsx_runtime = __toESM(require_jsx_runtime());
-var sections = [
-  "timeline",
-  "resume-summary",
-  "education",
-  "research",
-  "experience",
-  "awards",
-  "leadership",
-  "contact"
-];
+var sections = ["timeline", "resume", "achievements", "contact"];
 function Navbar() {
   const [active, setActive] = (0, import_react.useState)("timeline");
   const [open, setOpen] = (0, import_react.useState)(false);
@@ -7923,607 +8532,8 @@ function Navbar() {
   ] });
 }
 
-// luis-site/src/sections/ResumeSummary.tsx
-var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-function ResumeSummary() {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-    "section",
-    {
-      id: "resume-summary",
-      className: "min-h-screen p-8 flex flex-col items-center text-center bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          "img",
-          {
-            src: "headshot-placeholder.svg",
-            alt: "Headshot of Luis Rodriguez",
-            width: 200,
-            height: 200,
-            className: "mb-4 rounded-full",
-            loading: "lazy"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "max-w-2xl mb-6 leading-relaxed", children: "Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full r\xE9sum\xE9 is available as a downloadable PDF for detailed viewing." }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-          "a",
-          {
-            href: "LuisRodriguez_Resume.pdf",
-            className: "px-6 py-3 bg-primary text-white rounded shadow",
-            children: "Download R\xE9sum\xE9 (PDF)"
-          }
-        )
-      ]
-    }
-  );
-}
-
-// luis-site/src/components/Card.tsx
-var import_react2 = __toESM(require_react());
-var import_jsx_runtime3 = __toESM(require_jsx_runtime());
-function Card({ imageSrc, icon, title, summary, detail }) {
-  const [open, setOpen] = (0, import_react2.useState)(false);
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "bg-white rounded shadow p-6", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center mb-2", children: [
-      imageSrc ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          "img",
-          {
-            src: imageSrc,
-            alt: "",
-            width: 48,
-            height: 48,
-            className: "w-12 h-12 mr-4 object-cover",
-            loading: "lazy"
-          }
-        )
-      ) : icon ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-12 h-12 mr-4 flex items-center justify-center", children: icon }) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "text-xl font-semibold", children: title })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "text-sm text-gray-600 mb-2", children: summary }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-      "button",
-      {
-        type: "button",
-        onClick: () => setOpen(!open),
-        className: "text-primary underline text-sm",
-        "aria-expanded": open,
-        children: open ? "Hide details" : "View details"
-      }
-    ),
-    open && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "mt-2 text-sm", children: detail })
-  ] });
-}
-
-// luis-site/src/sections/Education.tsx
-var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-function AcademicCapIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 24 24",
-      fill: "currentColor",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("path", { d: "M11.7 2.13a.75.75 0 01.6 0l9 4a.75.75 0 010 1.36l-2.21.98a4.5 4.5 0 01-8.76 0l-2.21-.98a.75.75 0 010-1.36l9-4z" }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("path", { d: "M21.75 12a.75.75 0 00-1.5 0v2.763a9.71 9.71 0 01-7.5 3.487 9.71 9.71 0 01-7.5-3.487V12a.75.75 0 00-1.5 0v2.763c0 .748.167 1.481.49 2.15a6.22 6.22 0 001.348 1.86l-.872 2.615a.75.75 0 001.423.474l.87-2.607a11.21 11.21 0 0012.582 0l.87 2.607a.75.75 0 001.423-.474l-.872-2.615a6.22 6.22 0 001.348-1.86 5.6 5.6 0 00.49-2.15V12z" })
-      ]
-    }
-  );
-}
-var schools = [
-  {
-    institution: "University of Nebraska at Omaha",
-    degree: "B.A. Economics",
-    gpa: "4.0",
-    concentration: "Data Analytics",
-    scholarships: [
-      "Susan T. Buffett Scholarship",
-      "Jack & Lucile Martin Scholarship"
-    ],
-    honors: [
-      "Pi Mu Epsilon (Mathematics)",
-      "Omicron Delta Epsilon (Economics)"
-    ],
-    dates: "2019\u20132023"
-  },
-  {
-    institution: "University of Nebraska at Omaha",
-    degree: "B.S. Mathematics",
-    gpa: "4.0",
-    concentration: "Statistics & Data Science",
-    scholarships: [
-      "Susan T. Buffett Scholarship",
-      "Jack & Lucile Martin Scholarship"
-    ],
-    honors: [
-      "Pi Mu Epsilon (Mathematics)",
-      "Omicron Delta Epsilon (Economics)"
-    ],
-    dates: "2019\u20132023"
-  },
-  {
-    institution: "Grand Island Senior High",
-    degree: "High School Diploma",
-    gpa: "4.0",
-    scholarships: [],
-    honors: [
-      "Student Board Representative",
-      "National Honor Society"
-    ],
-    dates: "2015\u20132019"
-  }
-];
-function Education() {
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-    "section",
-    {
-      id: "education",
-      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Education" }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: schools.map((s) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          Card,
-          {
-            icon: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(AcademicCapIcon, { className: "h-6 w-6 text-primary" }),
-            title: s.institution,
-            summary: `${s.degree} (${s.dates}) \u2014 GPA: ${s.gpa}`,
-            detail: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-              s.concentration && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "mb-4 leading-relaxed", children: [
-                "Concentration: ",
-                s.concentration
-              ] }),
-              s.scholarships.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Scholarships" }),
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc list-inside mb-4", children: s.scholarships.map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("abbr", { title: item, children: item }) }, item)) })
-              ] }),
-              s.honors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Honor Societies" }),
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc list-inside", children: s.honors.map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: item }, item)) })
-              ] })
-            ] })
-          },
-          s.institution
-        )) })
-      ]
-    }
-  );
-}
-
-// luis-site/src/sections/Research.tsx
-var import_jsx_runtime5 = __toESM(require_jsx_runtime());
-var projects = [
-  {
-    title: "Finite-Field Linear Algebra",
-    dates: "Sep 2021 \u2013 Apr 2022",
-    summary: "Studied numerical ranges over finite fields.",
-    presentations: [
-      "UNO Student Research and Creative Activity Fair",
-      "MAA North Central Section Conference"
-    ],
-    link: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/"
-  },
-  {
-    title: "Integer-Programming Wedding Venue Thesis",
-    dates: "Aug 2022 \u2013 May 2023",
-    summary: "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
-    link: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program"
-  }
-];
-function Research() {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
-    "section",
-    {
-      id: "research",
-      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Research" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-          Card,
-          {
-            title: p.title,
-            summary: p.dates,
-            detail: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mb-4 leading-relaxed", children: p.summary }),
-              p.presentations && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { className: "mb-4 list-disc list-inside", children: p.presentations.map((e) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: e }, e)) }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: p.link, className: "text-primary underline", children: "Learn more" })
-            ] })
-          },
-          p.title
-        )) })
-      ]
-    }
-  );
-}
-
-// luis-site/src/sections/Experience.tsx
-var import_jsx_runtime6 = __toESM(require_jsx_runtime());
-function BriefcaseIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"
-        }
-      )
-    }
-  );
-}
-function CalculatorIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z"
-        }
-      )
-    }
-  );
-}
-function ChartBarIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
-        }
-      )
-    }
-  );
-}
-function BookOpenIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-        }
-      )
-    }
-  );
-}
-function BuildingStorefrontIcon({ className = "" }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-    "svg",
-    {
-      className,
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "none",
-      viewBox: "0 0 24 24",
-      strokeWidth: 1.5,
-      stroke: "currentColor",
-      children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-        "path",
-        {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          d: "M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
-        }
-      )
-    }
-  );
-}
-var experiences = [
-  {
-    company: "Telos Actuarial",
-    role: "Actuarial Analyst",
-    period: "Feb 2024 \u2013 Present",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CalculatorIcon, { className: "h-6 w-6 text-primary" }),
-    details: [
-      "Automate valuation workflows in Excel using VBA",
-      "Query and validate large datasets with SQL for actuarial analysis"
-    ]
-  },
-  {
-    company: "Ludacka Wealth Partners",
-    role: "Financial Planning Analyst",
-    period: "Apr 2022 \u2013 Feb 2024",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BriefcaseIcon, { className: "h-6 w-6 text-primary" }),
-    details: [
-      "Prepared customized financial plans and cash\u2011flow projections",
-      "Maintained client data and produced investment reports in Excel"
-    ]
-  },
-  {
-    company: "Northwestern Mutual",
-    role: "Financial Representative Intern",
-    period: "Nov 2021 \u2013 Apr 2022",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ChartBarIcon, { className: "h-6 w-6 text-primary" }),
-    details: [
-      "Prospected clients and scheduled financial planning meetings",
-      "Prepared insurance illustrations and plan proposals"
-    ]
-  },
-  {
-    company: "UNO College of Business Administration",
-    role: "Mathematics Tutor",
-    period: "Aug 2020 \u2013 Dec 2021",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BookOpenIcon, { className: "h-6 w-6 text-primary" }),
-    details: [
-      "Tutored students in calculus and statistics to reinforce coursework",
-      "Led review sessions that improved problem\u2011solving skills"
-    ]
-  },
-  {
-    company: "Runza Restaurants",
-    role: "Cashier",
-    period: "Sep 2017 \u2013 Aug 2019",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BuildingStorefrontIcon, { className: "h-6 w-6 text-primary" }),
-    details: [
-      "Provided prompt customer service and processed cash transactions",
-      "Assisted with food preparation and maintained clean work areas"
-    ]
-  }
-];
-function Experience() {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
-    "section",
-    {
-      id: "experience",
-      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Experience" }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: experiences.map((exp) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          Card,
-          {
-            icon: exp.icon,
-            title: exp.role,
-            summary: `${exp.company} | ${exp.period}`,
-            detail: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "list-disc list-inside space-y-1", children: exp.details.map((d) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("li", { children: d }, d)) })
-          },
-          exp.company + exp.role
-        )) })
-      ]
-    }
-  );
-}
-
-// luis-site/src/components/Tooltip.tsx
-var import_react3 = __toESM(require_react());
-var import_jsx_runtime7 = __toESM(require_jsx_runtime());
-function Tooltip({ content, children }) {
-  const [visible, setVisible] = (0, import_react3.useState)(false);
-  const id = (0, import_react3.useId)();
-  const childProps = children.props;
-  const trigger = (0, import_react3.cloneElement)(
-    children,
-    {
-      "aria-describedby": id,
-      onMouseEnter: (e) => {
-        childProps.onMouseEnter?.(e);
-        setVisible(true);
-      },
-      onMouseLeave: (e) => {
-        childProps.onMouseLeave?.(e);
-        setVisible(false);
-      },
-      onFocus: (e) => {
-        childProps.onFocus?.(e);
-        setVisible(true);
-      },
-      onBlur: (e) => {
-        childProps.onBlur?.(e);
-        setVisible(false);
-      }
-    }
-  );
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { className: "relative inline-block", children: [
-    trigger,
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-      "span",
-      {
-        id,
-        role: "tooltip",
-        className: `absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap bg-gray-800 text-white text-xs rounded px-2 py-1 transition-opacity ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`,
-        children: content
-      }
-    )
-  ] });
-}
-
-// luis-site/src/sections/Awards.tsx
-var import_jsx_runtime8 = __toESM(require_jsx_runtime());
-function AwardBadge({ title, detail }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Tooltip, { content: detail, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-    "button",
-    {
-      type: "button",
-      className: "m-2 px-4 py-2 bg-primary text-white rounded-full focus:outline-none focus:ring-2 focus:ring-primary",
-      children: title
-    }
-  ) });
-}
-function Awards() {
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
-    "section",
-    {
-      id: "awards",
-      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Awards" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex flex-col justify-center mb-12 sm:flex-row sm:flex-wrap", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            AwardBadge,
-            {
-              title: "Chancellor's List (8\xD7)",
-              detail: "Top 7.5% of class"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            AwardBadge,
-            {
-              title: "Dean's List (8\xD7)",
-              detail: "GPA 3.5+ each semester"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            AwardBadge,
-            {
-              title: "Pi Mu Epsilon",
-              detail: "Mathematics honor society"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            AwardBadge,
-            {
-              title: "Omicron Delta Epsilon",
-              detail: "Economics honor society"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: "text-2xl font-semibold mb-4 text-center", children: "Certifications" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "max-w-md mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("ul", { className: "list-disc list-inside", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: "SOA Exams (P Jul 2024, FM Apr 2024, SRM Sep 2024, PA Oct 2024)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: "FINRA Series 7 & 63 (Jul 2023)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: "Life/Health Insurance License (since 2021)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: "CITI Program (2021)" })
-        ] }) })
-      ]
-    }
-  );
-}
-
-// luis-site/src/sections/Leadership.tsx
-var import_react4 = __toESM(require_react());
-var import_jsx_runtime9 = __toESM(require_jsx_runtime());
-function LeadershipItem({
-  role,
-  organization,
-  period,
-  link,
-  descriptions
-}) {
-  const ref = (0, import_react4.useRef)(null);
-  const [visible, setVisible] = (0, import_react4.useState)(false);
-  (0, import_react4.useEffect)(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => observer.disconnect();
-  }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-    "div",
-    {
-      ref,
-      className: `transition-opacity transition-transform duration-700 ease-out transform ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`,
-      children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "pl-4 border-l-2 border-primary", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h3", { className: "text-xl font-semibold", children: role }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-sm text-gray-600 leading-relaxed", children: link ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { href: link, className: "text-primary underline", target: "_blank", rel: "noopener noreferrer", children: organization }) : organization }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-xs text-gray-500 leading-relaxed", children: period }),
-        descriptions && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("ul", { className: "list-disc list-inside text-sm text-gray-600 mt-2 leading-relaxed", children: descriptions.map((text) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", { children: text }, text)) })
-      ] })
-    }
-  );
-}
-function Leadership() {
-  const roles = [
-    {
-      role: "Student Representative, GIPS Board of Education",
-      organization: "Grand Island Public Schools",
-      period: "Aug 2018 \u2013 May 2019",
-      link: "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306",
-      descriptions: ["Provided student perspective on district decisions."]
-    },
-    {
-      role: "Treasurer, UNO Economics Club",
-      organization: "UNO Economics Club",
-      period: "Jan 2020 \u2013 Aug 2021",
-      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
-      descriptions: ["Managed club finances and budgeting."]
-    },
-    {
-      role: "President, UNO Economics Club",
-      organization: "UNO Economics Club",
-      period: "Aug 2021 \u2013 May 2023",
-      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
-      descriptions: ["Led meetings and organized member events."]
-    },
-    {
-      role: "Treasurer, UNO Honors Student Association",
-      organization: "UNO Honors Student Association",
-      period: "May 2020 \u2013 May 2021",
-      link: "https://www.unomaha.edu/honors-program/honors-student-association.php",
-      descriptions: ["Oversaw budgets and financial records for honors community."]
-    },
-    {
-      role: "Vice-President, UNO Financial Management Association",
-      organization: "UNO FMA",
-      period: "Sep 2021 \u2013 Jan 2022",
-      link: "https://www.unomaha.edu/college-of-business-administration/finance-banking/fma.php",
-      descriptions: ["Coordinated professional development activities."]
-    },
-    {
-      role: "Harvest Speaker \u2013 Mission Moment",
-      organization: "Harvest",
-      period: "Sep 26 2024",
-      link: "https://www.harvestomaha.org/mission-moment",
-      descriptions: ["Shared personal story at community event."]
-    }
-  ];
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
-    "section",
-    {
-      id: "leadership",
-      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Leadership" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex flex-col space-y-8 max-w-2xl mx-auto", children: roles.map((item) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LeadershipItem, { ...item }, item.role)) })
-      ]
-    }
-  );
-}
-
 // luis-site/src/components/Timeline.tsx
-var import_react5 = __toESM(require_react());
+var import_react_vertical_timeline_component = __toESM(require_dist_es6());
 
 // luis-site/data/timeline.json
 var timeline_default = [
@@ -8611,102 +8621,852 @@ var timeline_default = [
 ];
 
 // luis-site/src/components/Timeline.tsx
-var import_jsx_runtime10 = __toESM(require_jsx_runtime());
+var import_jsx_runtime2 = __toESM(require_jsx_runtime());
 function Timeline() {
   const data = timeline_default.sort(
     (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
   );
-  const [active, setActive] = (0, import_react5.useState)(0);
-  const sectionRefs = (0, import_react5.useRef)([]);
-  const navRefs = (0, import_react5.useRef)([]);
-  const handleSelect = (index) => {
-    setActive(index);
-    sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-  const handleKey = (e, idx) => {
-    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-      const next = (idx + 1) % data.length;
-      navRefs.current[next]?.focus();
-      handleSelect(next);
-    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-      const prev = (idx - 1 + data.length) % data.length;
-      navRefs.current[prev]?.focus();
-      handleSelect(prev);
-    }
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-      "div",
-      {
-        className: "flex flex-col sm:flex-row sm:overflow-x-auto sm:space-x-4 space-y-2 sm:space-y-0 pb-4",
-        role: "tablist",
-        children: data.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-          "button",
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react_vertical_timeline_component.VerticalTimeline, { children: data.map((ev) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+    import_react_vertical_timeline_component.VerticalTimelineElement,
+    {
+      date: ev.date,
+      contentStyle: { boxShadow: "0 2px 8px rgba(0,0,0,0.1)" },
+      contentArrowStyle: { borderRight: "7px solid rgba(0,0,0,0.1)" },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h3", { className: "text-lg font-semibold", children: ev.title }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "text-sm leading-relaxed", children: ev.description }),
+        ev.links && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("ul", { className: "list-disc list-inside mt-2", children: ev.links.map((link) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          "a",
           {
-            ref: (el) => {
-              navRefs.current[i] = el;
-            },
-            className: `w-full sm:w-auto px-3 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 ${i === active ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`,
-            role: "tab",
-            tabIndex: 0,
-            "aria-selected": i === active,
-            onMouseEnter: () => setActive(i),
-            onFocus: () => setActive(i),
-            onClick: () => handleSelect(i),
-            onKeyDown: (e) => handleKey(e, i),
-            title: ev.title,
-            children: ev.date
-          },
-          ev.title
-        ))
+            href: link,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: "text-primary underline",
+            children: link
+          }
+        ) }, link)) })
+      ]
+    },
+    ev.title
+  )) });
+}
+
+// luis-site/src/sections/ResumeSummary.tsx
+var import_jsx_runtime3 = __toESM(require_jsx_runtime());
+function ResumeSummary() {
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+    "section",
+    {
+      id: "resume",
+      className: "px-4 py-12 flex flex-col items-center text-center bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { id: "timeline", className: "w-full max-w-3xl mb-8", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Timeline, {}) }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          "img",
+          {
+            src: "headshot-placeholder.svg",
+            alt: "Headshot of Luis Rodriguez",
+            width: 200,
+            height: 200,
+            className: "mb-4 rounded-full",
+            loading: "lazy"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "max-w-2xl mb-6 leading-relaxed", children: "Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full r\xE9sum\xE9 is available as a downloadable PDF for detailed viewing." }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          "a",
+          {
+            href: "LuisRodriguez_Resume.pdf",
+            className: "px-6 py-3 bg-primary text-white rounded shadow",
+            download: true,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            children: "Download R\xE9sum\xE9 (PDF)"
+          }
+        )
+      ]
+    }
+  );
+}
+
+// luis-site/src/components/Card.tsx
+var import_react2 = __toESM(require_react());
+var import_jsx_runtime4 = __toESM(require_jsx_runtime());
+function Card({ imageSrc, icon, title, summary, detail }) {
+  const [open, setOpen] = (0, import_react2.useState)(false);
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "bg-white rounded shadow-md p-6 transition-shadow hover:shadow-lg", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center mb-2", children: [
+      imageSrc ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "img",
+          {
+            src: imageSrc,
+            alt: "",
+            width: 48,
+            height: 48,
+            className: "w-12 h-12 mr-4 object-cover",
+            loading: "lazy"
+          }
+        )
+      ) : icon ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "w-12 h-12 mr-4 flex items-center justify-center", children: icon }) : null,
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "text-xl font-semibold", children: title })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-sm text-gray-600 mb-2", children: summary }),
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      "button",
+      {
+        type: "button",
+        onClick: () => setOpen(!open),
+        className: "text-primary underline text-sm",
+        "aria-expanded": open,
+        children: open ? "Hide details" : "View details"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { children: data.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
-      "div",
-      {
-        ref: (el) => {
-          sectionRefs.current[i] = el;
-        },
-        hidden: active !== i,
-        role: "tabpanel",
-        "aria-labelledby": ev.title,
-        className: "p-4",
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h3", { className: "text-xl font-semibold", children: ev.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mb-2 leading-relaxed", children: ev.description }),
-          ev.links && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("ul", { className: "list-disc list-inside space-y-1", children: ev.links.map((link) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-            "a",
-            {
-              href: link,
-              target: "_blank",
-              rel: "noopener noreferrer",
-              className: "text-blue-600 underline",
-              children: link
-            }
-          ) }, link)) })
-        ]
-      },
-      ev.title
-    )) })
+    open && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "mt-2 text-sm", children: detail })
   ] });
 }
 
+// luis-site/src/sections/Education.tsx
+var import_jsx_runtime5 = __toESM(require_jsx_runtime());
+function AcademicCapIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      fill: "currentColor",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M11.7 2.13a.75.75 0 01.6 0l9 4a.75.75 0 010 1.36l-2.21.98a4.5 4.5 0 01-8.76 0l-2.21-.98a.75.75 0 010-1.36l9-4z" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M21.75 12a.75.75 0 00-1.5 0v2.763a9.71 9.71 0 01-7.5 3.487 9.71 9.71 0 01-7.5-3.487V12a.75.75 0 00-1.5 0v2.763c0 .748.167 1.481.49 2.15a6.22 6.22 0 001.348 1.86l-.872 2.615a.75.75 0 001.423.474l.87-2.607a11.21 11.21 0 0012.582 0l.87 2.607a.75.75 0 001.423-.474l-.872-2.615a6.22 6.22 0 001.348-1.86 5.6 5.6 0 00.49-2.15V12z" })
+      ]
+    }
+  );
+}
+var schools = [
+  {
+    institution: "University of Nebraska at Omaha",
+    degree: "B.A. Economics",
+    gpa: "4.0",
+    concentration: "Data Analytics",
+    scholarships: [
+      "Susan T. Buffett Scholarship",
+      "Jack & Lucile Martin Scholarship"
+    ],
+    honors: [
+      "Pi Mu Epsilon (Mathematics)",
+      "Omicron Delta Epsilon (Economics)"
+    ],
+    dates: "2019\u20132023",
+    color: "text-red-600"
+  },
+  {
+    institution: "University of Nebraska at Omaha",
+    degree: "B.S. Mathematics",
+    gpa: "4.0",
+    concentration: "Statistics & Data Science",
+    scholarships: [
+      "Susan T. Buffett Scholarship",
+      "Jack & Lucile Martin Scholarship"
+    ],
+    honors: [
+      "Pi Mu Epsilon (Mathematics)",
+      "Omicron Delta Epsilon (Economics)"
+    ],
+    dates: "2019\u20132023",
+    color: "text-red-600"
+  },
+  {
+    institution: "Grand Island Senior High",
+    degree: "High School Diploma",
+    scholarships: [],
+    honors: [
+      "Student Board Representative",
+      "National Honor Society"
+    ],
+    dates: "2015\u20132019",
+    color: "text-purple-600"
+  }
+];
+function Education() {
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    "section",
+    {
+      id: "education",
+      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Education" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: schools.map((s) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          Card,
+          {
+            icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(AcademicCapIcon, { className: `h-6 w-6 ${s.color}` }),
+            title: s.institution,
+            summary: `${s.degree} (${s.dates})${s.gpa ? ` \u2014 GPA: ${s.gpa}` : ""}`,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+              s.concentration && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", { className: "mb-4 leading-relaxed", children: [
+                "Concentration: ",
+                s.concentration
+              ] }),
+              s.scholarships.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Scholarships" }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { className: "list-disc list-inside mb-4", children: s.scholarships.map((item) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("abbr", { title: item, children: item }) }, item)) })
+              ] }),
+              s.honors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Honor Societies" }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { className: "list-disc list-inside", children: s.honors.map((item) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: item }, item)) })
+              ] })
+            ] })
+          },
+          s.institution
+        )) })
+      ]
+    }
+  );
+}
+
+// luis-site/src/sections/Research.tsx
+var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+var projects = [
+  {
+    title: "Finite-Field Linear Algebra",
+    dates: "Sep 2021 \u2013 Apr 2022",
+    summary: "Studied numerical ranges over finite fields.",
+    presentations: [
+      "UNO Student Research and Creative Activity Fair",
+      "MAA North Central Section Conference"
+    ],
+    link: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/"
+  },
+  {
+    title: "Integer-Programming Wedding Venue Thesis",
+    dates: "Aug 2022 \u2013 May 2023",
+    summary: "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
+    link: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program"
+  }
+];
+function Research() {
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    "section",
+    {
+      id: "research",
+      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Research" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          Card,
+          {
+            title: p.title,
+            summary: p.dates,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "mb-4 leading-relaxed", children: p.summary }),
+              p.presentations && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "mb-4 list-disc list-inside", children: p.presentations.map((e) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("li", { children: e }, e)) }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+                "a",
+                {
+                  href: p.link,
+                  className: "text-primary underline",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  children: "Learn more"
+                }
+              )
+            ] })
+          },
+          p.title
+        )) })
+      ]
+    }
+  );
+}
+
+// luis-site/src/sections/Experience.tsx
+var import_jsx_runtime7 = __toESM(require_jsx_runtime());
+function BriefcaseIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"
+        }
+      )
+    }
+  );
+}
+function CalculatorIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z"
+        }
+      )
+    }
+  );
+}
+function ChartBarIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
+        }
+      )
+    }
+  );
+}
+function BookOpenIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+        }
+      )
+    }
+  );
+}
+function BuildingStorefrontIcon({ className = "" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    "svg",
+    {
+      className,
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      strokeWidth: 1.5,
+      stroke: "currentColor",
+      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "path",
+        {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          d: "M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+        }
+      )
+    }
+  );
+}
+var experiences = [
+  {
+    company: "Telos Actuarial",
+    role: "Actuarial Analyst",
+    period: "Feb 2024 \u2013 Present",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CalculatorIcon, { className: "h-6 w-6 text-blue-600" }),
+    details: [
+      "Automate valuation workflows in Excel using VBA",
+      "Query and validate large datasets with SQL for actuarial analysis"
+    ]
+  },
+  {
+    company: "Ludacka Wealth Partners",
+    role: "Financial Planning Analyst",
+    period: "Apr 2022 \u2013 Feb 2024",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BriefcaseIcon, { className: "h-6 w-6 text-secondary" }),
+    details: [
+      "Prepared customized financial plans and cash\u2011flow projections",
+      "Maintained client data and produced investment reports in Excel"
+    ]
+  },
+  {
+    company: "Northwestern Mutual",
+    role: "Financial Representative Intern",
+    period: "Nov 2021 \u2013 Apr 2022",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(ChartBarIcon, { className: "h-6 w-6 text-yellow-600" }),
+    details: [
+      "Prospected clients and scheduled financial planning meetings",
+      "Prepared insurance illustrations and plan proposals"
+    ]
+  },
+  {
+    company: "UNO College of Business Administration",
+    role: "Mathematics Tutor",
+    period: "Aug 2020 \u2013 Dec 2021",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BookOpenIcon, { className: "h-6 w-6 text-red-600" }),
+    details: [
+      "Tutored students in calculus and statistics to reinforce coursework",
+      "Led review sessions that improved problem\u2011solving skills"
+    ]
+  },
+  {
+    company: "Runza Restaurants",
+    role: "Cashier",
+    period: "Sep 2017 \u2013 Aug 2019",
+    icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BuildingStorefrontIcon, { className: "h-6 w-6 text-green-600" }),
+    details: [
+      "Provided prompt customer service and processed cash transactions",
+      "Assisted with food preparation and maintained clean work areas"
+    ]
+  }
+];
+function Experience() {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+    "section",
+    {
+      id: "experience",
+      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Experience" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: experiences.map((exp) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          Card,
+          {
+            icon: exp.icon,
+            title: exp.role,
+            summary: `${exp.company} | ${exp.period}`,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("ul", { className: "list-disc list-inside space-y-1", children: exp.details.map((d) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("li", { children: d }, d)) })
+          },
+          exp.company + exp.role
+        )) })
+      ]
+    }
+  );
+}
+
+// luis-site/src/components/Tooltip.tsx
+var import_react3 = __toESM(require_react());
+var import_jsx_runtime8 = __toESM(require_jsx_runtime());
+function Tooltip({ content, children }) {
+  const [visible, setVisible] = (0, import_react3.useState)(false);
+  const id = (0, import_react3.useId)();
+  const childProps = children.props;
+  const trigger = (0, import_react3.cloneElement)(
+    children,
+    {
+      "aria-describedby": id,
+      onMouseEnter: (e) => {
+        childProps.onMouseEnter?.(e);
+        setVisible(true);
+      },
+      onMouseLeave: (e) => {
+        childProps.onMouseLeave?.(e);
+        setVisible(false);
+      },
+      onFocus: (e) => {
+        childProps.onFocus?.(e);
+        setVisible(true);
+      },
+      onBlur: (e) => {
+        childProps.onBlur?.(e);
+        setVisible(false);
+      }
+    }
+  );
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "relative inline-block", children: [
+    trigger,
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      "span",
+      {
+        id,
+        role: "tooltip",
+        className: `absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap bg-gray-800 text-white text-xs rounded px-2 py-1 transition-opacity ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`,
+        children: content
+      }
+    )
+  ] });
+}
+
+// luis-site/src/sections/Achievements.tsx
+var import_jsx_runtime9 = __toESM(require_jsx_runtime());
+function AwardBadge({ title, detail }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Tooltip, { content: detail, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    "button",
+    {
+      type: "button",
+      className: "m-2 px-4 py-2 bg-primary text-white rounded-full focus:outline-none focus:ring-2 focus:ring-primary",
+      children: title
+    }
+  ) });
+}
+function Achievements() {
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+    "section",
+    {
+      id: "achievements",
+      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Achievements" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-col justify-center mb-12 sm:flex-row sm:flex-wrap", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+            AwardBadge,
+            {
+              title: "Chancellor's List (8\xD7)",
+              detail: "Top 7.5% of class"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+            AwardBadge,
+            {
+              title: "Dean's List (8\xD7)",
+              detail: "GPA 3.5+ each semester"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+            AwardBadge,
+            {
+              title: "Pi Mu Epsilon",
+              detail: "Mathematics honor society"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+            AwardBadge,
+            {
+              title: "Omicron Delta Epsilon",
+              detail: "Economics honor society"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h3", { className: "text-2xl font-semibold mb-4 text-center", children: "Certifications & Exams" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "max-w-md mx-auto mb-4 flex flex-wrap justify-center", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-1 px-3 py-1 bg-gray-200 rounded-full", children: "Exam FM (Apr 2024)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-1 px-3 py-1 bg-gray-200 rounded-full", children: "Exam P (Jul 2024)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-1 px-3 py-1 bg-gray-200 rounded-full", children: "Exam SRM (Sep 2024)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-1 px-3 py-1 bg-gray-200 rounded-full", children: "Exam PA (Oct 2024)" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "max-w-md mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("ul", { className: "list-disc list-inside", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", { children: "FINRA Series 7 & 63 (Jul 2023)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", { children: "Life/Health Insurance License (since 2021)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", { children: "CITI Program (2021)" })
+        ] }) })
+      ]
+    }
+  );
+}
+
+// luis-site/src/sections/Leadership.tsx
+var import_react4 = __toESM(require_react());
+var import_jsx_runtime10 = __toESM(require_jsx_runtime());
+function LeadershipItem({
+  role,
+  organization,
+  period,
+  link,
+  descriptions
+}) {
+  const ref = (0, import_react4.useRef)(null);
+  const [visible, setVisible] = (0, import_react4.useState)(false);
+  (0, import_react4.useEffect)(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    "div",
+    {
+      ref,
+      className: `transition-opacity transition-transform duration-700 ease-out transform ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`,
+      children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "pl-4 border-l-2 border-primary", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h3", { className: "text-xl font-semibold", children: role }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "text-sm text-gray-600 leading-relaxed", children: link ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("a", { href: link, className: "text-primary underline", target: "_blank", rel: "noopener noreferrer", children: organization }) : organization }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "text-xs text-gray-500 leading-relaxed", children: period }),
+        descriptions && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("ul", { className: "list-disc list-inside text-sm text-gray-600 mt-2 leading-relaxed", children: descriptions.map((text) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("li", { children: text }, text)) })
+      ] })
+    }
+  );
+}
+function Leadership() {
+  const roles = [
+    {
+      role: "Student Representative, GIPS Board of Education",
+      organization: "Grand Island Public Schools",
+      period: "Aug 2018 \u2013 May 2019",
+      link: "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306",
+      descriptions: ["Provided student perspective on district decisions."]
+    },
+    {
+      role: "Treasurer, UNO Economics Club",
+      organization: "UNO Economics Club",
+      period: "Jan 2020 \u2013 Aug 2021",
+      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
+      descriptions: ["Managed club finances and budgeting."]
+    },
+    {
+      role: "President, UNO Economics Club",
+      organization: "UNO Economics Club",
+      period: "Aug 2021 \u2013 May 2023",
+      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
+      descriptions: ["Led meetings and organized member events."]
+    },
+    {
+      role: "Treasurer, UNO Honors Student Association",
+      organization: "UNO Honors Student Association",
+      period: "May 2020 \u2013 May 2021",
+      link: "https://www.unomaha.edu/honors-program/honors-student-association.php",
+      descriptions: ["Oversaw budgets and financial records for honors community."]
+    },
+    {
+      role: "Vice-President, UNO Financial Management Association",
+      organization: "UNO FMA",
+      period: "Sep 2021 \u2013 Jan 2022",
+      link: "https://www.unomaha.edu/college-of-business-administration/finance-banking/fma.php",
+      descriptions: ["Coordinated professional development activities."]
+    },
+    {
+      role: "Harvest Speaker \u2013 Mission Moment",
+      organization: "Harvest",
+      period: "Sep 26 2024",
+      link: "https://www.harvestomaha.org/mission-moment",
+      descriptions: ["Shared personal story at community event."]
+    }
+  ];
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+    "section",
+    {
+      id: "leadership",
+      className: "px-4 py-12 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Leadership" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex flex-col space-y-8 max-w-2xl mx-auto", children: roles.map((item) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LeadershipItem, { ...item }, item.role)) })
+      ]
+    }
+  );
+}
+
+// luis-site/src/sections/Contact.tsx
+var import_react5 = __toESM(require_react());
+var import_jsx_runtime11 = __toESM(require_jsx_runtime());
+function Contact() {
+  const [formData, setFormData] = (0, import_react5.useState)({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [errors, setErrors] = (0, import_react5.useState)({});
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name)
+      newErrors.name = "Name is required";
+    if (!formData.email)
+      newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      newErrors.email = "Invalid email";
+    if (!formData.message)
+      newErrors.message = "Message is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  const handleSubmit = (e) => {
+    if (!validate()) {
+      e.preventDefault();
+    }
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+    "section",
+    {
+      id: "contact",
+      className: "px-4 py-12 flex flex-col items-center bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h2", { className: "text-3xl font-bold mb-8", children: "Contact" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex space-x-4 mb-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "a",
+            {
+              href: "mailto:Luisitinrodriguez2001@gmail.com",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "p-2 rounded bg-primary text-white",
+              "aria-label": "Email",
+              children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                "svg",
+                {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 24 24",
+                  fill: "currentColor",
+                  className: "w-6 h-6",
+                  children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("path", { d: "M2.25 4.5A2.25 2.25 0 0 1 4.5 2.25h15A2.25 2.25 0 0 1 21.75 4.5v15a2.25 2.25 0 0 1-2.25 2.25h-15A2.25 2.25 0 0 1 2.25 19.5v-15Zm2.457.75 7.293 5.099 7.293-5.099H4.707ZM20.25 8.34l-8.29 5.8a.75.75 0 0 1-.92 0l-8.29-5.8v10.41a.75.75 0 0 0 .75.75h15a.75.75 0 0 0 .75-.75V8.34Z" })
+                }
+              )
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "a",
+            {
+              href: "https://www.linkedin.com/in/luis-rodriguez-664a6a245",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "p-2 rounded bg-primary text-white",
+              "aria-label": "LinkedIn",
+              children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                "svg",
+                {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 24 24",
+                  fill: "currentColor",
+                  className: "w-6 h-6",
+                  children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("path", { d: "M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4v16h-4V8Zm7.98 0h3.83v2.29h.05c.53-1.01 1.84-2.29 3.78-2.29 4.04 0 4.79 2.66 4.79 6.11V24h-4v-7.9c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.06-3.03 4.19V24h-4V8Z" })
+                }
+              )
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "a",
+            {
+              href: "https://www.instagram.com/luisitin2001",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "p-2 rounded bg-primary text-white",
+              "aria-label": "Instagram",
+              children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                "svg",
+                {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 24 24",
+                  fill: "currentColor",
+                  className: "w-6 h-6",
+                  children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("path", { d: "M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.071-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" })
+                }
+              )
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "a",
+            {
+              href: "https://www.tiktok.com/@luisitin2001",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "p-2 rounded bg-primary text-white",
+              "aria-label": "TikTok",
+              children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                "svg",
+                {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 24 24",
+                  fill: "currentColor",
+                  className: "w-6 h-6",
+                  children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("path", { d: "M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.445-3.375-3.65-5.714-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" })
+                }
+              )
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+          "form",
+          {
+            name: "contact",
+            method: "POST",
+            "data-netlify": "true",
+            onSubmit: handleSubmit,
+            className: "w-full max-w-md flex flex-col space-y-4",
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("input", { type: "hidden", name: "form-name", value: "contact" }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { className: "flex flex-col text-left", children: [
+                "Name",
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "input",
+                  {
+                    type: "text",
+                    name: "name",
+                    value: formData.name,
+                    onChange: handleChange,
+                    className: "border p-2 rounded"
+                  }
+                ),
+                errors.name && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-red-500 text-sm", children: errors.name })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { className: "flex flex-col text-left", children: [
+                "Email",
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "input",
+                  {
+                    type: "email",
+                    name: "email",
+                    value: formData.email,
+                    onChange: handleChange,
+                    className: "border p-2 rounded"
+                  }
+                ),
+                errors.email && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-red-500 text-sm", children: errors.email })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { className: "flex flex-col text-left", children: [
+                "Message",
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "textarea",
+                  {
+                    name: "message",
+                    value: formData.message,
+                    onChange: handleChange,
+                    className: "border p-2 rounded",
+                    rows: 5
+                  }
+                ),
+                errors.message && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-red-500 text-sm", children: errors.message })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "submit", className: "px-4 py-2 bg-primary text-white rounded", children: "Send" })
+            ]
+          }
+        )
+      ]
+    }
+  );
+}
+
 // main.tsx
-var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 function App() {
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "min-h-screen bg-background text-text", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Navbar, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ResumeSummary, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Education, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Research, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Experience, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Awards, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Leadership, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("section", { id: "timeline", className: "min-h-screen p-8", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Timeline, {}) })
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "min-h-screen bg-background text-text", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Navbar, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(ResumeSummary, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Education, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Research, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Experience, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Achievements, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Leadership, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Contact, {})
   ] });
 }
 import_client.default.createRoot(document.getElementById("app")).render(
-  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_react6.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(App, {}) })
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_react6.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(App, {}) })
 );
 /*! Bundled license information:
 
@@ -8753,4 +9513,11 @@ react/cjs/react-jsx-runtime.production.min.js:
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    *)
+
+classnames/index.js:
+  (*!
+  	Copyright (c) 2018 Jed Watson.
+  	Licensed under the MIT License (MIT), see
+  	http://jedwatson.github.io/classnames
+  *)
 */

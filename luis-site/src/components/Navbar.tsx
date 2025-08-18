@@ -1,15 +1,6 @@
 import { useEffect, useState } from "react";
 
-const sections = [
-  "timeline",
-  "resume-summary",
-  "education",
-  "research",
-  "experience",
-  "awards",
-  "leadership",
-  "contact",
-];
+const sections = ["timeline", "resume", "achievements", "contact"];
 
 export default function Navbar() {
   const [active, setActive] = useState<string>("timeline");
