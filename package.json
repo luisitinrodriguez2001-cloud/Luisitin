@@ -7,8 +7,8 @@
     "build:css": "cd luis-site && npx tailwindcss -i src/styles/globals.css -o ../dist/styles.css --minify"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "esbuild": "^0.20.2",
