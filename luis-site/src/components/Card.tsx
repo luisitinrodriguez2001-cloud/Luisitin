@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
-import Image from "next/image";
 
 interface CardProps {
   imageSrc?: string;
@@ -17,7 +16,8 @@ export default function Card({ imageSrc, icon, title, summary, detail }: CardPro
     <div className="bg-white rounded shadow p-6">
       <div className="flex items-center mb-2">
         {imageSrc ? (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={imageSrc}
             alt=""
             width={48}
