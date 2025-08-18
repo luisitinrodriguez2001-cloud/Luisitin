@@ -18,13 +18,13 @@ function AwardBadge({ title, detail }: AwardBadgeProps) {
   );
 }
 
-export default function Awards() {
+export default function Achievements() {
   return (
     <section
-      id="awards"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
+      id="achievements"
+      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
     >
-      <h2 className="text-3xl font-bold text-center mb-8">Awards</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">Achievements</h2>
       <div className="flex flex-col justify-center mb-12 sm:flex-row sm:flex-wrap">
         <AwardBadge
           title="Chancellor's List (8×)"
@@ -43,12 +43,23 @@ export default function Awards() {
           detail="Economics honor society"
         />
       </div>
-      <h3 className="text-2xl font-semibold mb-4 text-center">Certifications</h3>
+      <h3 className="text-2xl font-semibold mb-4 text-center">Certifications &amp; Exams</h3>
+      <div className="max-w-md mx-auto mb-4 flex flex-wrap justify-center">
+        <span className="m-1 px-3 py-1 bg-gray-200 rounded-full">
+          Exam FM (Apr 2024)
+        </span>
+        <span className="m-1 px-3 py-1 bg-gray-200 rounded-full">
+          Exam P (Jul 2024)
+        </span>
+        <span className="m-1 px-3 py-1 bg-gray-200 rounded-full">
+          Exam SRM (Sep 2024)
+        </span>
+        <span className="m-1 px-3 py-1 bg-gray-200 rounded-full">
+          Exam PA (Oct 2024)
+        </span>
+      </div>
       <div className="max-w-md mx-auto">
         <ul className="list-disc list-inside">
-          <li>
-            SOA Exams (P Jul 2024, FM Apr 2024, SRM Sep 2024, PA Oct 2024)
-          </li>
           <li>FINRA Series 7 &amp; 63 (Jul 2023)</li>
           <li>Life/Health Insurance License (since 2021)</li>
           <li>CITI Program (2021)</li>

@@ -11,6 +11,7 @@ build({
   sourcemap: false,
   minify: false,
   jsx: 'automatic',
+  loader: { '.css': 'css' },
   define: { 'process.env.NODE_ENV': '"production"' },
   alias: {
     react: resolve('node_modules/react'),

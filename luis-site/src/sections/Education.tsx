@@ -17,11 +17,12 @@ function AcademicCapIcon({ className = "" }: { className?: string }) {
 interface Education {
   institution: string;
   degree: string;
-  gpa: string;
+  gpa?: string;
   concentration?: string;
   scholarships: string[];
   honors: string[];
   dates: string;
+  color: string;
 }
 
 const schools: Education[] = [
@@ -39,6 +40,7 @@ const schools: Education[] = [
       "Omicron Delta Epsilon (Economics)",
     ],
     dates: "2019–2023",
+    color: "text-red-600",
   },
   {
     institution: "University of Nebraska at Omaha",
@@ -54,17 +56,18 @@ const schools: Education[] = [
       "Omicron Delta Epsilon (Economics)",
     ],
     dates: "2019–2023",
+    color: "text-red-600",
   },
   {
     institution: "Grand Island Senior High",
     degree: "High School Diploma",
-    gpa: "4.0",
     scholarships: [],
     honors: [
       "Student Board Representative",
       "National Honor Society",
     ],
     dates: "2015–2019",
+    color: "text-purple-600",
   },
 ];
 
@@ -72,16 +75,16 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
+      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Education</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {schools.map((s) => (
           <Card
             key={s.institution}
-            icon={<AcademicCapIcon className="h-6 w-6 text-primary" />}
+            icon={<AcademicCapIcon className={`h-6 w-6 ${s.color}`} />}
             title={s.institution}
-            summary={`${s.degree} (${s.dates}) — GPA: ${s.gpa}`}
+            summary={`${s.degree} (${s.dates})${s.gpa ? ` — GPA: ${s.gpa}` : ""}`}
             detail={
               <div>
                 {s.concentration && (

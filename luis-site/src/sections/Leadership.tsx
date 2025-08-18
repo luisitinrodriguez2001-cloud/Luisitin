@@ -115,7 +115,7 @@ export default function Leadership() {
   return (
     <section
       id="leadership"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
+      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Leadership</h2>
       <div className="flex flex-col space-y-8 max-w-2xl mx-auto">

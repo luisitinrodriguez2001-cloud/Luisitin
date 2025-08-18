@@ -1,11 +1,15 @@
 import React from "react";
+import Timeline from "../components/Timeline";
 
 export default function ResumeSummary() {
   return (
     <section
-      id="resume-summary"
-      className="min-h-screen p-8 flex flex-col items-center text-center bg-gray-50"
+      id="resume"
+      className="px-4 py-12 flex flex-col items-center text-center bg-gray-50"
     >
+      <div id="timeline" className="w-full max-w-3xl mb-8">
+        <Timeline />
+      </div>
       <img
         src="headshot-placeholder.svg"
         alt="Headshot of Luis Rodriguez"
@@ -20,6 +24,9 @@ export default function ResumeSummary() {
       <a
         href="LuisRodriguez_Resume.pdf"
         className="px-6 py-3 bg-primary text-white rounded shadow"
+        download
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Download Résumé (PDF)
       </a>
