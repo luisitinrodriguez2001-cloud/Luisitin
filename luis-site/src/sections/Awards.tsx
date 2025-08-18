@@ -49,9 +49,12 @@ function Certification({ name, progress }: CertificationProps) {
 
 export default function Awards() {
   return (
-    <section id="awards" className="min-h-screen p-8">
+    <section
+      id="awards"
+      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8"
+    >
       <h2 className="text-3xl font-bold text-center mb-8">Awards</h2>
-      <div className="flex flex-wrap justify-center mb-12">
+      <div className="flex flex-col justify-center mb-12 sm:flex-row sm:flex-wrap">
         <AwardBadge title="Chancellor's List" detail="Top 7.5% of class" />
         <AwardBadge title="Dean's List" detail="GPA 3.5+ each semester" />
         <AwardBadge title="Regents Scholarship" detail="Full tuition scholarship" />
