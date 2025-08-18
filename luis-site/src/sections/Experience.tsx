@@ -109,7 +109,7 @@ const experiences: Experience[] = [
     company: "Telos Actuarial",
     role: "Actuarial Analyst",
     period: "Feb 2024 – Present",
-    icon: <CalculatorIcon className="h-6 w-6 text-blue-600" />,
+    icon: <CalculatorIcon className="h-6 w-6 text-[#0d9488]" />,
     details: [
       "Automate valuation workflows in Excel using VBA",
       "Query and validate large datasets with SQL for actuarial analysis",
@@ -119,7 +119,7 @@ const experiences: Experience[] = [
     company: "Ludacka Wealth Partners",
     role: "Financial Planning Analyst",
     period: "Apr 2022 – Feb 2024",
-    icon: <BriefcaseIcon className="h-6 w-6 text-secondary" />,
+    icon: <BriefcaseIcon className="h-6 w-6 text-gray-500" />,
     details: [
       "Prepared customized financial plans and cash‑flow projections",
       "Maintained client data and produced investment reports in Excel",
@@ -129,7 +129,7 @@ const experiences: Experience[] = [
     company: "Northwestern Mutual",
     role: "Financial Representative Intern",
     period: "Nov 2021 – Apr 2022",
-    icon: <ChartBarIcon className="h-6 w-6 text-yellow-600" />,
+    icon: <ChartBarIcon className="h-6 w-6 text-[#0033a0]" />,
     details: [
       "Prospected clients and scheduled financial planning meetings",
       "Prepared insurance illustrations and plan proposals",
@@ -161,9 +161,9 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
+      className="px-4 py-8 sm:px-6 lg:px-8 bg-background"
     >
-      <h2 className="text-3xl font-bold text-center mb-8">Experience</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">Experience</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {experiences.map((exp) => (
           <Card

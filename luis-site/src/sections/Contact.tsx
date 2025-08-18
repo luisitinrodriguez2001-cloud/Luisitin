@@ -34,9 +34,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="px-4 py-12 flex flex-col items-center bg-gray-50"
+      className="px-4 py-8 flex flex-col items-center bg-background"
     >
-      <h2 className="text-3xl font-bold mb-8">Contact</h2>
+      <h2 className="text-3xl font-bold mb-6">Contact</h2>
       <div className="flex space-x-4 mb-6">
         <a
           href="mailto:Luisitinrodriguez2001@gmail.com"

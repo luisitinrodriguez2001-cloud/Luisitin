@@ -4,7 +4,7 @@ interface Project {
   title: string;
   dates: string;
   summary: string;
-  link: string;
+  link: { label: string; url: string };
   presentations?: string[];
 }
 
@@ -17,14 +17,20 @@ const projects: Project[] = [
       "UNO Student Research and Creative Activity Fair",
       "MAA North Central Section Conference",
     ],
-    link: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/",
+    link: {
+      label: "UNO SRCAF Abstract",
+      url: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/",
+    },
   },
   {
     title: "Integer-Programming Wedding Venue Thesis",
     dates: "Aug 2022 – May 2023",
     summary:
       "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
-    link: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program",
+    link: {
+      label: "UNO Honors Thesis (PDF)",
+      url: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program",
+    },
   },
 ];
 
@@ -32,9 +38,9 @@ export default function Research() {
   return (
     <section
       id="research"
-      className="px-4 py-12 sm:px-6 lg:px-8 bg-gray-50"
+      className="px-4 py-8 sm:px-6 lg:px-8 bg-background"
     >
-      <h2 className="text-3xl font-bold text-center mb-8">Research</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">Research</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {projects.map((p) => (
           <Card
@@ -52,12 +58,12 @@ export default function Research() {
                   </ul>
                 )}
                 <a
-                  href={p.link}
+                  href={p.link.url}
                   className="text-primary underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Learn more
+                  {p.link.label}
                 </a>
               </>
             }
