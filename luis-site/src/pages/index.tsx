@@ -1,5 +1,9 @@
 import Navbar from "@/components/Navbar";
 import ResumeSummary from "@/sections/ResumeSummary";
+import Education from "@/sections/Education";
+import Research from "@/sections/Research";
+import Experience from "@/sections/Experience";
+import Awards from "@/sections/Awards";
 import Leadership from "@/sections/Leadership";
 import Timeline from "@/components/Timeline";
 import Contact from "@/sections/Contact";
@@ -11,11 +15,11 @@ export default function Home() {
       <Navbar />
       {/* Hero banner would appear here */}
       <ResumeSummary />
-      <section id="about" className="min-h-screen p-8">About</section>
-      <section id="education" className="min-h-screen p-8">Education</section>
-      <section id="experience" className="min-h-screen p-8">Experience</section>
+      <Education />
+      <Research />
+      <Experience />
+      <Awards />
       <Leadership />
-      <section id="projects" className="min-h-screen p-8">Projects</section>
       <section id="timeline" className="min-h-screen p-8">
         <Timeline />
       </section>
