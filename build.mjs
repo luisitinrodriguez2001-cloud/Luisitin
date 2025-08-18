@@ -6,11 +6,13 @@ build({
   bundle: true,
   format: 'esm',
   platform: 'browser',
-  outfile: 'dist/main.js',
+  outfile: 'main.js',
   sourcemap: false,
   minify: false,
+  jsx: 'automatic',
+  define: { 'process.env.NODE_ENV': '"production"' },
 })
   .then(() => {
-    copyFileSync('luis-site/public/headshot-placeholder.svg', 'dist/headshot-placeholder.svg');
+    copyFileSync('luis-site/public/headshot-placeholder.svg', 'headshot-placeholder.svg');
   })
   .catch(() => process.exit(1));
