@@ -8001,6 +8001,14 @@ var timeline_default = [
     color: "#cc0000"
   },
   {
+    date: "Aug 2020 \u2013 Dec 2021",
+    startDate: "2020-08-01",
+    title: "Mathematics Tutor, UNO College of Business",
+    category: "Work",
+    snippet: "Supported calculus and statistics students.",
+    color: "#cc0000"
+  },
+  {
     date: "Aug 2021 \u2013 May 2023",
     startDate: "2021-08-01",
     title: "Econ Club President",
@@ -8053,7 +8061,7 @@ var timeline_default = [
     startDate: "2022-04-01",
     title: "Ludacka, Analyst",
     category: "Work",
-    snippet: "Crafted financial plans in a boutique shop.",
+    snippet: "Built valuation models, crafted high\u2011net\u2011worth client plans, and handled jumbo underwriting.",
     color: "#6b7280"
   },
   {
@@ -8771,8 +8779,9 @@ var experiences = [
     period: "Apr 2022 \u2013 Feb 2024",
     icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(BriefcaseIcon, { className: "h-6 w-6 text-gray-500" }),
     details: [
-      "Prepared customized financial plans and cash\u2011flow projections",
-      "Maintained client data and produced investment reports in Excel"
+      "Built valuation models",
+      "Crafted high\u2011net\u2011worth client plans",
+      "Handled jumbo underwriting"
     ]
   },
   {

@@ -121,8 +121,9 @@ const experiences: Experience[] = [
     period: "Apr 2022 – Feb 2024",
     icon: <BriefcaseIcon className="h-6 w-6 text-gray-500" />,
     details: [
-      "Prepared customized financial plans and cash‑flow projections",
-      "Maintained client data and produced investment reports in Excel",
+      "Built valuation models",
+      "Crafted high‑net‑worth client plans",
+      "Handled jumbo underwriting",
     ],
   },
   {
