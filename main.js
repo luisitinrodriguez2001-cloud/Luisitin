@@ -7863,17 +7863,17 @@ var import_client = __toESM(require_client(), 1);
 var import_react = __toESM(require_react());
 var import_jsx_runtime = __toESM(require_jsx_runtime());
 var sections = [
+  "timeline",
   "resume-summary",
   "education",
   "research",
   "experience",
   "awards",
   "leadership",
-  "timeline",
   "contact"
 ];
 function Navbar() {
-  const [active, setActive] = (0, import_react.useState)("resume-summary");
+  const [active, setActive] = (0, import_react.useState)("timeline");
   const [open, setOpen] = (0, import_react.useState)(false);
   (0, import_react.useEffect)(() => {
     const observer = new IntersectionObserver(
@@ -7926,28 +7926,35 @@ function Navbar() {
 // luis-site/src/sections/ResumeSummary.tsx
 var import_jsx_runtime2 = __toESM(require_jsx_runtime());
 function ResumeSummary() {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("section", { id: "resume-summary", className: "min-h-screen p-8 flex flex-col items-center text-center", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      "img",
-      {
-        src: "headshot-placeholder.svg",
-        alt: "Headshot of Luis Rodriguez",
-        width: 200,
-        height: 200,
-        className: "mb-4 rounded-full",
-        loading: "lazy"
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "max-w-2xl mb-6", children: "Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full r\xE9sum\xE9 is available as a downloadable PDF for detailed viewing." }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      "a",
-      {
-        href: "LuisRodriguez_Resume.pdf",
-        className: "px-6 py-3 bg-primary text-white rounded shadow",
-        children: "Download R\xE9sum\xE9 (PDF)"
-      }
-    )
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+    "section",
+    {
+      id: "resume-summary",
+      className: "min-h-screen p-8 flex flex-col items-center text-center bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          "img",
+          {
+            src: "headshot-placeholder.svg",
+            alt: "Headshot of Luis Rodriguez",
+            width: 200,
+            height: 200,
+            className: "mb-4 rounded-full",
+            loading: "lazy"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "max-w-2xl mb-6 leading-relaxed", children: "Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full r\xE9sum\xE9 is available as a downloadable PDF for detailed viewing." }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          "a",
+          {
+            href: "LuisRodriguez_Resume.pdf",
+            className: "px-6 py-3 bg-primary text-white rounded shadow",
+            children: "Download R\xE9sum\xE9 (PDF)"
+          }
+        )
+      ]
+    }
+  );
 }
 
 // luis-site/src/components/Card.tsx
@@ -8030,32 +8037,39 @@ var schools = [
   }
 ];
 function Education() {
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("section", { id: "education", className: "min-h-screen p-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Education" }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "grid gap-6 md:grid-cols-2", children: schools.map((s) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      Card,
-      {
-        icon: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(AcademicCapIcon, { className: "h-6 w-6 text-primary" }),
-        title: s.institution,
-        summary: `${s.degree} \u2014 GPA: ${s.gpa}`,
-        detail: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-          s.concentration && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "mb-2", children: [
-            "Concentration: ",
-            s.concentration
-          ] }),
-          s.scholarships.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "font-medium", children: "Scholarships" }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc list-inside mb-2", children: s.scholarships.map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: item }, item)) })
-          ] }),
-          s.honors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "font-medium", children: "Honor Societies" }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc list-inside", children: s.honors.map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: item }, item)) })
-          ] })
-        ] })
-      },
-      s.institution
-    )) })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+    "section",
+    {
+      id: "education",
+      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Education" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: schools.map((s) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          Card,
+          {
+            icon: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(AcademicCapIcon, { className: "h-6 w-6 text-primary" }),
+            title: s.institution,
+            summary: `${s.degree} \u2014 GPA: ${s.gpa}`,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+              s.concentration && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "mb-4 leading-relaxed", children: [
+                "Concentration: ",
+                s.concentration
+              ] }),
+              s.scholarships.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Scholarships" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc list-inside mb-4", children: s.scholarships.map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: item }, item)) })
+              ] }),
+              s.honors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Honor Societies" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc list-inside", children: s.honors.map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: item }, item)) })
+              ] })
+            ] })
+          },
+          s.institution
+        )) })
+      ]
+    }
+  );
 }
 
 // luis-site/src/sections/Research.tsx
@@ -8075,21 +8089,28 @@ var projects = [
   }
 ];
 function Research() {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("section", { id: "research", className: "min-h-screen p-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Research" }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "grid gap-6 md:grid-cols-2", children: projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-      Card,
-      {
-        title: p.title,
-        summary: p.dates,
-        detail: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mb-4", children: p.summary }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: p.link, className: "text-primary underline", children: "Learn more" })
-        ] })
-      },
-      p.title
-    )) })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    "section",
+    {
+      id: "research",
+      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Research" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          Card,
+          {
+            title: p.title,
+            summary: p.dates,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mb-4 leading-relaxed", children: p.summary }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: p.link, className: "text-primary underline", children: "Learn more" })
+            ] })
+          },
+          p.title
+        )) })
+      ]
+    }
+  );
 }
 
 // luis-site/src/sections/Experience.tsx
@@ -8203,68 +8224,75 @@ var experiences = [
   {
     company: "Telos Actuarial",
     role: "Actuarial Analyst",
-    period: "May 2024 \u2013 Present",
+    period: "Feb 2024 \u2013 Present",
     icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CalculatorIcon, { className: "h-6 w-6 text-primary" }),
     details: [
-      "Build actuarial valuation models in R and Python",
-      "Streamline rate filing analyses for health insurers"
+      "Automate valuation workflows in Excel using VBA",
+      "Query and validate large datasets with SQL for actuarial analysis"
     ]
   },
   {
     company: "Ludacka Wealth Partners",
-    role: "Financial Planning Intern",
-    period: "May 2023 \u2013 Aug 2023",
+    role: "Financial Planning Analyst",
+    period: "Apr 2022 \u2013 Feb 2024",
     icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BriefcaseIcon, { className: "h-6 w-6 text-primary" }),
     details: [
-      "Assisted advisors with portfolio analysis and client reports",
-      "Developed Excel tools to automate financial plan updates"
+      "Prepared customized financial plans and cash\u2011flow projections",
+      "Maintained client data and produced investment reports in Excel"
     ]
   },
   {
     company: "Northwestern Mutual",
-    role: "College Financial Representative",
-    period: "Jun 2022 \u2013 May 2023",
+    role: "Financial Representative Intern",
+    period: "Nov 2021 \u2013 Apr 2022",
     icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ChartBarIcon, { className: "h-6 w-6 text-primary" }),
     details: [
-      "Created personalized financial plans using proprietary tools",
-      "Coordinated marketing outreach generating new client leads"
+      "Prospected clients and scheduled financial planning meetings",
+      "Prepared insurance illustrations and plan proposals"
     ]
   },
   {
-    company: "UNO Math & Economics Department",
-    role: "Tutor",
-    period: "Aug 2021 \u2013 May 2023",
+    company: "UNO College of Business Administration",
+    role: "Mathematics Tutor",
+    period: "Aug 2020 \u2013 Dec 2021",
     icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BookOpenIcon, { className: "h-6 w-6 text-primary" }),
     details: [
-      "Provided one-on-one tutoring for calculus and statistics",
-      "Led exam review sessions improving student outcomes"
+      "Tutored students in calculus and statistics to reinforce coursework",
+      "Led review sessions that improved problem\u2011solving skills"
     ]
   },
   {
-    company: "Runza",
-    role: "Shift Supervisor",
-    period: "May 2018 \u2013 Aug 2021",
+    company: "Runza Restaurants",
+    role: "Cashier",
+    period: "Sep 2017 \u2013 Aug 2019",
     icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BuildingStorefrontIcon, { className: "h-6 w-6 text-primary" }),
     details: [
-      "Led team to deliver fast, friendly service during peak hours",
-      "Managed cash handling and closing procedures"
+      "Provided prompt customer service and processed cash transactions",
+      "Assisted with food preparation and maintained clean work areas"
     ]
   }
 ];
 function Experience() {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("section", { id: "experience", className: "min-h-screen p-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Experience" }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid gap-6 md:grid-cols-2 lg:grid-cols-3", children: experiences.map((exp) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-      Card,
-      {
-        icon: exp.icon,
-        title: exp.role,
-        summary: `${exp.company} | ${exp.period}`,
-        detail: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "list-disc list-inside space-y-1", children: exp.details.map((d) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("li", { children: d }, d)) })
-      },
-      exp.company + exp.role
-    )) })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    "section",
+    {
+      id: "experience",
+      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Experience" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: experiences.map((exp) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          Card,
+          {
+            icon: exp.icon,
+            title: exp.role,
+            summary: `${exp.company} | ${exp.period}`,
+            detail: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "list-disc list-inside space-y-1", children: exp.details.map((d) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("li", { children: d }, d)) })
+          },
+          exp.company + exp.role
+        )) })
+      ]
+    }
+  );
 }
 
 // luis-site/src/components/Tooltip.tsx
@@ -8322,52 +8350,54 @@ function AwardBadge({ title, detail }) {
     }
   ) });
 }
-function Certification({ name, progress }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "mb-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex justify-between mb-1", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: name }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { children: [
-        progress,
-        "%"
-      ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-      "div",
-      {
-        className: "w-full bg-gray-200 rounded h-2",
-        role: "progressbar",
-        "aria-label": `${name} progress`,
-        "aria-valuenow": progress,
-        "aria-valuemin": 0,
-        "aria-valuemax": 100,
-        children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-          "div",
-          {
-            className: "bg-primary h-2 rounded",
-            style: { width: `${progress}%` }
-          }
-        )
-      }
-    )
-  ] });
-}
 function Awards() {
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("section", { id: "awards", className: "min-h-screen p-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Awards" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex flex-wrap justify-center mb-12", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(AwardBadge, { title: "Chancellor's List", detail: "Top 7.5% of class" }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(AwardBadge, { title: "Dean's List", detail: "GPA 3.5+ each semester" }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(AwardBadge, { title: "Regents Scholarship", detail: "Full tuition scholarship" }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(AwardBadge, { title: "Distinguished Scholars Program", detail: "Selected for academic excellence" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: "text-2xl font-semibold mb-4 text-center", children: "Certifications" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "max-w-md mx-auto", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Certification, { name: "SOA Exam P", progress: 100 }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Certification, { name: "SOA Exam FM", progress: 60 }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Certification, { name: "FINRA SIE", progress: 100 }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Certification, { name: "NE Life & Health Insurance License", progress: 100 })
-    ] })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    "section",
+    {
+      id: "awards",
+      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Awards" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex flex-col justify-center mb-12 sm:flex-row sm:flex-wrap", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            AwardBadge,
+            {
+              title: "Chancellor's List (8\xD7)",
+              detail: "Top 7.5% of class"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            AwardBadge,
+            {
+              title: "Dean's List (8\xD7)",
+              detail: "GPA 3.5+ each semester"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            AwardBadge,
+            {
+              title: "Pi Mu Epsilon",
+              detail: "Mathematics honor society"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            AwardBadge,
+            {
+              title: "Omicron Delta Epsilon",
+              detail: "Economics honor society"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: "text-2xl font-semibold mb-4 text-center", children: "Certifications" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "max-w-md mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("ul", { className: "list-disc list-inside", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: "SOA Exams (P Jul 2024, FM Apr 2024, SRM Sep 2024, PA Oct 2024)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: "FINRA Series 7 & 63 (Jul 2023)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: "Life/Health Insurance License (since 2021)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { children: "CITI Program (2021)" })
+        ] }) })
+      ]
+    }
+  );
 }
 
 // luis-site/src/sections/Leadership.tsx
@@ -8397,8 +8427,8 @@ function LeadershipItem({ role, organization, period, link }) {
       className: `transition-opacity transition-transform duration-700 ease-out transform ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`,
       children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "pl-4 border-l-2 border-primary", children: [
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h3", { className: "text-xl font-semibold", children: role }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-sm text-gray-600", children: link ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { href: link, className: "text-primary underline", target: "_blank", rel: "noopener noreferrer", children: organization }) : organization }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-xs text-gray-500", children: period })
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-sm text-gray-600 leading-relaxed", children: link ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { href: link, className: "text-primary underline", target: "_blank", rel: "noopener noreferrer", children: organization }) : organization }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-xs text-gray-500 leading-relaxed", children: period })
       ] })
     }
   );
@@ -8424,10 +8454,17 @@ function Leadership() {
       link: "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306"
     }
   ];
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("section", { id: "leadership", className: "min-h-screen p-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Leadership" }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "space-y-8 max-w-2xl mx-auto", children: roles.map((item) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LeadershipItem, { ...item }, item.role)) })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+    "section",
+    {
+      id: "leadership",
+      className: "min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-3xl font-bold text-center mb-8", children: "Leadership" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex flex-col space-y-8 max-w-2xl mx-auto", children: roles.map((item) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LeadershipItem, { ...item }, item.role)) })
+      ]
+    }
+  );
 }
 
 // luis-site/src/components/Timeline.tsx
@@ -8557,7 +8594,7 @@ function Timeline() {
         className: "p-4",
         children: [
           /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h3", { className: "text-xl font-semibold", children: ev.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mb-2", children: ev.description }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { className: "mb-2 leading-relaxed", children: ev.description }),
           ev.links && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("ul", { className: "list-disc list-inside space-y-1", children: ev.links.map((link) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "a",
             {
