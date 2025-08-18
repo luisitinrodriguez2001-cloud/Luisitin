@@ -3,13 +3,16 @@ import events from "../../data/timeline.json";
 
 type TimelineEvent = {
   date: string;
+  startDate: string;
   title: string;
   description: string;
   links?: string[];
 };
 
 export default function Timeline() {
-  const data = events as TimelineEvent[];
+  const data = (events as TimelineEvent[]).sort(
+    (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+  );
   const [active, setActive] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -33,14 +36,17 @@ export default function Timeline() {
 
   return (
     <div>
-      <div className="flex overflow-x-auto space-x-4 pb-4" role="tablist">
+      <div
+        className="flex flex-col sm:flex-row sm:overflow-x-auto sm:space-x-4 space-y-2 sm:space-y-0 pb-4"
+        role="tablist"
+      >
         {data.map((ev, i) => (
           <button
             key={ev.title}
             ref={(el) => {
               navRefs.current[i] = el;
             }}
-            className={`px-3 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 ${i === active ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
+            className={`w-full sm:w-auto px-3 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 ${i === active ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
             role="tab"
             tabIndex={0}
             aria-selected={i === active}

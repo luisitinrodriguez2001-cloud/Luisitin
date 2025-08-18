@@ -1,6 +1,7 @@
 [
   {
     "date": "Aug 2018 – May 2019",
+    "startDate": "2018-08-01",
     "title": "Student Representative, GIPS Board of Education",
     "description": "Represented students on the Grand Island Public Schools Board of Education.",
     "links": [
@@ -9,60 +10,74 @@
   },
   {
     "date": "Aug 2019",
+    "startDate": "2019-08-01",
     "title": "Began dual-degree program at UNO",
-    "description": "Started pursuing Economics and Mathematics degrees at the University of Nebraska at Omaha."
-  },
-  {
-    "date": "2021",
-    "title": "Undergraduate recognition and honor societies",
-    "description": "Joined recognition and honor societies; see awards index for details.",
+    "description": "Started pursuing Economics and Mathematics degrees at the University of Nebraska at Omaha.",
     "links": [
-      "https://www.unomaha.edu/special-events/student-honors-convocation/awards/index.php"
+      "https://www.unomaha.edu"
     ]
   },
   {
-    "date": "Nov 2021 – Apr 2022",
-    "title": "Financial Representative Intern, Northwestern Mutual",
-    "description": "Served as a Financial Representative Intern at Northwestern Mutual."
+    "date": "Aug 2020 – May 2022",
+    "startDate": "2020-08-01",
+    "title": "Club Leadership",
+    "description": "Held leadership roles in student clubs at UNO."
   },
   {
-    "date": "Mar 2022",
-    "title": "Presented finite-field numerical ranges research at UNO SRCAF",
-    "description": "Presented research on finite-field numerical ranges at the UNO Student Research and Creative Activity Fair.",
+    "date": "Sep 2021 – May 2023",
+    "startDate": "2021-09-01",
+    "title": "Honors Thesis Research",
+    "description": "Conducted honors thesis research on finite-field numerical ranges.",
     "links": [
       "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/"
     ]
   },
   {
-    "date": "Apr 2022 – Feb 2024",
-    "title": "Financial Planning Analyst, Ludacka Wealth Partners",
-    "description": "Worked as a Financial Planning Analyst for Ludacka Wealth Partners."
-  },
-  {
     "date": "May 2023",
-    "title": "Graduated UNO with 4.0 GPAs; Married Madison",
-    "description": "Graduated with dual degrees and married high school sweetheart Madison."
+    "startDate": "2023-05-01",
+    "title": "Married Madison",
+    "description": "Married high school sweetheart Madison."
   },
   {
-    "date": "Feb 2024 – Present",
-    "title": "Actuarial Analyst, Telos Actuarial",
-    "description": "Joined Telos Actuarial as an Actuarial Analyst.",
+    "date": "Jul 2023",
+    "startDate": "2023-07-01",
+    "title": "Passed FINRA Series 7 & 63 Exams",
+    "description": "Earned FINRA Series 7 and 63 licenses."
+  },
+  {
+    "date": "Feb 2024",
+    "startDate": "2024-02-01",
+    "title": "Joined Telos Actuarial",
+    "description": "Started as an actuarial analyst at Telos Actuarial.",
     "links": [
       "https://www.telosactuarial.com/about"
     ]
   },
   {
-    "date": "July 2024",
-    "title": "Profile in GIPS Rise Newsletter; Harvest speaker announcement",
-    "description": "Featured in the GIPS Rise Newsletter and announced as a Harvest speaker.",
+    "date": "Apr – Oct 2024",
+    "startDate": "2024-04-01",
+    "title": "Completed Actuarial Exams FM, P, SRM, and PA",
+    "description": "Passed exams FM, P, SRM, and PA between April and October 2024."
+  },
+  {
+    "date": "Sep 26 2024",
+    "startDate": "2024-09-26",
+    "title": "Harvest Gala Speaker",
+    "description": "Delivered a speech at the GIPS Foundation Harvest fundraising gala.",
     "links": [
-      "https://gipsfoundation.org/alumni/rise-newsletter/newsletters/2024/july-2024-copy-copy.html",
       "https://my.onecause.com/event/organizations/sf-0013c00001zv03cAAA/events/vevt%3A58ff120c-6989-4bd7-95ab-d2430df558d0/home/story"
     ]
   },
   {
-    "date": "May–June 2025",
+    "date": "May – Jun 2025",
+    "startDate": "2025-05-01",
     "title": "Super Secret Special Project",
     "description": "Details coming soon; stay tuned."
+  },
+  {
+    "date": "Aug 2025",
+    "startDate": "2025-08-01",
+    "title": "Present Day",
+    "description": "Continuing to pursue personal and professional growth."
   }
 ]
