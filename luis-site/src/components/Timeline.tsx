@@ -6,6 +6,7 @@ import {
   FaTrophy,
   FaHeart,
   FaInfoCircle,
+  FaExternalLinkAlt,
 } from "react-icons/fa";
 import Tooltip from "./Tooltip";
 
@@ -109,6 +110,7 @@ export default function Timeline() {
                         className="underline underline-offset-2 decoration-primary hover:decoration-2"
                       >
                         {l.label}
+                        <FaExternalLinkAlt className="inline ml-1" aria-hidden="true" />
                       </a>
                     </li>
                   ))}
