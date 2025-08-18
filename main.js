@@ -8015,25 +8015,44 @@ function AcademicCapIcon({ className = "" }) {
 var schools = [
   {
     institution: "University of Nebraska at Omaha",
-    degree: "B.S. Economics & Mathematics",
+    degree: "B.A. Economics",
     gpa: "4.0",
-    concentration: "Economics and Mathematics",
+    concentration: "Data Analytics",
     scholarships: [
-      "Regents Scholarship (full tuition)",
-      "Distinguished Scholars Program"
+      "Susan T. Buffett Scholarship",
+      "Jack & Lucile Martin Scholarship"
     ],
     honors: [
       "Pi Mu Epsilon (Mathematics)",
       "Omicron Delta Epsilon (Economics)"
-    ]
+    ],
+    dates: "2019\u20132023"
+  },
+  {
+    institution: "University of Nebraska at Omaha",
+    degree: "B.S. Mathematics",
+    gpa: "4.0",
+    concentration: "Statistics & Data Science",
+    scholarships: [
+      "Susan T. Buffett Scholarship",
+      "Jack & Lucile Martin Scholarship"
+    ],
+    honors: [
+      "Pi Mu Epsilon (Mathematics)",
+      "Omicron Delta Epsilon (Economics)"
+    ],
+    dates: "2019\u20132023"
   },
   {
     institution: "Grand Island Senior High",
     degree: "High School Diploma",
     gpa: "4.0",
-    concentration: "College Preparatory Curriculum",
-    scholarships: ["Local Academic Scholarships"],
-    honors: ["National Honor Society"]
+    scholarships: [],
+    honors: [
+      "Student Board Representative",
+      "National Honor Society"
+    ],
+    dates: "2015\u20132019"
   }
 ];
 function Education() {
@@ -8049,7 +8068,7 @@ function Education() {
           {
             icon: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(AcademicCapIcon, { className: "h-6 w-6 text-primary" }),
             title: s.institution,
-            summary: `${s.degree} \u2014 GPA: ${s.gpa}`,
+            summary: `${s.degree} (${s.dates}) \u2014 GPA: ${s.gpa}`,
             detail: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
               s.concentration && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "mb-4 leading-relaxed", children: [
                 "Concentration: ",
@@ -8057,7 +8076,7 @@ function Education() {
               ] }),
               s.scholarships.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
                 /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Scholarships" }),
-                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc list-inside mb-4", children: s.scholarships.map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: item }, item)) })
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc list-inside mb-4", children: s.scholarships.map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("abbr", { title: item, children: item }) }, item)) })
               ] }),
               s.honors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
                 /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "font-medium mb-2 leading-relaxed", children: "Honor Societies" }),
@@ -8474,6 +8493,7 @@ var import_react5 = __toESM(require_react());
 var timeline_default = [
   {
     date: "Aug 2018 \u2013 May 2019",
+    startDate: "2018-08-01",
     title: "Student Representative, GIPS Board of Education",
     description: "Represented students on the Grand Island Public Schools Board of Education.",
     links: [
@@ -8482,68 +8502,84 @@ var timeline_default = [
   },
   {
     date: "Aug 2019",
+    startDate: "2019-08-01",
     title: "Began dual-degree program at UNO",
-    description: "Started pursuing Economics and Mathematics degrees at the University of Nebraska at Omaha."
-  },
-  {
-    date: "2021",
-    title: "Undergraduate recognition and honor societies",
-    description: "Joined recognition and honor societies; see awards index for details.",
+    description: "Started pursuing Economics and Mathematics degrees at the University of Nebraska at Omaha.",
     links: [
-      "https://www.unomaha.edu/special-events/student-honors-convocation/awards/index.php"
+      "https://www.unomaha.edu"
     ]
   },
   {
-    date: "Nov 2021 \u2013 Apr 2022",
-    title: "Financial Representative Intern, Northwestern Mutual",
-    description: "Served as a Financial Representative Intern at Northwestern Mutual."
+    date: "Aug 2020 \u2013 May 2022",
+    startDate: "2020-08-01",
+    title: "Club Leadership",
+    description: "Held leadership roles in student clubs at UNO."
   },
   {
-    date: "Mar 2022",
-    title: "Presented finite-field numerical ranges research at UNO SRCAF",
-    description: "Presented research on finite-field numerical ranges at the UNO Student Research and Creative Activity Fair.",
+    date: "Sep 2021 \u2013 May 2023",
+    startDate: "2021-09-01",
+    title: "Honors Thesis Research",
+    description: "Conducted honors thesis research on finite-field numerical ranges.",
     links: [
       "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/"
     ]
   },
   {
-    date: "Apr 2022 \u2013 Feb 2024",
-    title: "Financial Planning Analyst, Ludacka Wealth Partners",
-    description: "Worked as a Financial Planning Analyst for Ludacka Wealth Partners."
-  },
-  {
     date: "May 2023",
-    title: "Graduated UNO with 4.0 GPAs; Married Madison",
-    description: "Graduated with dual degrees and married high school sweetheart Madison."
+    startDate: "2023-05-01",
+    title: "Married Madison",
+    description: "Married high school sweetheart Madison."
   },
   {
-    date: "Feb 2024 \u2013 Present",
-    title: "Actuarial Analyst, Telos Actuarial",
-    description: "Joined Telos Actuarial as an Actuarial Analyst.",
+    date: "Jul 2023",
+    startDate: "2023-07-01",
+    title: "Passed FINRA Series 7 & 63 Exams",
+    description: "Earned FINRA Series 7 and 63 licenses."
+  },
+  {
+    date: "Feb 2024",
+    startDate: "2024-02-01",
+    title: "Joined Telos Actuarial",
+    description: "Started as an actuarial analyst at Telos Actuarial.",
     links: [
       "https://www.telosactuarial.com/about"
     ]
   },
   {
-    date: "July 2024",
-    title: "Profile in GIPS Rise Newsletter; Harvest speaker announcement",
-    description: "Featured in the GIPS Rise Newsletter and announced as a Harvest speaker.",
+    date: "Apr \u2013 Oct 2024",
+    startDate: "2024-04-01",
+    title: "Completed Actuarial Exams FM, P, SRM, and PA",
+    description: "Passed exams FM, P, SRM, and PA between April and October 2024."
+  },
+  {
+    date: "Sep 26 2024",
+    startDate: "2024-09-26",
+    title: "Harvest Gala Speaker",
+    description: "Delivered a speech at the GIPS Foundation Harvest fundraising gala.",
     links: [
-      "https://gipsfoundation.org/alumni/rise-newsletter/newsletters/2024/july-2024-copy-copy.html",
       "https://my.onecause.com/event/organizations/sf-0013c00001zv03cAAA/events/vevt%3A58ff120c-6989-4bd7-95ab-d2430df558d0/home/story"
     ]
   },
   {
-    date: "May\u2013June 2025",
+    date: "May \u2013 Jun 2025",
+    startDate: "2025-05-01",
     title: "Super Secret Special Project",
     description: "Details coming soon; stay tuned."
+  },
+  {
+    date: "Aug 2025",
+    startDate: "2025-08-01",
+    title: "Present Day",
+    description: "Continuing to pursue personal and professional growth."
   }
 ];
 
 // luis-site/src/components/Timeline.tsx
 var import_jsx_runtime10 = __toESM(require_jsx_runtime());
 function Timeline() {
-  const data = timeline_default;
+  const data = timeline_default.sort(
+    (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+  );
   const [active, setActive] = (0, import_react5.useState)(0);
   const sectionRefs = (0, import_react5.useRef)([]);
   const navRefs = (0, import_react5.useRef)([]);
@@ -8563,25 +8599,32 @@ function Timeline() {
     }
   };
   return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex overflow-x-auto space-x-4 pb-4", role: "tablist", children: data.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-      "button",
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      "div",
       {
-        ref: (el) => {
-          navRefs.current[i] = el;
-        },
-        className: `px-3 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 ${i === active ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`,
-        role: "tab",
-        tabIndex: 0,
-        "aria-selected": i === active,
-        onMouseEnter: () => setActive(i),
-        onFocus: () => setActive(i),
-        onClick: () => handleSelect(i),
-        onKeyDown: (e) => handleKey(e, i),
-        title: ev.title,
-        children: ev.date
-      },
-      ev.title
-    )) }),
+        className: "flex flex-col sm:flex-row sm:overflow-x-auto sm:space-x-4 space-y-2 sm:space-y-0 pb-4",
+        role: "tablist",
+        children: data.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+          "button",
+          {
+            ref: (el) => {
+              navRefs.current[i] = el;
+            },
+            className: `w-full sm:w-auto px-3 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 ${i === active ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`,
+            role: "tab",
+            tabIndex: 0,
+            "aria-selected": i === active,
+            onMouseEnter: () => setActive(i),
+            onFocus: () => setActive(i),
+            onClick: () => handleSelect(i),
+            onKeyDown: (e) => handleKey(e, i),
+            title: ev.title,
+            children: ev.date
+          },
+          ev.title
+        ))
+      }
+    ),
     /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { children: data.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
       "div",
       {

@@ -21,30 +21,50 @@ interface Education {
   concentration?: string;
   scholarships: string[];
   honors: string[];
+  dates: string;
 }
 
 const schools: Education[] = [
   {
     institution: "University of Nebraska at Omaha",
-    degree: "B.S. Economics & Mathematics",
+    degree: "B.A. Economics",
     gpa: "4.0",
-    concentration: "Economics and Mathematics",
+    concentration: "Data Analytics",
     scholarships: [
-      "Regents Scholarship (full tuition)",
-      "Distinguished Scholars Program",
+      "Susan T. Buffett Scholarship",
+      "Jack & Lucile Martin Scholarship",
     ],
     honors: [
       "Pi Mu Epsilon (Mathematics)",
       "Omicron Delta Epsilon (Economics)",
     ],
+    dates: "2019–2023",
+  },
+  {
+    institution: "University of Nebraska at Omaha",
+    degree: "B.S. Mathematics",
+    gpa: "4.0",
+    concentration: "Statistics & Data Science",
+    scholarships: [
+      "Susan T. Buffett Scholarship",
+      "Jack & Lucile Martin Scholarship",
+    ],
+    honors: [
+      "Pi Mu Epsilon (Mathematics)",
+      "Omicron Delta Epsilon (Economics)",
+    ],
+    dates: "2019–2023",
   },
   {
     institution: "Grand Island Senior High",
     degree: "High School Diploma",
     gpa: "4.0",
-    concentration: "College Preparatory Curriculum",
-    scholarships: ["Local Academic Scholarships"],
-    honors: ["National Honor Society"],
+    scholarships: [],
+    honors: [
+      "Student Board Representative",
+      "National Honor Society",
+    ],
+    dates: "2015–2019",
   },
 ];
 
@@ -61,7 +81,7 @@ export default function Education() {
             key={s.institution}
             icon={<AcademicCapIcon className="h-6 w-6 text-primary" />}
             title={s.institution}
-            summary={`${s.degree} — GPA: ${s.gpa}`}
+            summary={`${s.degree} (${s.dates}) — GPA: ${s.gpa}`}
             detail={
               <div>
                 {s.concentration && (
@@ -74,7 +94,9 @@ export default function Education() {
                     <p className="font-medium mb-2 leading-relaxed">Scholarships</p>
                     <ul className="list-disc list-inside mb-4">
                       {s.scholarships.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item}>
+                          <abbr title={item}>{item}</abbr>
+                        </li>
                       ))}
                     </ul>
                   </>
