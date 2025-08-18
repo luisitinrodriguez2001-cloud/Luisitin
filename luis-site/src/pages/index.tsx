@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import ResumeSummary from "@/sections/ResumeSummary";
+import Timeline from "@/components/Timeline";
 import Education from "@/sections/Education";
 import Research from "@/sections/Research";
 import Experience from "@/sections/Experience";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       {/* Hero banner would appear here */}
       <ResumeSummary />
+      <Timeline />
       <Education />
       <Research />
       <Experience />

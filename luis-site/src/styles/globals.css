@@ -7,9 +7,14 @@ html {
 }
 
 body {
-  background-color: #f9fafb;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: linear-gradient(180deg, #f7f8fa, #ffffff);
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
 }
