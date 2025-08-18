@@ -5,9 +5,16 @@ interface LeadershipRole {
   organization: string;
   period: string;
   link?: string;
+  descriptions?: string[];
 }
 
-function LeadershipItem({ role, organization, period, link }: LeadershipRole) {
+function LeadershipItem({
+  role,
+  organization,
+  period,
+  link,
+  descriptions,
+}: LeadershipRole) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -47,6 +54,13 @@ function LeadershipItem({ role, organization, period, link }: LeadershipRole) {
           )}
         </p>
         <p className="text-xs text-gray-500 leading-relaxed">{period}</p>
+        {descriptions && (
+          <ul className="list-disc list-inside text-sm text-gray-600 mt-2 leading-relaxed">
+            {descriptions.map((text) => (
+              <li key={text}>{text}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
@@ -55,22 +69,46 @@ function LeadershipItem({ role, organization, period, link }: LeadershipRole) {
 export default function Leadership() {
   const roles: LeadershipRole[] = [
     {
-      role: "President, Economics Club",
-      organization: "UNO Economics Club",
-      period: "Aug 2023 – May 2024",
-      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
-    },
-    {
-      role: "Vice President, Financial Management Association",
-      organization: "UNO FMA",
-      period: "Aug 2022 – May 2023",
-      link: "https://www.unomaha.edu/college-of-business-administration/finance-banking/fma.php",
-    },
-    {
       role: "Student Representative, GIPS Board of Education",
       organization: "Grand Island Public Schools",
       period: "Aug 2018 – May 2019",
       link: "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306",
+      descriptions: ["Provided student perspective on district decisions."],
+    },
+    {
+      role: "Treasurer, UNO Economics Club",
+      organization: "UNO Economics Club",
+      period: "Jan 2020 – Aug 2021",
+      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
+      descriptions: ["Managed club finances and budgeting."],
+    },
+    {
+      role: "President, UNO Economics Club",
+      organization: "UNO Economics Club",
+      period: "Aug 2021 – May 2023",
+      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
+      descriptions: ["Led meetings and organized member events."],
+    },
+    {
+      role: "Treasurer, UNO Honors Student Association",
+      organization: "UNO Honors Student Association",
+      period: "May 2020 – May 2021",
+      link: "https://www.unomaha.edu/honors-program/honors-student-association.php",
+      descriptions: ["Oversaw budgets and financial records for honors community."],
+    },
+    {
+      role: "Vice-President, UNO Financial Management Association",
+      organization: "UNO FMA",
+      period: "Sep 2021 – Jan 2022",
+      link: "https://www.unomaha.edu/college-of-business-administration/finance-banking/fma.php",
+      descriptions: ["Coordinated professional development activities."],
+    },
+    {
+      role: "Harvest Speaker – Mission Moment",
+      organization: "Harvest", 
+      period: "Sep 26 2024",
+      link: "https://www.harvestomaha.org/mission-moment",
+      descriptions: ["Shared personal story at community event."],
     },
   ];
 

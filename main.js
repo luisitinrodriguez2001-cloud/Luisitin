@@ -8427,7 +8427,13 @@ function Awards() {
 // luis-site/src/sections/Leadership.tsx
 var import_react4 = __toESM(require_react());
 var import_jsx_runtime9 = __toESM(require_jsx_runtime());
-function LeadershipItem({ role, organization, period, link }) {
+function LeadershipItem({
+  role,
+  organization,
+  period,
+  link,
+  descriptions
+}) {
   const ref = (0, import_react4.useRef)(null);
   const [visible, setVisible] = (0, import_react4.useState)(false);
   (0, import_react4.useEffect)(() => {
@@ -8452,7 +8458,8 @@ function LeadershipItem({ role, organization, period, link }) {
       children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "pl-4 border-l-2 border-primary", children: [
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h3", { className: "text-xl font-semibold", children: role }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-sm text-gray-600 leading-relaxed", children: link ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { href: link, className: "text-primary underline", target: "_blank", rel: "noopener noreferrer", children: organization }) : organization }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-xs text-gray-500 leading-relaxed", children: period })
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-xs text-gray-500 leading-relaxed", children: period }),
+        descriptions && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("ul", { className: "list-disc list-inside text-sm text-gray-600 mt-2 leading-relaxed", children: descriptions.map((text) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", { children: text }, text)) })
       ] })
     }
   );
@@ -8460,22 +8467,46 @@ function LeadershipItem({ role, organization, period, link }) {
 function Leadership() {
   const roles = [
     {
-      role: "President, Economics Club",
-      organization: "UNO Economics Club",
-      period: "Aug 2023 \u2013 May 2024",
-      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php"
-    },
-    {
-      role: "Vice President, Financial Management Association",
-      organization: "UNO FMA",
-      period: "Aug 2022 \u2013 May 2023",
-      link: "https://www.unomaha.edu/college-of-business-administration/finance-banking/fma.php"
-    },
-    {
       role: "Student Representative, GIPS Board of Education",
       organization: "Grand Island Public Schools",
       period: "Aug 2018 \u2013 May 2019",
-      link: "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306"
+      link: "https://meeting.assemblemeetings.com/Public/Agenda/63?meeting=39306",
+      descriptions: ["Provided student perspective on district decisions."]
+    },
+    {
+      role: "Treasurer, UNO Economics Club",
+      organization: "UNO Economics Club",
+      period: "Jan 2020 \u2013 Aug 2021",
+      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
+      descriptions: ["Managed club finances and budgeting."]
+    },
+    {
+      role: "President, UNO Economics Club",
+      organization: "UNO Economics Club",
+      period: "Aug 2021 \u2013 May 2023",
+      link: "https://www.unomaha.edu/college-of-business-administration/economics/index.php",
+      descriptions: ["Led meetings and organized member events."]
+    },
+    {
+      role: "Treasurer, UNO Honors Student Association",
+      organization: "UNO Honors Student Association",
+      period: "May 2020 \u2013 May 2021",
+      link: "https://www.unomaha.edu/honors-program/honors-student-association.php",
+      descriptions: ["Oversaw budgets and financial records for honors community."]
+    },
+    {
+      role: "Vice-President, UNO Financial Management Association",
+      organization: "UNO FMA",
+      period: "Sep 2021 \u2013 Jan 2022",
+      link: "https://www.unomaha.edu/college-of-business-administration/finance-banking/fma.php",
+      descriptions: ["Coordinated professional development activities."]
+    },
+    {
+      role: "Harvest Speaker \u2013 Mission Moment",
+      organization: "Harvest",
+      period: "Sep 26 2024",
+      link: "https://www.harvestomaha.org/mission-moment",
+      descriptions: ["Shared personal story at community event."]
     }
   ];
   return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
