@@ -8083,14 +8083,14 @@ var timeline_default = [
   {
     date: "Apr \u2013 Oct 2024",
     startDate: "2024-04-01",
-    title: "SOA exams FM, P, SRM, PA",
+    title: "SOA FM (Apr 2024), P (Jul 2024), SRM (Sep 2024), PA (Oct 2024)",
     category: "Awards",
     snippet: "Four prelims down in a year.",
     info: "Four prelims passed within one year.",
     color: "#1d4ed8"
   },
   {
-    date: "Sep 26 2024",
+    date: "Sep 26, 2024",
     startDate: "2024-09-26",
     title: "Mission-Moment Speaker, GIPS Harvest Gala",
     category: "Personal",
@@ -8104,7 +8104,7 @@ var timeline_default = [
   {
     date: "Dec 2024",
     startDate: "2024-12-01",
-    title: "Shipped Fitness Toolkit",
+    title: "Shipped Fitness Toolkit \u2014 light theme reference",
     category: "Work",
     snippet: "Released a light-theme reference app.",
     color: "#6b7280"
@@ -8303,7 +8303,7 @@ function Timeline() {
       setHint(false);
   };
   const handleInteract = () => setHint(false);
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "relative my-8", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "relative my-6", children: [
     /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
       "div",
       {
@@ -8335,7 +8335,7 @@ function Timeline() {
                     "button",
                     {
                       type: "button",
-                      className: "ml-1 text-primary flex-shrink-0 focus:outline-none",
+                      className: "ml-1 text-primary flex-shrink-0 rounded-full focus:outline-none focus:ring-2 focus:ring-primary",
                       "aria-label": "More info",
                       children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(FaInfoCircle, { className: "h-3 w-3" })
                     }
@@ -8371,7 +8371,7 @@ function Timeline() {
         type: "button",
         "aria-label": "Previous",
         onClick: () => scrollBy(-1),
-        className: "hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow",
+        className: "flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow focus:outline-none focus:ring-2 focus:ring-primary",
         children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
           "svg",
           {
@@ -8391,7 +8391,7 @@ function Timeline() {
         type: "button",
         "aria-label": "Next",
         onClick: () => scrollBy(1),
-        className: "hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow",
+        className: "flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow focus:outline-none focus:ring-2 focus:ring-primary",
         children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
           "svg",
           {
@@ -8415,7 +8415,7 @@ function ResumeSummary() {
     "section",
     {
       id: "resume",
-      className: "px-4 py-8 flex flex-col items-center text-center bg-background",
+      className: "px-4 py-6 flex flex-col items-center text-center bg-background",
       children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
           "img",
@@ -8428,13 +8428,13 @@ function ResumeSummary() {
             loading: "lazy"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "max-w-2xl mb-6 leading-relaxed", children: "Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full r\xE9sum\xE9 is available as a downloadable PDF for detailed viewing." }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { id: "timeline", className: "w-full max-w-3xl mb-6", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Timeline, {}) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "max-w-2xl mb-4 leading-relaxed", children: "Luis Rodriguez is an Omaha-based Actuarial Analyst with a strong dual background in Economics and Mathematics, evidenced by his 4.0 GPA in both fields. He has a proven track record of applying analytical and programming skills to real-world financial and research problems. His experience spans actuarial science, financial planning, and academic research, complemented by leadership roles and professional certifications. A full r\xE9sum\xE9 is available as a downloadable PDF for detailed viewing." }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { id: "timeline", className: "w-full max-w-3xl mb-4", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Timeline, {}) }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
           "a",
           {
             href: "LuisRodriguez_Resume.pdf",
-            className: "px-6 py-3 bg-primary text-white rounded shadow",
+            className: "px-6 py-3 bg-primary text-white rounded shadow focus:outline-none focus:ring-2 focus:ring-primary",
             download: true,
             target: "_blank",
             rel: "noopener noreferrer",
@@ -8475,7 +8475,7 @@ function Card({ imageSrc, icon, title, summary, detail }) {
       {
         type: "button",
         onClick: () => setOpen(!open),
-        className: "text-primary underline text-sm",
+        className: "text-primary underline text-sm rounded focus:outline-none focus:ring-2 focus:ring-primary",
         "aria-expanded": open,
         children: open ? "Hide details" : "View details"
       }
@@ -8553,10 +8553,10 @@ function Education() {
     "section",
     {
       id: "education",
-      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
+      className: "px-4 py-6 sm:px-6 lg:px-8 bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Education" }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: schools.map((s) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-center mb-4", children: "Education" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3", children: schools.map((s) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           Card,
           {
             icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(AcademicCapIcon, { className: `h-6 w-6 ${s.color}` }),
@@ -8615,10 +8615,10 @@ function Research() {
     "section",
     {
       id: "research",
-      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
+      className: "px-4 py-6 sm:px-6 lg:px-8 bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Research" }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { className: "text-3xl font-bold text-center mb-4", children: "Research" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3", children: projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
           Card,
           {
             title: p.title,
@@ -8809,10 +8809,10 @@ function Experience() {
     "section",
     {
       id: "experience",
-      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
+      className: "px-4 py-6 sm:px-6 lg:px-8 bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Experience" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3", children: experiences.map((exp) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { className: "text-3xl font-bold text-center mb-4", children: "Experience" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3", children: experiences.map((exp) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           Card,
           {
             icon: exp.icon,
@@ -8844,10 +8844,10 @@ function Achievements() {
     "section",
     {
       id: "achievements",
-      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
+      className: "px-4 py-6 sm:px-6 lg:px-8 bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Achievements" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-col justify-center mb-8 sm:flex-row sm:flex-wrap", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-3xl font-bold text-center mb-4", children: "Achievements" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-col justify-center mb-6 sm:flex-row sm:flex-wrap", children: [
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Chancellor's List (8\xD7)", detail: "Top 7.5% of class" }),
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Dean's List (8\xD7)", detail: "GPA 3.5+ each semester" }),
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AwardBadge, { title: "Phi Kappa Phi", detail: "Top 7.5% of students across all disciplines" }),
@@ -8957,21 +8957,23 @@ function Leadership() {
       descriptions: ["Coordinated professional development activities."]
     },
     {
-      role: "Harvest Speaker \u2013 Mission Moment",
-      organization: "Harvest",
-      period: "Sep 26 2024",
+      role: "Mission-Moment Speaker",
+      organization: "GIPS Harvest Gala",
+      period: "Sep 26, 2024",
       link: "https://www.harvestomaha.org/mission-moment",
-      descriptions: ["Shared personal story at community event."]
+      descriptions: [
+        "Selected keynote moment to inspire donor community; spotlight on scholarship impact."
+      ]
     }
   ];
   return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
     "section",
     {
       id: "leadership",
-      className: "px-4 py-8 sm:px-6 lg:px-8 bg-background",
+      className: "px-4 py-6 sm:px-6 lg:px-8 bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { className: "text-3xl font-bold text-center mb-6", children: "Leadership" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex flex-col space-y-8 max-w-2xl mx-auto", children: roles.map((item) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LeadershipItem, { ...item }, item.role)) })
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { className: "text-3xl font-bold text-center mb-4", children: "Leadership" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex flex-col space-y-6 max-w-2xl mx-auto", children: roles.map((item) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LeadershipItem, { ...item }, item.role)) })
       ]
     }
   );
@@ -9012,17 +9014,17 @@ function Contact() {
     "section",
     {
       id: "contact",
-      className: "px-4 py-8 flex flex-col items-center bg-background",
+      className: "px-4 py-6 flex flex-col items-center bg-background",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h2", { className: "text-3xl font-bold mb-6", children: "Contact" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex space-x-4 mb-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h2", { className: "text-3xl font-bold mb-4", children: "Contact" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex space-x-4 mb-4", children: [
           /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
             "a",
             {
               href: "mailto:Luisitinrodriguez2001@gmail.com",
               target: "_blank",
               rel: "noopener noreferrer",
-              className: "p-2 rounded bg-primary text-white",
+              className: "p-2 rounded bg-primary text-white focus:outline-none focus:ring-2 focus:ring-primary",
               "aria-label": "Email",
               children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                 "svg",
@@ -9042,7 +9044,7 @@ function Contact() {
               href: "https://www.linkedin.com/in/luis-rodriguez-664a6a245",
               target: "_blank",
               rel: "noopener noreferrer",
-              className: "p-2 rounded bg-primary text-white",
+              className: "p-2 rounded bg-primary text-white focus:outline-none focus:ring-2 focus:ring-primary",
               "aria-label": "LinkedIn",
               children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                 "svg",
@@ -9062,7 +9064,7 @@ function Contact() {
               href: "https://www.instagram.com/luisitin2001",
               target: "_blank",
               rel: "noopener noreferrer",
-              className: "p-2 rounded bg-primary text-white",
+              className: "p-2 rounded bg-primary text-white focus:outline-none focus:ring-2 focus:ring-primary",
               "aria-label": "Instagram",
               children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                 "svg",
@@ -9082,7 +9084,7 @@ function Contact() {
               href: "https://www.tiktok.com/@luisitin2001",
               target: "_blank",
               rel: "noopener noreferrer",
-              className: "p-2 rounded bg-primary text-white",
+              className: "p-2 rounded bg-primary text-white focus:outline-none focus:ring-2 focus:ring-primary",
               "aria-label": "TikTok",
               children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                 "svg",
@@ -9104,7 +9106,7 @@ function Contact() {
             method: "POST",
             "data-netlify": "true",
             onSubmit: handleSubmit,
-            className: "w-full max-w-md flex flex-col space-y-4",
+            className: "w-full max-w-md flex flex-col space-y-3",
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("input", { type: "hidden", name: "form-name", value: "contact" }),
               /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { className: "flex flex-col text-left", children: [
@@ -9149,7 +9151,7 @@ function Contact() {
                 ),
                 errors.message && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-red-500 text-sm", children: errors.message })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "submit", className: "px-4 py-2 bg-primary text-white rounded", children: "Send" })
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "submit", className: "px-4 py-2 bg-primary text-white rounded focus:outline-none focus:ring-2 focus:ring-primary", children: "Send" })
             ]
           }
         )

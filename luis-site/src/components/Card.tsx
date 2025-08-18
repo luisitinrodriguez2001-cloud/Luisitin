@@ -34,7 +34,7 @@ export default function Card({ imageSrc, icon, title, summary, detail }: CardPro
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="text-primary underline text-sm"
+        className="text-primary underline text-sm rounded focus:outline-none focus:ring-2 focus:ring-primary"
         aria-expanded={open}
       >
         {open ? "Hide details" : "View details"}

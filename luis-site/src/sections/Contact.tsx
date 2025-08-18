@@ -34,15 +34,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="px-4 py-8 flex flex-col items-center bg-background"
+      className="px-4 py-6 flex flex-col items-center bg-background"
     >
-      <h2 className="text-3xl font-bold mb-6">Contact</h2>
-      <div className="flex space-x-4 mb-6">
+      <h2 className="text-3xl font-bold mb-4">Contact</h2>
+      <div className="flex space-x-4 mb-4">
         <a
           href="mailto:Luisitinrodriguez2001@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded bg-primary text-white"
+          className="p-2 rounded bg-primary text-white focus:outline-none focus:ring-2 focus:ring-primary"
           aria-label="Email"
         >
           <svg
@@ -58,7 +58,7 @@ export default function Contact() {
           href="https://www.linkedin.com/in/luis-rodriguez-664a6a245"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded bg-primary text-white"
+          className="p-2 rounded bg-primary text-white focus:outline-none focus:ring-2 focus:ring-primary"
           aria-label="LinkedIn"
         >
           <svg
@@ -74,7 +74,7 @@ export default function Contact() {
           href="https://www.instagram.com/luisitin2001"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded bg-primary text-white"
+          className="p-2 rounded bg-primary text-white focus:outline-none focus:ring-2 focus:ring-primary"
           aria-label="Instagram"
         >
           <svg
@@ -90,7 +90,7 @@ export default function Contact() {
           href="https://www.tiktok.com/@luisitin2001"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded bg-primary text-white"
+          className="p-2 rounded bg-primary text-white focus:outline-none focus:ring-2 focus:ring-primary"
           aria-label="TikTok"
         >
           <svg
@@ -109,7 +109,7 @@ export default function Contact() {
         method="POST"
         data-netlify="true"
         onSubmit={handleSubmit}
-        className="w-full max-w-md flex flex-col space-y-4"
+        className="w-full max-w-md flex flex-col space-y-3"
       >
         <input type="hidden" name="form-name" value="contact" />
         <label className="flex flex-col text-left">
@@ -151,7 +151,7 @@ export default function Contact() {
             <span className="text-red-500 text-sm">{errors.message}</span>
           )}
         </label>
-        <button type="submit" className="px-4 py-2 bg-primary text-white rounded">
+        <button type="submit" className="px-4 py-2 bg-primary text-white rounded focus:outline-none focus:ring-2 focus:ring-primary">
           Send
         </button>
       </form>

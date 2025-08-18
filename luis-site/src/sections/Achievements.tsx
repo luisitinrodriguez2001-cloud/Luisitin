@@ -23,10 +23,10 @@ export default function Achievements() {
   return (
     <section
       id="achievements"
-      className="px-4 py-8 sm:px-6 lg:px-8 bg-background"
+      className="px-4 py-6 sm:px-6 lg:px-8 bg-background"
     >
-      <h2 className="text-3xl font-bold text-center mb-6">Achievements</h2>
-      <div className="flex flex-col justify-center mb-8 sm:flex-row sm:flex-wrap">
+      <h2 className="text-3xl font-bold text-center mb-4">Achievements</h2>
+      <div className="flex flex-col justify-center mb-6 sm:flex-row sm:flex-wrap">
         <AwardBadge title="Chancellor's List (8×)" detail="Top 7.5% of class" />
         <AwardBadge title="Dean's List (8×)" detail="GPA 3.5+ each semester" />
         <AwardBadge title="Phi Kappa Phi" detail="Top 7.5% of students across all disciplines" />

@@ -161,10 +161,10 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="px-4 py-8 sm:px-6 lg:px-8 bg-background"
+      className="px-4 py-6 sm:px-6 lg:px-8 bg-background"
     >
-      <h2 className="text-3xl font-bold text-center mb-6">Experience</h2>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+      <h2 className="text-3xl font-bold text-center mb-4">Experience</h2>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         {experiences.map((exp) => (
           <Card
             key={exp.company + exp.role}
