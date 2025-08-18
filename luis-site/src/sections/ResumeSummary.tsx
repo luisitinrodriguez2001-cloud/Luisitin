@@ -1,10 +1,9 @@
 import React from "react";
-import Image from "next/image";
 
 export default function ResumeSummary() {
   return (
     <section id="resume-summary" className="min-h-screen p-8 flex flex-col items-center text-center">
-      <Image
+      <img
         src="/headshot-placeholder.svg"
         alt="Headshot of Luis Rodriguez"
         width={200}

@@ -1,4 +1,5 @@
 import { build } from 'esbuild';
+import { copyFileSync } from 'fs';
 
 build({
   entryPoints: ['main.tsx'],
@@ -8,4 +9,8 @@ build({
   outfile: 'dist/main.js',
   sourcemap: false,
   minify: false,
-}).catch(() => process.exit(1));
+})
+  .then(() => {
+    copyFileSync('luis-site/public/headshot-placeholder.svg', 'dist/headshot-placeholder.svg');
+  })
+  .catch(() => process.exit(1));
