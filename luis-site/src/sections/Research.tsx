@@ -12,7 +12,8 @@ const projects: Project[] = [
   {
     title: "Finite-Field Linear Algebra",
     dates: "Sep 2021 – Apr 2022",
-    summary: "Studied numerical ranges over finite fields.",
+    summary:
+      "Explored linear algebra over Gaussian integer fields; presented at the UNO SRC Fair and MAA conference.",
     presentations: [
       "UNO Student Research and Creative Activity Fair",
       "MAA North Central Section Conference",
@@ -23,12 +24,12 @@ const projects: Project[] = [
     },
   },
   {
-    title: "Integer-Programming Wedding Venue Thesis",
+    title: "Honors Thesis: Optimizing Wedding Venue Selection",
     dates: "Aug 2022 – May 2023",
     summary:
-      "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
+      "Honors thesis using IBM ILOG CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
     link: {
-      label: "UNO Honors Thesis (PDF)",
+      label: "Read Thesis (PDF)",
       url: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program",
     },
   },

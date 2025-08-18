@@ -8021,7 +8021,7 @@ var timeline_default = [
     startDate: "2021-09-02",
     title: "Finite-field project",
     category: "Education",
-    snippet: "Explored linear algebra over finite fields.",
+    snippet: "Explored linear algebra over Gaussian integer fields; presented at the UNO SRC Fair and MAA conference.",
     info: "Presented at UNO SRCAF and MAA; distilled advanced math for broad audiences.",
     links: [
       { label: "UNO SRCAF Abstract", url: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/" }
@@ -8031,12 +8031,12 @@ var timeline_default = [
   {
     date: "Sep 2021 \u2013 May 2023",
     startDate: "2021-09-03",
-    title: "Honors thesis with IBM CPLEX",
+    title: "Honors Thesis: Optimizing Wedding Venue Selection",
     category: "Education",
     snippet: "Optimized wedding venues with integer programming.",
-    info: "Presented at UNO SRCAF and MAA; distilled advanced math for broad audiences.",
+    info: "Developed an integer programming model in IBM ILOG CPLEX; presented at UNO SRCAF and MAA; distilled advanced math for broad audiences.",
     links: [
-      { label: "UNO Honors Thesis (PDF)", url: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program" }
+      { label: "Read Thesis (PDF)", url: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program" }
     ],
     color: "#cc0000"
   },
@@ -8592,7 +8592,7 @@ var projects = [
   {
     title: "Finite-Field Linear Algebra",
     dates: "Sep 2021 \u2013 Apr 2022",
-    summary: "Studied numerical ranges over finite fields.",
+    summary: "Explored linear algebra over Gaussian integer fields; presented at the UNO SRC Fair and MAA conference.",
     presentations: [
       "UNO Student Research and Creative Activity Fair",
       "MAA North Central Section Conference"
@@ -8603,11 +8603,11 @@ var projects = [
     }
   },
   {
-    title: "Integer-Programming Wedding Venue Thesis",
+    title: "Honors Thesis: Optimizing Wedding Venue Selection",
     dates: "Aug 2022 \u2013 May 2023",
-    summary: "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
+    summary: "Honors thesis using IBM ILOG CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
     link: {
-      label: "UNO Honors Thesis (PDF)",
+      label: "Read Thesis (PDF)",
       url: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program"
     }
   }
