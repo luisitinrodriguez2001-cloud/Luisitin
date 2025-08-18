@@ -28,7 +28,7 @@ export default function Research() {
   return (
     <section
       id="research"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8"
+      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Research</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -39,7 +39,7 @@ export default function Research() {
             summary={p.dates}
             detail={
               <>
-                <p className="mb-4">{p.summary}</p>
+                <p className="mb-4 leading-relaxed">{p.summary}</p>
                 <a href={p.link} className="text-primary underline">
                   Learn more
                 </a>

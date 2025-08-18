@@ -51,7 +51,7 @@ export default function Awards() {
   return (
     <section
       id="awards"
-      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8"
+      className="min-h-screen px-4 py-8 sm:px-6 lg:px-8 bg-gray-50"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Awards</h2>
       <div className="flex flex-col justify-center mb-12 sm:flex-row sm:flex-wrap">

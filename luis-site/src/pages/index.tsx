@@ -14,7 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-text">
       <Navbar />
       {/* Hero banner would appear here */}
-      <section id="timeline" className="min-h-screen p-8">
+      <section id="timeline" className="min-h-screen p-8 bg-gray-50">
         <Timeline />
       </section>
       <ResumeSummary />

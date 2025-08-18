@@ -53,7 +53,7 @@ export default function Footer() {
           </svg>
         </a>
       </div>
-      <p className="text-sm">
+      <p className="text-sm leading-relaxed">
         &copy; {new Date().getFullYear()} Luis Rodriguez
       </p>
     </footer>

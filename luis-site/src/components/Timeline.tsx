@@ -67,7 +67,7 @@ export default function Timeline() {
             className="p-4"
           >
             <h3 className="text-xl font-semibold">{ev.title}</h3>
-            <p className="mb-2">{ev.description}</p>
+            <p className="mb-2 leading-relaxed">{ev.description}</p>
             {ev.links && (
               <ul className="list-disc list-inside space-y-1">
                 {ev.links.map((link) => (
