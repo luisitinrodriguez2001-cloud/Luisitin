@@ -8096,15 +8096,19 @@ var import_jsx_runtime5 = __toESM(require_jsx_runtime());
 var projects = [
   {
     title: "Finite-Field Linear Algebra",
-    dates: "Jan 2022 \u2013 Mar 2022",
-    summary: "Studied numerical ranges over finite fields and presented findings at the UNO Student Research and Creative Activity Fair.",
+    dates: "Sep 2021 \u2013 Apr 2022",
+    summary: "Studied numerical ranges over finite fields.",
+    presentations: [
+      "UNO Student Research and Creative Activity Fair",
+      "MAA North Central Section Conference"
+    ],
     link: "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/"
   },
   {
     title: "Integer-Programming Wedding Venue Thesis",
     dates: "Aug 2022 \u2013 May 2023",
-    summary: "Honors thesis using integer programming to select an optimal wedding venue that minimizes guest travel distance.",
-    link: "https://digitalcommons.unomaha.edu/university_honors_program/197/"
+    summary: "Honors thesis using IBM CPLEX to select an optimal wedding venue that minimizes guest travel distance.",
+    link: "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program"
   }
 ];
 function Research() {
@@ -8122,6 +8126,7 @@ function Research() {
             summary: p.dates,
             detail: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
               /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mb-4 leading-relaxed", children: p.summary }),
+              p.presentations && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { className: "mb-4 list-disc list-inside", children: p.presentations.map((e) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: e }, e)) }),
               /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: p.link, className: "text-primary underline", children: "Learn more" })
             ] })
           },
@@ -8516,12 +8521,12 @@ var timeline_default = [
     description: "Held leadership roles in student clubs at UNO."
   },
   {
-    date: "Sep 2021 \u2013 May 2023",
-    startDate: "2021-09-01",
+    date: "Aug 2022 \u2013 May 2023",
+    startDate: "2022-08-01",
     title: "Honors Thesis Research",
-    description: "Conducted honors thesis research on finite-field numerical ranges.",
+    description: "Used IBM CPLEX to model an integer programming approach for selecting an optimal wedding venue that minimizes guest travel distance.",
     links: [
-      "https://digitalcommons.unomaha.edu/srcaf/2022/schedule/95/"
+      "https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1202&context=university_honors_program"
     ]
   },
   {
