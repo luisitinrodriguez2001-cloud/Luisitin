@@ -7932,11 +7932,7 @@ var timeline_default = [
     startDate: "2017-09-01",
     title: "First job \u2014 Runza, Cashier",
     category: "Work",
-    snippet: "Kept orders moving at the register.",
-    info: "Front-of-house speed, accuracy, and customer empathy under real pressure.",
-    links: [
-      { label: "Runza", url: "https://www.runza.com" }
-    ],
+    snippet: "Handled front\u2011of\u2011house service and transactions.",
     color: "#2e8b57"
   },
   {
@@ -7981,10 +7977,10 @@ var timeline_default = [
     startDate: "2019-08-01",
     title: "Began dual degrees at UNO \u2014 Economics (BA), Mathematics (BS)",
     category: "Education",
-    snippet: "Jumped into Econ and Math at UNO.",
+    snippet: "Jumped into BA Economics (Data Analytics) and BS Mathematics (Statistics & Data Science) at UNO.",
     info: "Competitive Nebraska awards that funded a debt-free path.",
     links: [
-      { label: "UNO", url: "https://www.unomaha.edu" }
+      { label: "UNO homepage", url: "https://www.unomaha.edu" }
     ],
     color: "#cc0000"
   },
@@ -8213,6 +8209,9 @@ function IconBase(props) {
 function FaBriefcase(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M320 336c0 8.84-7.16 16-16 16h-96c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z" } }] })(props);
 }
+function FaExternalLinkAlt(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z" } }] })(props);
+}
 function FaGraduationCap(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 640 512" }, "child": [{ "tag": "path", "attr": { "d": "M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z" } }] })(props);
 }
@@ -8341,14 +8340,17 @@ function Timeline() {
                     }
                   ) })
                 ] }),
-                ev.links && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("ul", { className: "mt-2 text-sm space-y-1", children: ev.links.map((l) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                ev.links && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("ul", { className: "mt-2 text-sm space-y-1", children: ev.links.map((l) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
                   "a",
                   {
                     href: l.url,
                     target: "_blank",
                     rel: "noopener noreferrer",
                     className: "underline underline-offset-2 decoration-primary hover:decoration-2",
-                    children: l.label
+                    children: [
+                      l.label,
+                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(FaExternalLinkAlt, { className: "inline ml-1", "aria-hidden": "true" })
+                    ]
                   }
                 ) }, l.url)) })
               ]
