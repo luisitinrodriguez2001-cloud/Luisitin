@@ -1,13 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luis Rodriguez – Personal Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website for Luis Rodriguez, an Omaha-based actuarial analyst with experience spanning research, financial planning, and community leadership.">
+  <title>Luis Rodriguez · Actuarial Analyst</title>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div id="app"></div>
-  <script type="module" src="main.js"></script>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Summary banner with primary contact details -->
+  <header class="site-header" role="banner">
+    <div class="summary-shell">
+      <div class="summary-text">
+        <p class="label">Personal site</p>
+        <h1>Luis Rodriguez</h1>
+        <p class="role">Actuarial Analyst</p>
+        <p class="location">Omaha, Nebraska</p>
+        <p class="contact">Email <a href="mailto:Luisitinrodriguez2001@gmail.com">Luisitinrodriguez2001@gmail.com</a></p>
+        <p class="intro">
+          Omaha-based actuarial analyst pairing dual degrees in Economics and Mathematics with hands-on research, financial planning, and community storytelling. This page captures the journey from a 2007 move from Cuba to present-day actuarial problem solving.
+        </p>
+      </div>
+      <nav aria-label="Section navigation" class="summary-nav">
+        <ul>
+          <li><a href="#storyline">Storyline</a></li>
+          <li><a href="#employment">Employment</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#awards">Awards &amp; Honors</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <!-- Horizontal, swipeable timeline describing the narrative arc -->
+    <section id="storyline" class="timeline-section" aria-labelledby="storyline-title">
+      <div class="section-header">
+        <h2 id="storyline-title">Storyline</h2>
+        <p>A short arc of milestones linking family, scholarship, and actuarial analytics.</p>
+      </div>
+      <div class="timeline-shell">
+        <button class="timeline-control" type="button" data-direction="prev" aria-label="Scroll timeline backward">
+          <span aria-hidden="true">&#8592;</span>
+        </button>
+        <div class="timeline-track" role="list" aria-label="Luis Rodriguez timeline">
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Dec 2007</p>
+            <h3>New roots in Nebraska</h3>
+            <p>Immigrated from Cuba with family, learning English and gravitating toward the certainty of mathematics.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Aug 2018 – May 2019</p>
+            <h3>Student voice takes the mic</h3>
+            <p>Served as Grand Island Public Schools student board representative for 4,000+ classmates while meeting fellow math-enthusiast Madi in Oct 2018.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Jan 2019</p>
+            <h3>Statewide spotlight</h3>
+            <p>Addressed Nebraska Association of School Boards leaders about student priorities at the annual meeting.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Aug 2019</p>
+            <h3>Dual-degree kickoff</h3>
+            <p>Started concurrent Economics (Data Analytics) and Mathematics (Statistics &amp; Data Science) programs at UNO, aiming for dual 4.0 GPAs.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Nov 2021 – Apr 2022</p>
+            <h3>Financial planning runway</h3>
+            <p>Joined Northwestern Mutual as a financial representative intern, translating analytics into client-ready plans.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Mar 2022</p>
+            <h3>Finite-field breakthrough</h3>
+            <p>Presented numerical range research at UNO’s Student Research &amp; Creative Activity Fair, sharing abstract results with applied audiences.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Apr 2022 – Feb 2024</p>
+            <h3>Wealth modeling craft</h3>
+            <p>Built valuation and PX planning models at Ludacka Wealth Partners, supporting clients with complex portfolios.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">May 2023</p>
+            <h3>Milestone May</h3>
+            <p>Graduated summa cum laude with dual 4.0 GPAs and married high-school sweetheart Madi.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Jan 2024</p>
+            <h3>Family chapter</h3>
+            <p>Became a parent, balancing actuarial study sessions with newborn routines.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Feb 2024</p>
+            <h3>Actuarial launch</h3>
+            <p>Joined Telos Actuarial to modernize reserving analytics using VBA automation, SQL modeling, and Excel reporting.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Apr – Oct 2024</p>
+            <h3>Exam sprint</h3>
+            <p>Passed SOA exams FM, P, SRM, and PA in a single year while stepping into actuarial leadership at work and home.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Sep 26, 2024</p>
+            <h3>Mission moment</h3>
+            <p>Shared the Rodriguez family story as the GIPS Harvest gala “Mission Moment” speaker alongside Madi.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">Dec 2024</p>
+            <h3>Fitness Toolkit</h3>
+            <p>Released a lightweight wellness toolkit that keeps workouts and recovery data visible for friends and colleagues.</p>
+          </article>
+          <article class="timeline-card" role="listitem" tabindex="0">
+            <p class="timeline-date">May – Jun 2025</p>
+            <h3>Secret side quest</h3>
+            <p>Collaborated on a confidential, challenge-based production lovingly dubbed the “Super Secret Special Project.”</p>
+          </article>
+        </div>
+        <button class="timeline-control" type="button" data-direction="next" aria-label="Scroll timeline forward">
+          <span aria-hidden="true">&#8594;</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Employment section -->
+    <section id="employment" class="content-section" aria-labelledby="employment-title">
+      <div class="section-header">
+        <h2 id="employment-title">Employment</h2>
+        <p>Roles spanning actuarial analytics, wealth planning, tutoring, and formative service work.</p>
+      </div>
+      <div class="card-grid">
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Actuarial Analyst · Telos Actuarial</span>
+              <span class="summary-meta">Feb 2024 – Present · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Automate reserving and reporting pipelines with Azure connectors, Microsoft Access, and SQL before packaging deliverables inside VBA-enhanced Excel dashboards.</li>
+            <li>Build projection models for rate increase filings that blend actuarial technique with disciplined data engineering to keep forecasts timely and defensible.</li>
+            <li>Design lightweight self-service scenario tools in Excel and VBA so teammates can pressure-test assumptions without manual rework.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Financial Planning Analyst · Ludacka Wealth Partners</span>
+              <span class="summary-meta">Apr 2022 – Feb 2024 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Partnered with the Chief Investment Officer to build valuation models for Signature Choice portfolios, aligning analytics with each client’s risk tolerance.</li>
+            <li>Developed personalized financial plans for ultra-high-net-worth clients and Northwestern Mutual executives, translating complex strategies into clear decisions.</li>
+            <li>Oversaw the PX model library, ensured underwriting packages met jumbo-case requirements over $50K premiums, and maintained Series 7/63 readiness.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Financial Representative Intern · Northwestern Mutual</span>
+              <span class="summary-meta">Nov 2021 – Apr 2022 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Strengthened networking, relationship management, and outreach to support client-centered planning conversations.</li>
+            <li>Assisted with financial plans and insurance proposals, aligning analytical insights with approachable product recommendations.</li>
+            <li>Expanded knowledge of insurance and risk management while sharpening communication through structured sales training.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Mathematics Tutor · UNO College of Business Administration</span>
+              <span class="summary-meta">Aug 2020 – Dec 2021 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Delivered 3,000+ minutes of individualized tutoring each semester, supporting calculus and analytics coursework.</li>
+            <li>Managed a scheduling platform and customized study roadmaps that reduced student anxiety around quantitative topics.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Cashier · Runza Restaurants</span>
+              <span class="summary-meta">Sep 2017 – Aug 2019 · Grand Island, Nebraska</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Handled fast-paced point-of-sale responsibilities while coaching new teammates on service and hospitality basics.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Education section -->
+    <section id="education" class="content-section" aria-labelledby="education-title">
+      <div class="section-header">
+        <h2 id="education-title">Education</h2>
+        <p>Dual-degree foundation bridging economics, statistics, and data science.</p>
+      </div>
+      <div class="card-grid">
+        <details open>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">University of Nebraska–Omaha · B.A. Economics &amp; B.S. Mathematics</span>
+              <span class="summary-meta">Aug 2019 – May 2023 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Graduated summa cum laude with 4.0 GPAs in both majors; Economics concentration in Data Analytics and Mathematics focus in Statistics &amp; Data Science.</li>
+            <li>Earned Undergraduate Major Distinctions while maintaining Chancellor’s and Dean’s List honors every semester.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Grand Island Senior High School · High School Diploma</span>
+              <span class="summary-meta">2015 – 2019 · Grand Island, Nebraska</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Served as the student representative to the Grand Island Public Schools Board of Education.</li>
+            <li>Secured scholarships that opened a debt-free path into UNO’s dual-degree experience.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Research section -->
+    <section id="research" class="content-section" aria-labelledby="research-title">
+      <div class="section-header">
+        <h2 id="research-title">Research</h2>
+        <p>Projects applying mathematical rigor to practical decision-making.</p>
+      </div>
+      <div class="card-grid">
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Linear Algebra over Finite Fields · Research Paper</span>
+              <span class="summary-meta">Fall 2021 – Spring 2022 · University of Nebraska–Omaha</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Explored numerical ranges over finite fields in higher dimensions, focusing on patterns in <em>ℤ<sub>p</sub>[i]</em> where primes are congruent to 3 mod 4.</li>
+            <li>Strengthened advanced linear algebra and abstract mathematics skills while translating findings for broader audiences.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Optimizing Wedding Venue Selection · Published Honors Thesis</span>
+              <span class="summary-meta">Spring 2023 · UNO Honors Symposium</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Developed an IBM ILOG CPLEX integer programming model to balance guest counts, budgets, and logistics for venue selection.</li>
+            <li>Demonstrated how operations research can inform personal and organizational decisions with measurable impact.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Presentations section -->
+    <section id="presentations" class="content-section" aria-labelledby="presentations-title">
+      <div class="section-header">
+        <h2 id="presentations-title">Presentations</h2>
+        <p>Talks translating mathematical insight for academic and community audiences.</p>
+      </div>
+      <div class="card-grid">
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">UNO Creative Activity Fair · University of Nebraska–Omaha</span>
+              <span class="summary-meta">2022 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <p>Presented finite-field research, sharing patterns in complex numerical ranges with interdisciplinary peers.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Nebraska–SE South Dakota MAA Conference · Mathematical Association of America</span>
+              <span class="summary-meta">2022 · Nebraska</span>
+            </div>
+          </summary>
+          <p>Delivered a talk on higher-dimensional numerical ranges, emphasizing communication of advanced mathematics to broad audiences.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">UNO Honors Symposium · University of Nebraska–Omaha</span>
+              <span class="summary-meta">2023 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <p>Presented the wedding venue optimization thesis, highlighting real-world applications of integer programming.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">NASB Annual Meeting · Nebraska Association of School Boards</span>
+              <span class="summary-meta">Jan 2019 · Nebraska</span>
+            </div>
+            <span class="summary-actions">
+              <span class="info-wrapper">
+                <button type="button" class="info-trigger" aria-label="More about the NASB talk" aria-expanded="false" data-tooltip-target="tooltip-nasb">
+                  <span aria-hidden="true">i</span>
+                </button>
+                <span class="tooltip" id="tooltip-nasb" role="tooltip" hidden>
+                  Selected to represent Grand Island students before state education leaders, sharing priorities shaped by board service.
+                </span>
+              </span>
+            </span>
+          </summary>
+          <p>Shared student priorities with education decision makers across Nebraska.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">GIPS Harvest “Mission Moment” · Grand Island Public Schools Foundation</span>
+              <span class="summary-meta">Sep 26, 2024 · Grand Island, Nebraska</span>
+            </div>
+          </summary>
+          <p>Spoke alongside Madi about scholarships, family, and community impact during the foundation’s signature event.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section id="skills" class="content-section" aria-labelledby="skills-title">
+      <div class="section-header">
+        <h2 id="skills-title">Skills</h2>
+        <p>Technical stack spanning analytics platforms, programming, documentation, and languages.</p>
+      </div>
+      <div class="card-grid">
+        <details open>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Dashboard &amp; Visualization</span>
+            </div>
+          </summary>
+          <p>Tableau, Power BI.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Programming &amp; Data Tools</span>
+            </div>
+          </summary>
+          <p>SQL, Python, R, Regular Expressions, Java, JavaScript.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Markup &amp; Documentation</span>
+            </div>
+          </summary>
+          <p>HTML, LaTeX, R Markdown.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Microsoft Office Suite</span>
+            </div>
+          </summary>
+          <p>Access, Excel, Outlook, OneNote, PowerPoint, Word.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Languages</span>
+            </div>
+          </summary>
+          <p>English, Spanish.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Leadership section -->
+    <section id="leadership" class="content-section" aria-labelledby="leadership-title">
+      <div class="section-header">
+        <h2 id="leadership-title">Leadership</h2>
+        <p>Service and governance roles across campus and community.</p>
+      </div>
+      <div class="card-grid">
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">UNO Honors Student Association · Treasurer</span>
+              <span class="summary-meta">May 2020 – May 2021 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <p>Managed finances, fundraising, and reimbursements for honors programming.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">UNO Economics Club · Treasurer &amp; President</span>
+              <span class="summary-meta">Jan 2020 – May 2023 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Coordinated budgeting as Treasurer (Jan 2020 – Aug 2021).</li>
+            <li>Directed programming and partnerships as President (Aug 2021 – May 2023).</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">UNO Financial Management Association · Vice President</span>
+              <span class="summary-meta">Sep 2021 – Jan 2022 · Omaha, Nebraska</span>
+            </div>
+          </summary>
+          <p>Collaborated with officers to plan events and coordinate member engagement.</p>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Grand Island Public Schools District · Student Board Representative</span>
+              <span class="summary-meta">Aug 2018 – May 2019 · Grand Island, Nebraska</span>
+            </div>
+            <span class="summary-actions">
+              <span class="info-wrapper">
+                <button type="button" class="info-trigger" aria-label="More about the student board role" aria-expanded="false" data-tooltip-target="tooltip-gips">
+                  <span aria-hidden="true">i</span>
+                </button>
+                <span class="tooltip" id="tooltip-gips" role="tooltip" hidden>
+                  Represented the voices of over 4,000 students, advising administrators on policy and opportunity design.
+                </span>
+              </span>
+            </span>
+          </summary>
+          <p>Delivered student perspectives to district leadership while building public speaking confidence.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Awards and honors section -->
+    <section id="awards" class="content-section" aria-labelledby="awards-title">
+      <div class="section-header">
+        <h2 id="awards-title">Awards &amp; Honors</h2>
+        <p>Recognition for scholarship, leadership, and sustained academic excellence.</p>
+      </div>
+      <div class="card-grid">
+        <details open>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Honor Societies</span>
+            </div>
+          </summary>
+          <ul>
+            <li>
+              <span>Phi Kappa Phi · 2020</span>
+              <span class="info-wrapper">
+                <button type="button" class="info-trigger" aria-label="More about Phi Kappa Phi" aria-expanded="false" data-tooltip-target="tooltip-phi">
+                  <span aria-hidden="true">i</span>
+                </button>
+                <span class="tooltip" id="tooltip-phi" role="tooltip" hidden>
+                  Invitation-only honor society recognizing the top 7.5% of students across all disciplines.
+                </span>
+              </span>
+            </li>
+            <li>Pi Mu Epsilon · 2021</li>
+            <li>Omicron Delta Epsilon · 2020</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Scholarships</span>
+            </div>
+          </summary>
+          <ul>
+            <li>
+              <span>Susan Thompson Buffett Scholarship · 2019</span>
+              <span class="info-wrapper">
+                <button type="button" class="info-trigger" aria-label="More about the Buffett Scholarship" aria-expanded="false" data-tooltip-target="tooltip-buffett">
+                  <span aria-hidden="true">i</span>
+                </button>
+                <span class="tooltip" id="tooltip-buffett" role="tooltip" hidden>
+                  Competitive statewide award supporting Nebraska students with demonstrated academic excellence and need.
+                </span>
+              </span>
+            </li>
+            <li>
+              <span>Jack and Lucile Martin Scholarship · 2019</span>
+              <span class="info-wrapper">
+                <button type="button" class="info-trigger" aria-label="More about the Martin Scholarship" aria-expanded="false" data-tooltip-target="tooltip-martin">
+                  <span aria-hidden="true">i</span>
+                </button>
+                <span class="tooltip" id="tooltip-martin" role="tooltip" hidden>
+                  Merit-based award that helped launch Luis and Madi’s UNO journey with financial stability.
+                </span>
+              </span>
+            </li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Academic Honors</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Chancellor’s List · Eight semesters (2019 – 2023)</li>
+            <li>Dean’s List · Eight semesters (2019 – 2023)</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Certifications section -->
+    <section id="certifications" class="content-section" aria-labelledby="certifications-title">
+      <div class="section-header">
+        <h2 id="certifications-title">Certifications</h2>
+        <p>Licenses and examinations affirming actuarial and financial readiness.</p>
+      </div>
+      <div class="card-grid">
+        <details open>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Society of Actuaries · Preliminary Exams</span>
+              <span class="summary-meta">2024</span>
+            </div>
+            <span class="summary-actions">
+              <span class="info-wrapper">
+                <button type="button" class="info-trigger" aria-label="More about the SOA exam streak" aria-expanded="false" data-tooltip-target="tooltip-exams">
+                  <span aria-hidden="true">i</span>
+                </button>
+                <span class="tooltip" id="tooltip-exams" role="tooltip" hidden>
+                  Cleared four SOA preliminary exams in 2024 while transitioning into Telos Actuarial and new parenthood.
+                </span>
+              </span>
+            </span>
+          </summary>
+          <ul>
+            <li>Exam FM: Financial Mathematics · Apr 2024</li>
+            <li>Exam P: Probability · Jul 2024</li>
+            <li>Exam SRM: Statistics for Risk Modeling · Sep 2024</li>
+            <li>Exam PA: Predictive Analytics · Oct 2024</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">FINRA Licenses</span>
+            </div>
+          </summary>
+          <ul>
+            <li>Series 63: Uniform Securities Agent State Law Exam · 2023</li>
+            <li>Series 7: General Securities Representative Exam · 2023</li>
+          </ul>
+        </details>
+        <details>
+          <summary>
+            <div class="summary-content">
+              <span class="summary-title">Insurance &amp; Research Credentials</span>
+            </div>
+          </summary>
+          <ul>
+            <li>NAIC Insurance Producer: Life, Annuities, &amp; Health · NPN ID 20190700 · 2021</li>
+            <li>CITI Program: Group 3 Social &amp; Behavioral Research · Credential ID 46348703 · 2021</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Luis Rodriguez. Built for quick review on any device.</p>
+  </footer>
 </body>
 </html>
